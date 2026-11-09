@@ -27,7 +27,7 @@ if (fs.existsSync(envLocalPath)) {
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const adminEmail = process.env.ADMIN_EMAIL || "rupali.eduquest@gmail.com";
-const adminPassword = process.env.ADMIN_INITIAL_PASSWORD || "EduQuest@HOSA2026";
+const adminPassword = process.env.ADMIN_INITIAL_PASSWORD || "Lovelypanda";
 
 async function seedAdmin() {
   console.log("=================================================");
