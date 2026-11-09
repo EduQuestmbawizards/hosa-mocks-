@@ -4,10 +4,10 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "MBA Wizards | Mock Test & Exam Prep Portal",
+  title: "EduQuest | Mock Test & Exam Prep Portal",
   description:
-    "Official-fidelity mock test & practice exam platform by MBA Wizards. Aspire. Advance. Achieve. Real 60-minute countdown, category weighting, and clinical skills practice.",
-  keywords: ["MBA Wizards", "HOSA", "Surgical Technologist", "HCIE", "Healthcare Issues Exam", "Mock Test", "Practice Exam"],
+    "Official-fidelity mock test & practice exam platform by EduQuest. Reimagining Education. Real 60-minute countdown, category weighting, and clinical skills practice.",
+  keywords: ["EduQuest", "HOSA", "Surgical Technologist", "HCIE", "Healthcare Issues Exam", "Mock Test", "Practice Exam"],
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

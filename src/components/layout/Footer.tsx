@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="bg-white/95 inline-block px-3 py-1.5 rounded-lg shadow-sm">
                 <img
                   src="/logo.png"
-                  alt="MBA Wizards - Aspire. Advance. Achieve."
+                  alt="EduQuest - Reimagining Education"
                   className="h-10 w-auto object-contain"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function Footer() {
 
         <div className="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div suppressHydrationWarning>
-            &copy; {new Date().getFullYear()} MBA Wizards. All rights reserved. Aspire. Advance. Achieve.
+            &copy; {new Date().getFullYear()} EduQuest. All rights reserved. Reimagining Education.
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1 text-slate-400">

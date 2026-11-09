@@ -104,7 +104,7 @@ export default function Navbar() {
           >
             <img
               src="/logo.png"
-              alt="MBA Wizards - Aspire. Advance. Achieve."
+              alt="EduQuest - Reimagining Education"
               className="h-10 sm:h-11 w-auto object-contain group-hover:opacity-95 transition"
             />
             <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-md ml-1">

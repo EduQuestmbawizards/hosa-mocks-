@@ -16,7 +16,7 @@ export default function NotFound() {
           Page Not Found
         </h1>
         <p className="text-sm text-slate-500 max-w-md mx-auto">
-          The requested mock test or page could not be located in the MBA Wizards testing portal.
+          The requested mock test or page could not be located in the EduQuest testing portal.
         </p>
       </div>
 

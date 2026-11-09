@@ -163,7 +163,7 @@ async function seedTestFromJson(filePath: string) {
 
 async function runSeed() {
   console.log("=================================================");
-  console.log("  MBA Wizards HOSA v3 Database Seeder (ST & HCIE)");
+  console.log("  EduQuest HOSA v3 Database Seeder (ST & HCIE)");
   console.log("=================================================");
 
   // 1. Seed "ST – Free Diagnostic Mock 1" (FREE, 50-MCQ Mock, Official Blueprint)

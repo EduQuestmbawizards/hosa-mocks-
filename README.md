@@ -1,6 +1,6 @@
-# MBA Wizards Mock Test Portal (ST & HCIE 2026-27)
+# EduQuest Mock Test Portal (ST & HCIE 2026-27)
 
-A production-ready, fully responsive mock-test portal built for **MBA Wizards** (Aspire. Advance. Achieve.) to prepare students for official competitive events:
+A production-ready, fully responsive mock-test portal built for **EduQuest** (Reimagining Education) to prepare students for official competitive events:
 - **Surgical Technologist (ST)**
 - **Healthcare Issues Exam (HCIE)**
 

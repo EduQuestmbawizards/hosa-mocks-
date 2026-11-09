@@ -90,15 +90,15 @@ export default function ExamReportView({
           <div className="flex items-center gap-3">
             <img
               src="/logo.png"
-              alt="MBA Wizards"
+              alt="EduQuest"
               className="h-10 w-auto object-contain"
             />
             <div>
               <h1 className="text-xl font-black text-slate-900 uppercase tracking-tight">
-                MBA Wizards Test Performance Report
+                EduQuest Test Performance Report
               </h1>
               <p className="text-xs text-slate-600">
-                Aspire. Advance. Achieve. &bull; Mock Exam Evaluation
+                Reimagining Education &bull; Mock Exam Evaluation
               </p>
             </div>
           </div>

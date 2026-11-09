@@ -163,7 +163,7 @@ export default function MocksPageClient({
               </span>{" "}
               {isApproved
                 ? "All 50-MCQ tournament mocks and practice sets are unlocked for you."
-                : "The Free Diagnostic Mock is unlocked for you right now. All remaining tournament mocks and practice sets will automatically unlock once approved by MBA Wizards administration."}
+                : "The Free Diagnostic Mock is unlocked for you right now. All remaining tournament mocks and practice sets will automatically unlock once approved by EduQuest administration."}
             </div>
           </div>
           {!isApproved && (
@@ -476,7 +476,7 @@ export default function MocksPageClient({
       <div className="bg-gradient-to-r from-emerald-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>MBA Wizards Diagnostic Strategy</span>
+          <span>EduQuest Diagnostic Strategy</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight">
           How to Use Your Mocks & Diagnostic Test Effectively

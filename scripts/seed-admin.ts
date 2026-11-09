@@ -31,7 +31,7 @@ const adminPassword = process.env.ADMIN_INITIAL_PASSWORD || "Lovelypanda";
 
 async function seedAdmin() {
   console.log("=================================================");
-  console.log("  MBA Wizards Mock Test Portal — Admin Seeder    ");
+  console.log("  EduQuest Mock Test Portal — Admin Seeder    ");
   console.log("=================================================");
 
   if (!supabaseUrl || !serviceRoleKey) {
@@ -76,7 +76,7 @@ async function seedAdmin() {
         password: adminPassword,
         email_confirm: true,
         user_metadata: {
-          full_name: "Rupali MBA Wizards Admin",
+          full_name: "Rupali EduQuest Admin",
           phone: "+919999999999",
           city: "Headquarters",
           events: ["ST", "HCIE"],
@@ -98,7 +98,7 @@ async function seedAdmin() {
       password: adminPassword,
       email_confirm: true,
       user_metadata: {
-        full_name: "Rupali MBA Wizards Admin",
+        full_name: "Rupali EduQuest Admin",
         phone: "+919999999999",
         city: "Headquarters",
         events: ["ST", "HCIE"],
@@ -118,7 +118,7 @@ async function seedAdmin() {
   console.log("Ensuring admin profile in public.profiles table...");
   const fullPayload = {
     id: userId,
-    full_name: "Rupali MBA Wizards Admin",
+    full_name: "Rupali EduQuest Admin",
     email: adminEmail,
     phone: "+919999999999",
     city: "Headquarters",
@@ -135,7 +135,7 @@ async function seedAdmin() {
     console.log("Attempting fallback with standard columns (role='admin')...");
     const fallbackPayload = {
       id: userId,
-      full_name: "Rupali MBA Wizards Admin",
+      full_name: "Rupali EduQuest Admin",
       email: adminEmail,
       role: "admin",
     };

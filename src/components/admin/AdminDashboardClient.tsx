@@ -192,7 +192,7 @@ export default function AdminDashboardClient({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `mbawizards_students_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute("download", `eduquest_students_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -254,12 +254,12 @@ export default function AdminDashboardClient({
         <div className="flex items-center gap-3">
           <img
             src="/logo.png"
-            alt="MBA Wizards"
+            alt="EduQuest"
             className="h-10 w-auto object-contain"
           />
           <div>
             <h1 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-              MBA Wizards Administration Console
+              EduQuest Administration Console
               <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full uppercase">
                 Admin
               </span>

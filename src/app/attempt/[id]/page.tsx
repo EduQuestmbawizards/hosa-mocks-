@@ -153,8 +153,8 @@ export default function ExamAttemptPage({
         }
 
         // Restore Draft
-        const localKey = `mbawizards_attempt_${attemptId}`;
-        const localDraft = localStorage.getItem(localKey);
+        const localKey = `eduquest_attempt_${attemptId}`;
+        const localDraft = localStorage.getItem(localKey) || localStorage.getItem(`mbawizards_attempt_${attemptId}`);
         let restoredAnswers = data.attempt.answers_draft || {};
         let restoredEssay = data.attempt.essay_text || "";
 
@@ -220,7 +220,7 @@ export default function ExamAttemptPage({
   // 3. Local Autosave + Debounced Sync
   const persistDraft = (newAnswers: Record<string, AnswerState>, newEssay: string) => {
     try {
-      const localKey = `mbawizards_attempt_${attemptId}`;
+      const localKey = `eduquest_attempt_${attemptId}`;
       localStorage.setItem(
         localKey,
         JSON.stringify({
@@ -421,6 +421,7 @@ export default function ExamAttemptPage({
         return;
       }
 
+      localStorage.removeItem(`eduquest_attempt_${attemptId}`);
       localStorage.removeItem(`mbawizards_attempt_${attemptId}`);
       router.replace(`/reports/${attemptId}`);
     } catch (err: any) {

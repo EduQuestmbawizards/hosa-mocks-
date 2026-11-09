@@ -147,7 +147,7 @@ export default async function StudentDashboard() {
                 <Clock className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5 sm:mt-0 animate-spin" />
                 <div>
                   <span className="font-bold">Access Status: Pending Admin Approval.</span> You can take the{" "}
-                  <strong>Free Mock Test</strong> right now! All remaining mocks and practice sets will automatically unlock as soon as MBA Wizards verifies your signup.
+                  <strong>Free Mock Test</strong> right now! All remaining mocks and practice sets will automatically unlock as soon as EduQuest verifies your signup.
                 </div>
               </div>
               <span className="font-semibold text-amber-800 whitespace-nowrap">
@@ -169,7 +169,7 @@ export default async function StudentDashboard() {
             <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 flex items-center gap-2.5 text-xs">
               <AlertTriangle className="w-5 h-5 text-rose-600 flex-shrink-0" />
               <div>
-                <span className="font-bold">Access Declined:</span> Contact MBA Wizards administration at{" "}
+                <span className="font-bold">Access Declined:</span> Contact EduQuest administration at{" "}
                 <a href="mailto:rupali.eduquest@gmail.com" className="underline font-semibold">
                   rupali.eduquest@gmail.com
                 </a>{" "}

@@ -101,7 +101,7 @@ function LoginForm() {
       <div className="text-center space-y-2">
         <img
           src="/logo.png"
-          alt="MBA Wizards"
+          alt="EduQuest"
           className="h-11 w-auto object-contain mx-auto"
         />
         <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2">
@@ -115,7 +115,7 @@ function LoginForm() {
         <p className="text-xs text-slate-500">
           {isAdminLogin
             ? "Administrative credentials required to manage tests and student access."
-            : "Aspire. Advance. Achieve. • Access your mock attempts and diagnostic reports."}
+            : "Reimagining Education • Access your mock attempts and diagnostic reports."}
         </p>
       </div>
 
@@ -136,7 +136,7 @@ function LoginForm() {
             <input
               type="email"
               required
-              placeholder={isAdminLogin ? "admin@mbawizards.com" : "name@example.com"}
+              placeholder={isAdminLogin ? "admin@eduquest.com" : "name@example.com"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={`w-full pl-9 pr-3 py-2 text-sm border rounded-lg focus:ring-2 focus:outline-none ${
@@ -224,7 +224,7 @@ function LoginForm() {
         {!isAdminLogin ? (
           <>
             <div>
-              New to MBA Wizards?{" "}
+              New to EduQuest?{" "}
               <Link href={redirectUrl ? `/signup?redirect=${redirectUrl}` : "/signup"} className="font-semibold text-sky-600 hover:text-sky-700">
                 Create an account & start free
               </Link>

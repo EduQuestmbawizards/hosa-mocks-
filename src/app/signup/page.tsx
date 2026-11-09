@@ -106,14 +106,14 @@ function SignupForm() {
       <div className="text-center space-y-3">
         <img
           src="/logo.png"
-          alt="MBA Wizards"
+          alt="EduQuest"
           className="h-12 w-auto object-contain mx-auto"
         />
         <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
           Create Student Account
         </h1>
         <p className="text-xs text-slate-500">
-          Register for the MBA Wizards Mock Test Portal. Free mock unlocked immediately!
+          Register for the EduQuest Mock Test Portal. Free mock unlocked immediately!
         </p>
       </div>
 

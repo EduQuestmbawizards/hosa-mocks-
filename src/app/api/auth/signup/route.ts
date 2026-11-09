@@ -96,7 +96,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Account created successfully! You can take the Free Mock right now, and all other mocks will unlock once approved by MBA Wizards.",
+      message: "Account created successfully! You can take the Free Mock right now, and all other mocks will unlock once approved by EduQuest.",
     });
   } catch (err: any) {
     console.error("[Signup Internal Error]:", err);

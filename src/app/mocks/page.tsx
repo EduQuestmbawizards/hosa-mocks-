@@ -4,7 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import MocksPageClient from "@/components/mocks/MocksPageClient";
 
 export const metadata: Metadata = {
-  title: "Mock Tests & Practice Arena | MBA Wizards",
+  title: "Mock Tests & Practice Arena | EduQuest",
   description:
     "Official 60-minute HOSA mock tests, free diagnostic evaluation, and practice sets with instant feedback for Surgical Technologist (ST) and Healthcare Issues Exam (HCIE).",
 };
