@@ -1,0 +1,585 @@
+{
+  "test_slug": "st-practice-set-e",
+  "test_meta": {
+    "title": "ST – Practice Set E: OR Safety, Environmental Controls & Legal Ethics",
+    "event": "ST",
+    "kind": "practice",
+    "total_questions": 30,
+    "duration_min": 45,
+    "instant_feedback": true,
+    "is_free": true,
+    "shuffle_questions": false
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which patient surgical position involves the patient lying flat on their back with legs abducted and elevated in padded stirrups, exposing the perineum for pelvic, rectal, or gynecological procedures?",
+      "options": [
+        "Lithotomy position",
+        "Trendelenburg position",
+        "Prone position",
+        "Fowler's position"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Lithotomy position places the patient supine with hips flexed and legs raised in padded stirrups. Both legs must be raised and lowered simultaneously by two staff members.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 300",
+      "topic": "Patient Positioning",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 2,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Why must both of the patient's legs be raised and lowered simultaneously and slowly by two surgical team members when placing a patient into or out of lithotomy stirrups?",
+      "options": [
+        "To prevent sudden severe hypotension from rapid blood pooling and to avoid hip dislocation or lumbar torsional strain",
+        "To prevent contamination of the anesthesia circuit",
+        "To test knee flexion angles",
+        "To keep the patient awake"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Lowering legs rapidly shifts 500-1000 mL of blood from the central torso into lower extremities, causing sudden cardiovascular collapse and dangerous hypotension.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 301",
+      "topic": "Lithotomy Safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 3,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which nerve in the lower extremity is at high risk for compression palsy if the lateral knee or fibular head presses against metal lithotomy stirrup uprights without adequate gel padding?",
+      "options": [
+        "Common peroneal (fibular) nerve",
+        "Femoral nerve",
+        "Sciatic nerve",
+        "Obturator nerve"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The common peroneal nerve wraps around the neck of the fibula; compression against unpadded stirrups produces foot drop (inability to dorsiflex the foot).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 302",
+      "topic": "Nerve Injury Prevention",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 4,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "In which surgical position is the operating table tilted head-down with the pelvis higher than the head, allowing gravity to shift abdominal viscera cephalad toward the diaphragm?",
+      "options": [
+        "Trendelenburg position",
+        "Reverse Trendelenburg position",
+        "Sims position",
+        "Jackknife (Kraske) position"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Trendelenburg position tilts the head downward 15-30 degrees, shifting bowel out of the pelvis to improve visibility during lower abdominal and pelvic laparoscopic surgery.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 298",
+      "topic": "Trendelenburg Position",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 5,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What is the primary respiratory complication of prolonged steep Trendelenburg position?",
+      "options": [
+        "Elevated diaphragmatic pressure causing reduced lung compliance, decreased tidal volume, and elevated intracranial/intraocular pressure",
+        "Severe hypocapnia",
+        "Increased vital lung capacity",
+        "Bronchospasm from cold air"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Abdominal viscera push upward against the diaphragm in Trendelenburg position, reducing lung compliance and tidal volume while venous pooling elevates ICP and IOP.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 299",
+      "topic": "Positioning Pathophysiology",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 6,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which position is standard for operative exposure during thyroidectomy, carotid endarterectomy, and laparoscopic cholecystectomy, where the table is tilted head-up and feet-down?",
+      "options": [
+        "Reverse Trendelenburg position",
+        "Trendelenburg position",
+        "Prone position",
+        "Lateral kidney position"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Reverse Trendelenburg tilts the patient head-up, facilitating venous drainage from the neck/head and allowing gravity to pull abdominal viscera caudad for gallbladder exposure.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 299",
+      "topic": "Reverse Trendelenburg",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 7,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "In the lateral decubitus position used for nephrectomy or thoracotomy, what soft supportive device must be placed under the dependent axilla to protect the brachial plexus from compression?",
+      "options": [
+        "Axillary roll",
+        "Footboard",
+        "Chest bolster",
+        "Mayo stand"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "An axillary roll is positioned just caudad to the dependent axilla on the lateral chest wall to relieve direct pressure on the brachial plexus and axillary vascular bundle.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 304",
+      "topic": "Axillary Roll Safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 8,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "When transferring an anesthetized patient from the operating table to the transport stretcher, who is in charge of directing the timing and movement of the transfer team?",
+      "options": [
+        "The anesthesia care provider at the patient's head",
+        "The surgical technologist at the sterile field",
+        "The orderly at the foot of the bed",
+        "The recovery room nurse"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The anesthesia provider maintains airway stability and cervical spine alignment at the patient's head and always calls the verbal count to initiate patient transfer.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 296",
+      "topic": "Patient Transfer Safety",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 9,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What is the primary physiological mechanism that causes perioperative hypothermia in surgical patients under general anesthesia?",
+      "options": [
+        "Anesthetic-induced inhibition of hypothalamic thermoregulation combined with vasodilation and cold laminar airflow in the OR",
+        "Excessive IV fluid warmth",
+        "Surgical scrub solutions",
+        "Electrosurgical grounding pads"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "General and regional anesthetics suppress the hypothalamus, preventing shivering and vasoconstriction. Peripheral vasodilation redistributes core heat to the cool body shell.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 308",
+      "topic": "Thermoregulation",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 10,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which active warming system uses a motorized generator to blow temperature-controlled warmed air through disposable channeled blankets (e.g., Bair Hugger) to prevent hypothermia?",
+      "options": [
+        "Forced-air warming system",
+        "Radiant heat lamp",
+        "Cotton thermal blanket",
+        "Circulating water mattress"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Forced-air warming units (Bair Hugger) deliver convective heated air across the patient's cutaneous surface, representing the standard clinical defense against hypothermia.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 309",
+      "topic": "Hypothermia Prevention",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 11,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What life-threatening pharmacogenetic skeletal muscle crisis is triggered by volatile inhalational anesthetics (sevoflurane, desflurane) or succinylcholine, requiring immediate administration of dantrolene sodium?",
+      "options": [
+        "Malignant hyperthermia (MH)",
+        "Neuroleptic malignant syndrome",
+        "Anaphylaxis",
+        "Thyroid storm"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Malignant hyperthermia is an inherited hypermetabolic disorder caused by uncontrolled calcium release in skeletal muscle. Dantrolene sodium (Ryanodex) is the specific intracellular calcium-channel blocker.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 9, pg 278",
+      "topic": "Malignant Hyperthermia",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 12,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What is the earliest and most sensitive clinical sign of developing malignant hyperthermia in an anesthetized patient?",
+      "options": [
+        "Unexplained rapid increase in end-tidal carbon dioxide (elevated ETCO2) and tachycardia",
+        "Sudden fever reaching 108°F",
+        "Cyanosis of fingertips",
+        "Dilated pupils"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Hypercapnia (elevated ETCO2) from hypermetabolism is the earliest sign of MH, occurring long before the dramatic late spike in body temperature.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 9, pg 280",
+      "topic": "MH Clinical Manifestations",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 13,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What immediate action should the surgical team take if a drape fire breaks out on the patient in the operating room?",
+      "options": [
+        "Immediately smother the flame with wet towels/saline, disconnect oxygen/breathing circuits, remove burning drapes from patient, and assess patient injury",
+        "Call the municipal fire department and evacuate the building immediately leaving the patient",
+        "Spray the patient's wound with dry chemical powder",
+        "Turn off room lights"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Immediate response: halt ventilation gases, extinguish flames with sterile water or saline, strip smoldering drapes off the patient to the floor, and maintain patient airway.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 113",
+      "topic": "OR Fire Protocol",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 14,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which civil legal tort involves touching a patient without legal authorization or consent, such as performing a bilateral tubal ligation when consent was signed for appendectomy only?",
+      "options": [
+        "Battery",
+        "Assault",
+        "Slander",
+        "Defamation"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Battery is the intentional, non-consensual physical contact with another person. Performing an unconsented procedure or operating on the wrong site constitutes civil battery.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 2, pg 33",
+      "topic": "Civil Torts",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 15,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What legal term defines an act of omission (failing to do what a reasonable, prudent healthcare professional would do) or commission (doing what should not have been done)?",
+      "options": [
+        "Negligence",
+        "Malice",
+        "Battery",
+        "Breach of warranty"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Negligence is the departure from standard professional care that a reasonably prudent surgical technologist or nurse would exercise under similar circumstances.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 2, pg 32",
+      "topic": "Negligence & Malpractice",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 16,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What are the four mandatory legal elements that a plaintiff must prove to substantiate medical malpractice against a healthcare professional?",
+      "options": [
+        "Duty of care, Breach of duty, Causation (proximate cause), and Damages (actual harm)",
+        "Intention, Anger, Retaliation, and Injury",
+        "Contract, Fee payment, Negligence, and Discharge",
+        "Licensure, Insurance, Fault, and Guilt"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A malpractice lawsuit requires proving all four 'D's: Duty owed, Dereliction (breach) of duty, Direct proximate causation, and actual Damages suffered by the patient.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 2, pg 35",
+      "topic": "Malpractice Elements",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 17,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What is the primary objective of the Joint Commission Universal Protocol and pre-incision 'Time-Out' performed immediately before incision?",
+      "options": [
+        "To verify correct patient identity, correct procedure, correct surgical site and side, and confirm prophylactic antibiotic administration",
+        "To check staff vacation schedules",
+        "To count sterile instruments",
+        "To calibrate anesthesia machines"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The surgical 'Time-Out' ensures the entire surgical team pauses all activity immediately prior to skin incision to actively agree on patient identity, procedure, side, site, implants, and fire risk.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 316",
+      "topic": "Time-Out Universal Protocol",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 18,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What standard counting sequence should the surgical technologist and circulating nurse follow when executing surgical counts?",
+      "options": [
+        "Surgical field &rarr; Mayo stand &rarr; Back table &rarr; Off-field (kick buckets and trash)",
+        "Off-field &rarr; Back table &rarr; Mayo stand &rarr; Field",
+        "Field only",
+        "Trash buckets first"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Counts always follow a standardized spatial progression: closest to the patient wound (surgical field) &rarr; Mayo stand &rarr; back table &rarr; off-field kick buckets and sponge baggers.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 313",
+      "topic": "Count Sequence",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 19,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What is the primary danger when laser energy strikes reflective, shiny stainless steel instruments in the surgical field?",
+      "options": [
+        "Specular reflection of the beam diverting into adjacent tissues or personnel eyes, causing accidental retinal burns",
+        "Instrument magnetization",
+        "Instrument corrosion",
+        "Static electricity"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Specular reflection from shiny metal mirrors laser beams unpredictably into non-target patient organs or OR personnel eyes; black anodized (ebonized) instruments absorb beam reflections.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 105",
+      "topic": "Laser Beam Reflections",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 20,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What color eyewear filter is required for surgical team members to protect their retinas when operating an Argon laser?",
+      "options": [
+        "Amber / Orange",
+        "Clear glass",
+        "Red",
+        "Blue"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Argon lasers emit visible blue-green light (488-514 nm); protective goggles must feature amber/orange optical density filters to block this wavelength.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 105",
+      "topic": "Laser Eye Protection",
+      "difficulty": "hard"
+    },
+    {
+      "sort_order": 21,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Why are safety belts placed over the patient's thighs 2 inches proximal to the knees once the patient is positioned on the operating table?",
+      "options": [
+        "To prevent the patient from falling off the narrow operating table during anesthesia induction, position changes, or emergence",
+        "To occlude arterial blood flow",
+        "To anchor the sterile drape",
+        "To check leg reflexes"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The safety strap is placed snugly over the thighs (2 inches above knees) with a two-finger space beneath to ensure the patient does not shift or fall from the table.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 297",
+      "topic": "Patient Safety Straps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 22,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "When using an ESU pencil near the head or neck during surgery under supplemental oxygen delivered via nasal cannula, what precaution must be strictly enforced?",
+      "options": [
+        "Stop or reduce oxygen delivery during electrocautery activation and ensure no oxygen pocketing occurs under drapes",
+        "Increase oxygen flow to 100%",
+        "Use wet Ray-Tec sponges without water",
+        "Avoid wearing gloves"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Oxygen pooling under drapes creates an oxygen-enriched atmosphere (>21%) that ignites explosively with a single spark from an active electrocautery pencil.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 112",
+      "topic": "Oxygen Enrichment Fire Hazards",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 23,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which document must be readily available in the operating suite for every hazardous chemical used (such as formalin, glutaraldehyde, and bone cement) detailing emergency exposure and spill protocols?",
+      "options": [
+        "Safety Data Sheet (SDS)",
+        "Surgical logbook",
+        "Pathology requisition",
+        "Operating permit"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "OSHA mandates that Safety Data Sheets (SDS, formerly MSDS) be immediately accessible to all employees for every hazardous chemical present in the facility.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 107",
+      "topic": "OSHA Safety Data Sheets",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 24,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "In what container must surgical tissue specimens slated for routine permanent histology sections be preserved by the surgical technologist?",
+      "options": [
+        "In a leakproof container submerged in 10% neutral buffered formalin",
+        "In sterile distilled water",
+        "In 70% alcohol",
+        "Wrapped in dry gauze"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Routine permanent pathology specimens are placed in 10% neutral buffered formalin solution (which fixes tissue proteins). Fresh frozen sections and stones are exceptions sent dry.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 324",
+      "topic": "Specimen Preservation",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 25,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "How should a tissue specimen intended for immediate intraoperative 'Frozen Section' diagnosis be sent to the pathology laboratory by the CST?",
+      "options": [
+        "Sent immediately FRESH and DRY in a sterile specimen cup without any formalin or liquid fixative",
+        "Submerged in formalin",
+        "Soaked in sterile saline",
+        "Placed in an autoclave"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Frozen section specimens must be sent fresh and dry immediately so pathologists can freeze, slice, and stain the tissue within minutes without formalin artifact.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 325",
+      "topic": "Frozen Section Handling",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 26,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What is an event called that results in unanticipated death or serious physical or psychological injury to a patient (such as wrong-site surgery or retained foreign object)?",
+      "options": [
+        "Sentinel event",
+        "Near miss",
+        "Tort",
+        "Misdemeanor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Joint Commission defines a Sentinel Event as an unexpected occurrence involving death or serious physical or psychological injury that signals the need for immediate investigation (root cause analysis).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 2, pg 40",
+      "topic": "Sentinel Events",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 27,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What is an 'advance directive' in medical legal ethics?",
+      "options": [
+        "A legal document stating a patient's medical wishes and care choices in the event they become incapacitated (e.g., Living Will or Durable Power of Attorney)",
+        "A surgeon's operative preference card",
+        "A nurse's transfer orders",
+        "A hospital billing policy"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Advance directives are legal documents (such as living wills and durable powers of attorney for healthcare) that outline an individual's treatment preferences if they lose decision-making capacity.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 2, pg 43",
+      "topic": "Advance Directives",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 28,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which agency regulates the efficacy and labeling of hospital disinfectants and chemical sterilants in the United States?",
+      "options": [
+        "Environmental Protection Agency (EPA)",
+        "Department of Transportation (DOT)",
+        "Federal Trade Commission (FTC)",
+        "Joint Commission"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The EPA evaluates and registers hospital disinfectants used on environmental surfaces to ensure antimicrobial claims and environmental safety.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 97",
+      "topic": "Regulatory Agencies",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What device is worn on the collar outside the lead apron by OR personnel to monitor cumulative monthly radiation exposure during fluoroscopy procedures?",
+      "options": [
+        "Film badge dosimeter (radiation dosimeter)",
+        "Pulse oximeter",
+        "Magnetic sensor",
+        "Barometer"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Personnel radiation dosimeters (film badges, TLDs, or OSLDs) monitor cumulative ionizing radiation doses to ensure occupational exposures remain below ALARA limits.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 4, pg 109",
+      "topic": "Radiation Dosimetry",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 30,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What term describes the professional obligation to maintain one's clinical competency through ongoing continuing education, certifications, and recertification cycles throughout one's surgical technology career?",
+      "options": [
+        "Continuing Professional Development (CPD)",
+        "Statute of limitations",
+        "Respondeat superior",
+        "Vicarious liability"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Continuing Professional Development (CPD) requires certified surgical technologists to earn continuing education credits (CEs) periodically to maintain NBSTSA active certification.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 1, pg 21",
+      "topic": "Continuing Competency",
+      "difficulty": "easy"
+    }
+  ]
+}

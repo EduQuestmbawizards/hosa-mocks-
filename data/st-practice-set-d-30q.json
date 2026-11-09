@@ -1,0 +1,585 @@
+{
+  "test_slug": "st-practice-set-d",
+  "test_meta": {
+    "title": "ST – Practice Set D: Surgical Anatomy & Procedural Steps",
+    "event": "ST",
+    "kind": "practice",
+    "total_questions": 30,
+    "duration_min": 45,
+    "instant_feedback": true,
+    "is_free": true,
+    "shuffle_questions": false
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During a laparoscopic cholecystectomy, which two anatomical structures must be positively identified, double-clipped, and divided prior to removing the gallbladder from the liver bed?",
+      "options": [
+        "Cystic duct and cystic artery",
+        "Common bile duct and hepatic artery",
+        "Portal vein and common hepatic duct",
+        "Falciform ligament and left gastric artery"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Critical View of Safety requires dissecting Calot's triangle until only two structures enter the gallbladder: the cystic duct and the cystic artery.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 504",
+      "topic": "Laparoscopic Cholecystectomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 2,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What small, blind-ended lymphatic organ arises from the posteromedial wall of the cecum approximately 2 cm below the ileocecal valve?",
+      "options": [
+        "Vermiform appendix",
+        "Meckel's diverticulum",
+        "Sigmoid epiploic appendage",
+        "Spleen"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The vermiform appendix arises from the cecum where the three taeniae coli converge on the posteromedial cecal wall.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 488",
+      "topic": "Cecal Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 3,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which anatomical structure carries sperm from the epididymis through the inguinal canal into the ejaculatory duct, and is isolated and transected during a vasectomy?",
+      "options": [
+        "Ductus (vas) deferens",
+        "Spermatic vein",
+        "Pampiniform plexus",
+        "Cremaster muscle"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The vas deferens is the muscular tube coursing within the spermatic cord that propels spermatozoa from the epididymis to the prostatic urethra.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 19, pg 584",
+      "topic": "Male Reproductive Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 4,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During open inguinal hernia repair, which anatomical layer of the spermatic cord is incised longitudinally to expose the indirect hernia sac?",
+      "options": [
+        "Cremasteric muscle and fascia",
+        "Dartos muscle",
+        "Rectus sheath",
+        "Scarpa's fascia"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The spermatic cord is enveloped by external spermatic fascia, cremasteric muscle/fascia, and internal spermatic fascia; opening the cremasteric fibers exposes the anteromedial hernia sac.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 484",
+      "topic": "Inguinal Hernia Repair",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 5,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which retroperitoneal endocrine glands sit like caps atop the superior poles of each kidney and produce adrenaline, aldosterone, and cortisol?",
+      "options": [
+        "Adrenal (suprarenal) glands",
+        "Parathyroid glands",
+        "Thymus glands",
+        "Islets of Langerhans"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The adrenal glands reside in Gerota's fascia above each kidney; the cortex secretes steroid hormones (aldosterone/cortisol) and the medulla secretes catecholamines (epinephrine).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 19, pg 579",
+      "topic": "Adrenal Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 6,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which vessel is clamped first during carotid endarterectomy to prevent embolization of plaque fragments into the cerebral circulation?",
+      "options": [
+        "Internal carotid artery",
+        "External carotid artery",
+        "Common carotid artery",
+        "Superior thyroid artery"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The internal carotid artery (ICA) is clamped first so that any micro-thrombi loosened during surgical manipulation are diverted harmlessly into the external carotid circulation rather than the brain.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 21, pg 633",
+      "topic": "Carotid Endarterectomy Clamping",
+      "difficulty": "hard"
+    },
+    {
+      "sort_order": 7,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "In coronary artery bypass graft (CABG) surgery, which in-situ arterial graft is harvested from the anterior chest wall to revascularize the left anterior descending (LAD) coronary artery?",
+      "options": [
+        "Internal mammary (internal thoracic) artery",
+        "Radial artery",
+        "Gastroepiploic artery",
+        "Femoral artery"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Left Internal Mammary Artery (LIMA) is the conduit of choice for LAD bypass due to its superior long-term patency exceeding 90% at 10 years.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 22, pg 664",
+      "topic": "CABG Conduits",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 8,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What is the primary anatomical landmark for identifying the recurrent laryngeal nerve during thyroid lobectomy?",
+      "options": [
+        "Tracheoesophageal groove and inferior thyroid artery crossing",
+        "Superior vena cava",
+        "Carotid bifurcation",
+        "Hyoid bone"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The recurrent laryngeal nerve ascends within the tracheoesophageal groove, closely related to the branches of the inferior thyroid artery before entering the larynx.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 15, pg 462",
+      "topic": "Thyroidectomy Anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 9,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which anatomical joint in the human body is classified as a ball-and-socket synovial joint with the greatest range of multi-axial motion?",
+      "options": [
+        "Glenohumeral (shoulder) joint",
+        "Tibiofemoral (knee) joint",
+        "Humeroulnar (elbow) joint",
+        "Subtalar joint"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The glenohumeral joint is a ball-and-socket joint that permits flexion, extension, abduction, adduction, circumduction, and rotation, sacrificing skeletal stability for mobility.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 597",
+      "topic": "Joint Classifications",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 10,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "In total knee arthroplasty (TKA), which major knee ligament is routinely sacrificed during bone resection and replaced by the prosthetic polyethylene tibial insert?",
+      "options": [
+        "Anterior cruciate ligament (ACL)",
+        "Patellar tendon",
+        "Medial collateral ligament (MCL)",
+        "Lateral collateral ligament (LCL)"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The anterior cruciate ligament (ACL) is excised during tibial and femoral plateau preparation in standard total knee replacements; the posterior cruciate may be preserved or sacrificed.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 612",
+      "topic": "Total Knee Arthroplasty",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 11,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which cranial meningeal layer is the tough, fibrous, outermost membrane lining the interior of the cranium and forming the falx cerebri and tentorium cerebelli?",
+      "options": [
+        "Dura mater",
+        "Arachnoid mater",
+        "Pia mater",
+        "Ependyma"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The dura mater ('tough mother') is the thickest, outermost protective meningeal layer adhering directly to the inner table of cranial bones.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 23, pg 682",
+      "topic": "Meningeal Layers",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 12,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During craniotomy, where does cerebrospinal fluid (CSF) circulate between the delicate middle and inner meningeal layers?",
+      "options": [
+        "Subarachnoid space",
+        "Epidural space",
+        "Subdural space",
+        "Central canal"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "CSF flows continuously through the subarachnoid space situated between the arachnoid membrane and the underlying pia mater that clings to cerebral convolutions.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 23, pg 683",
+      "topic": "CSF Circulation",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 13,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which long bone in the lower extremity is the non-weight-bearing lateral stabilizer commonly harvested for vascularized fibular autografts in mandible or spine reconstruction?",
+      "options": [
+        "Fibula",
+        "Tibia",
+        "Femur",
+        "Patella"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The fibula bears minimal axial skeletal weight (<15%), making its mid-shaft and peroneal vascular pedicle ideal for composite microvascular bony autografts.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 602",
+      "topic": "Lower Extremity Anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 14,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What is the primary anatomical landmark used to localize the transverse colon during exploratory laparotomy?",
+      "options": [
+        "The greater omentum attached along its anterior surface and the three longitudinal taeniae coli bands",
+        "Peyer's patches",
+        "Brunner's glands",
+        "Islets of Langerhans"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The large intestine is recognized by three longitudinal muscle bands (taeniae coli), sacculations (haustra), epiploic fatty appendages, and the attached greater omentum on the transverse colon.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 493",
+      "topic": "Colonic Anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 15,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During a cesarean section delivery, what transverse lower abdominal incision through skin and subcutaneous fat along the Pfannenstiel line is standard?",
+      "options": [
+        "Pfannenstiel curved low transverse incision",
+        "McBurney muscle-splitting incision",
+        "Kocher subcostal incision",
+        "Chevron bilateral subcostal incision"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Pfannenstiel incision is a curved transverse incision made 2-3 cm above the pubic symphysis along natural skin lines, offering superior cosmetic healing and fascial strength.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 18, pg 552",
+      "topic": "Obstetric Incisions",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 16,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which incision provides optimal open surgical exposure to the gallbladder, liver, and biliary tree in the right upper quadrant?",
+      "options": [
+        "Right subcostal (Kocher) incision",
+        "McBurney incision",
+        "Pfannenstiel incision",
+        "Midline longitudinal incision"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The right subcostal (Kocher) incision parallels the right costal margin 2 cm below the ribs, offering direct visualization of the liver, gallbladder, and biliary ductal system.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 500",
+      "topic": "Abdominal Incisions",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 17,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which anatomical structure separates the thoracic cavity from the abdominopelvic cavity and functions as the primary skeletal muscle of inspiration?",
+      "options": [
+        "Diaphragm",
+        "Transversus abdominis",
+        "Intercostal muscles",
+        "Psoas major"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The diaphragm is a dome-shaped musculotendinous partition separating thorax and abdomen, innervated by the phrenic nerves (C3, C4, C5).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 22, pg 646",
+      "topic": "Diaphragm Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 18,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which three structures pass through distinct openings in the diaphragm?",
+      "options": [
+        "Inferior vena cava (T8), Esophagus (T10), and Aorta (T12)",
+        "Trachea, Carotid artery, and Jugular vein",
+        "Femoral artery, Femoral vein, and Saphenous nerve",
+        "Celiac axis, Renal artery, and Ureter"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The three major diaphragmatic hiatuses are: caval opening (T8) for IVC, esophageal hiatus (T10) for esophagus and vagus nerves, and aortic hiatus (T12) for descending aorta and thoracic duct.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 475",
+      "topic": "Diaphragmatic Apertures",
+      "difficulty": "hard"
+    },
+    {
+      "sort_order": 19,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What is the primary anatomical function of the spleen in human immunology and hematology?",
+      "options": [
+        "Filtering aged senescent erythrocytes, storing platelets, and mounting IgM antibody immune responses against encapsulated bacteria",
+        "Secreting digestive enzymes into the duodenum",
+        "Producing bile acids",
+        "Concentrating urine"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The spleen's red pulp filters old RBCs and debris; its white pulp contains lymphoid follicles producing antibodies against encapsulated pathogens (Pneumococcus, Meningococcus).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 515",
+      "topic": "Splenic Physiology",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 20,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During an open abdominal aortic aneurysm (AAA) repair, which major renal vessels crossing anterior to the aorta must be mobilized to safely place the proximal aortic cross-clamp?",
+      "options": [
+        "Left renal vein",
+        "Inferior mesenteric artery",
+        "Right ovarian artery",
+        "Portal vein"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The left renal vein crosses anteriorly over the abdominal aorta directly beneath the origin of the SMA; mobilizing it is crucial for exposing the infrarenal aortic neck.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 21, pg 636",
+      "topic": "AAA Vascular Anatomy",
+      "difficulty": "hard"
+    },
+    {
+      "sort_order": 21,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "In ophthalmology, what is the clear, circular, avascular anterior portion of the fibrous outer tunic of the eye that refracts light into the pupil?",
+      "options": [
+        "Cornea",
+        "Sclera",
+        "Choroid",
+        "Retina"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The cornea is the transparent anterior window of the eye that accounts for roughly two-thirds of the optical refractive power, receiving oxygen directly from air and tears.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 14, pg 444",
+      "topic": "Ocular Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 22,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During cataract extraction (phacoemulsification), what cloudy, opaque natural anatomical structure is fragmented and replaced by an artificial intraocular lens (IOL)?",
+      "options": [
+        "Crystalline lens",
+        "Cornea",
+        "Vitreous humor",
+        "Iris"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A cataract is an opacification of the natural biconvex crystalline lens of the eye; phacoemulsification uses ultrasonic energy to break it apart inside the capsular bag.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 14, pg 448",
+      "topic": "Cataract Surgery",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 23,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which anatomical ossicle in the middle ear is shaped like a stirrup and connects the incus to the oval window of the cochlea?",
+      "options": [
+        "Stapes",
+        "Malleus (hammer)",
+        "Incus (anvil)",
+        "Tympanic membrane"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The three auditory ossicles are Malleus, Incus, and Stapes. The stapes footplate vibrates against the oval window fluid of the inner ear.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 17, pg 524",
+      "topic": "Middle Ear Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 24,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "In ENT surgery, which surgical procedure involves creating a microscopic opening in the tympanic membrane to suction middle ear fluid and insert pressure-equalizing (PE) tubes?",
+      "options": [
+        "Myringotomy",
+        "Mastoidectomy",
+        "Tympanoplasty",
+        "Stapedectomy"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Myringotomy (tympanostomy) is an incisional slit made in the inferior quadrant of the eardrum to ventilate the middle ear space and place PE tubes for chronic otitis media.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 17, pg 526",
+      "topic": "Myringotomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 25,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which major salivary gland is the largest, located anterior and inferior to the external ear canal, and produces watery serous saliva transmitted through Stensen's duct?",
+      "options": [
+        "Parotid gland",
+        "Submandibular gland",
+        "Sublingual gland",
+        "Thyroid gland"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The parotid gland is the largest salivary gland, draining via Stensen's duct into the oral vestibule opposite the second upper molar.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 17, pg 530",
+      "topic": "Salivary Gland Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 26,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "During lumbar laminectomy for herniated disc removal, which yellow, elastic ligament connecting the laminae of adjacent vertebrae is incised to enter the spinal canal?",
+      "options": [
+        "Ligamentum flavum",
+        "Posterior longitudinal ligament",
+        "Anterior longitudinal ligament",
+        "Interspinous ligament"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The ligamentum flavum ('yellow ligament') connects adjacent vertebral laminae; surgeons excise it to expose the underlying thecal sac and nerve roots.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 23, pg 686",
+      "topic": "Spinal Ligaments",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 27,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What is the primary anatomical function of the meniscus fibrocartilage pads in the human knee joint?",
+      "options": [
+        "Shock absorption, load distribution, and deepening the tibial articulating surface for the femoral condyles",
+        "Producing red blood cells",
+        "Connecting the patella to the fibula",
+        "Preventing venous stasis"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The medial and lateral crescent-shaped menisci act as shock absorbers that disperse 50-70% of compressive axial loads and lubricate the knee joint.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 601",
+      "topic": "Knee Meniscus Anatomy",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 28,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which ligament in the ankle is the most commonly torn ligament in inversion ankle sprains and sports reconstructions?",
+      "options": [
+        "Anterior talofibular ligament (ATFL)",
+        "Deltoid ligament",
+        "Calcaneonavicular ligament",
+        "Plantar fascia"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Anterior Talofibular Ligament (ATFL) spans from the lateral malleolus to the talus neck and is the primary lateral stabilizer injured during hyper-inversion trauma.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 603",
+      "topic": "Ankle Ligaments",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "In urology, what is the triangular smooth anatomical region of the bladder floor bounded by the bilateral ureteral orifices and the internal urethral meatus?",
+      "options": [
+        "Trigone of the bladder",
+        "Detrusor dome",
+        "Urachus",
+        "Prostatic utricle"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The trigone is a smooth triangular mucosal area at the bladder base formed between the two ureteric openings superiorly and the internal urethral sphincter inferiorly.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 19, pg 581",
+      "topic": "Bladder Trigone",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 30,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which major abdominal vein is formed by the union of the superior mesenteric vein and the splenic vein, carrying nutrient-rich deoxygenated blood to the liver for metabolic processing?",
+      "options": [
+        "Hepatic portal vein",
+        "Inferior vena cava",
+        "Renal vein",
+        "Azygos vein"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The hepatic portal vein forms behind the pancreatic neck by the confluence of the splenic vein and superior mesenteric vein, conducting blood to hepatic sinusoids.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 505",
+      "topic": "Hepatic Portal System",
+      "difficulty": "medium"
+    }
+  ]
+}

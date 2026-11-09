@@ -1,0 +1,585 @@
+{
+  "test_slug": "st-practice-set-b",
+  "test_meta": {
+    "title": "ST – Practice Set B: Surgical Instrumentation & Mayo Stand Setup",
+    "event": "ST",
+    "kind": "practice",
+    "total_questions": 30,
+    "duration_min": 45,
+    "instant_feedback": true,
+    "is_free": true,
+    "shuffle_questions": false
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which knife handle is long and slender, designed to hold small blades (#10, #11, #12, #15) in deep, narrow surgical cavities (such as tonsillectomy or pelvic surgery)?",
+      "options": [
+        "#3 handle",
+        "#4 handle",
+        "#7 handle",
+        "#9 handle"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "#7 knife handle is long, thin, and contoured to hold blades (#10, #11, #12, #15) in deep, confined cavities.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 344",
+      "topic": "Scalpel Handles",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 2,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which scalpel handle is larger and heavier, designed to hold larger blades like #20, #21, and #22 for thick tissue incisions in autopsies or heavy trauma?",
+      "options": [
+        "#3 handle",
+        "#4 handle",
+        "#7 handle",
+        "#3L handle"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "#4 scalpel handle is wider and accommodates the larger #20-series blades (#20 through #25).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 345",
+      "topic": "Scalpel Handles",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 3,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which delicate dissecting scissors feature fine, sharp-tipped blades used extensively in ophthalmic, plastic, and reconstructive microsurgery?",
+      "options": [
+        "Iris scissors",
+        "Lister bandage scissors",
+        "Mayo scissors",
+        "Smith wire scissors"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Iris scissors have very small, razor-sharp blades originally created for ophthalmic iridectomy, now ubiquitous in plastic and fine soft tissue surgery.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 349",
+      "topic": "Delicate Scissors",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 4,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What specialized angled scissors have a blunt probe nodule on the lower blade to slip safely beneath dressings, casts, or umbilical cords without piercing patient skin?",
+      "options": [
+        "Lister bandage scissors",
+        "Potts-Smith scissors",
+        "Jorgenson scissors",
+        "Stevens tenotomy scissors"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Lister bandage scissors feature an angled blade with a rounded, blunt probe tip on the lower blade designed to slide against patient skin without cutting it.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 350",
+      "topic": "Bandage Scissors",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 5,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which vascular scissors are angled at 45 or 60 degrees, designed specifically for extending an arteriotomy in coronary or peripheral vascular vessels?",
+      "options": [
+        "Potts-Smith scissors",
+        "Mayo curved scissors",
+        "Metzenbaum scissors",
+        "Iris scissors"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Potts-Smith scissors have angled fine blades tailored to extend incisions into arteries and veins smoothly without tearing the opposite vessel wall.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 21, pg 626",
+      "topic": "Vascular Scissors",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 6,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which hemostatic clamp has transverse serrations extending only halfway down the length of its jaws?",
+      "options": [
+        "Kelly clamp",
+        "Crile clamp",
+        "Pean clamp",
+        "Mosquito clamp"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Kelly clamps feature serrations along only the distal half of the jaws, whereas Crile clamps have serrations along the full length of the jaws.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 351",
+      "topic": "Hemostatic Clamps",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 7,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which heavy hemostatic forceps has full transverse serrations and broad jaws, used for clamping large vascular pedicles and tough fibrous tissue bundles?",
+      "options": [
+        "Rochester-Pean clamp",
+        "Halsted mosquito",
+        "Allis clamp",
+        "Babcock clamp"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Rochester-Pean clamps are heavy, robust forceps with transverse serrations along the full jaw length designed to occlude larger blood vessels and tissue pedicles.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 352",
+      "topic": "Heavy Clamps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 8,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which tissue forceps has a small, delicate triangular fenestration with fine 1x2 teeth at the tip, commonly used by plastic and general surgeons for grasping skin edges during suturing?",
+      "options": [
+        "Adson tissue forceps with teeth",
+        "DeBakey forceps",
+        "Russian forceps",
+        "Singley forceps"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Adson tissue forceps feature a broad thumb grasp tapering to fine tips with 1x2 interlocking teeth, ideal for handling skin margins during subcuticular closure.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 355",
+      "topic": "Tissue Forceps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 9,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which heavy tissue forceps features large rounded, cup-shaped spoon tips with radiating circular teeth, frequently used for grasping dense tissues or retrieving gallstones?",
+      "options": [
+        "Russian tissue forceps",
+        "DeBakey forceps",
+        "Adson brown forceps",
+        "Gerald forceps"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Russian tissue forceps have broad, circular, spoon-shaped tips with radiating grooves, providing a secure grip on slippery pelvic tissues, liver, or gallstones.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 357",
+      "topic": "Tissue Forceps",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 10,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which perforated towel clamp has sharp, curved interlocking points used to anchor surgical drapes or hold reduction on small bone fragments?",
+      "options": [
+        "Backhaus towel clamp",
+        "Edna (non-perforating) clamp",
+        "Babcock clamp",
+        "Foerster sponge clamp"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Backhaus towel clamp has sharp piercing points designed to penetrate drapes and secure towels. Once clamped through drapes, the tips are contaminated.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 359",
+      "topic": "Towel Clamps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 11,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "If a sharp Backhaus towel clamp is removed from a draped patient during surgery, what is the sterility status of the clamp tips?",
+      "options": [
+        "The tips are considered contaminated and the clamp must be passed off the field without touching the sterile table",
+        "The tips remain sterile if Betadine was applied to the drape",
+        "The clamp can be reused anywhere on the Mayo stand",
+        "The clamp can be wiped with a wet Ray-Tec and reused"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Because the sharp tips penetrated through sterile drapes into unsterile patient skin, the tips are contaminated and must be immediately removed from the sterile field.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 7, pg 185",
+      "topic": "Aseptic Technique with Clamps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 12,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which handheld retractor features a solid right-angle blade with a concave lip on a sturdy handle, widely used in pairs for deep abdominal wall and laparotomy exposure?",
+      "options": [
+        "Richardson retractor",
+        "Senn retractor",
+        "Skin hook",
+        "Gelpi retractor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Richardson retractor is a standard right-angle abdominal wall retractor with a contoured handle and curved lip, designed for heavy fascial and muscular retraction.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 361",
+      "topic": "Abdominal Retractors",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 13,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which double-ended hand-held retractor has a narrow right-angle blade on one end and a three-pronged rake (sharp or blunt) on the other, commonly used in plastic and hand surgery?",
+      "options": [
+        "Senn retractor",
+        "Army-Navy retractor",
+        "Deaver retractor",
+        "Harrington retractor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Senn retractor is a small handheld instrument with a solid right-angle blade on one end and a 3-pronged rake on the opposite end, used in superficial soft tissue work.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 362",
+      "topic": "Handheld Retractors",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 14,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which deep visceral retractor features a heart-shaped, flexible blade with a padded tip designed to retract the liver during upper GI and biliary surgery without bruising parenchyma?",
+      "options": [
+        "Harrington (sweetheart) retractor",
+        "Balfour retractor",
+        "Richardson retractor",
+        "Weitlaner retractor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Harrington retractor features a wide, heart-shaped blade with a rounded smooth tip specifically designed to retract the liver gently during open laparotomy.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 502",
+      "topic": "Visceral Retractors",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 15,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which bone cutting instrument has sharp scoop-shaped, cup-like jaws designed to bite away and gouge out small pieces of cortical bone or tissue?",
+      "options": [
+        "Rongeur",
+        "Bone curette",
+        "Osteotome",
+        "Periosteal elevator"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A rongeur (single- or double-action) has sharp cupped jaws used to bite away bone fragments, cartilage, or spur tissue in orthopedic and spinal surgeries.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 606",
+      "topic": "Orthopedic Cutting Instruments",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 16,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which chisel-like instrument is beveled on both sides and used with a surgical mallet to cut or shape bone during orthopedic reconstructions?",
+      "options": [
+        "Osteotome",
+        "Bone chisel (beveled on one side only)",
+        "Bone curette",
+        "Gigli saw"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "An osteotome is beveled on both cutting sides (sloping from both faces to the edge) for dividing bone; a chisel is beveled on one side only.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 607",
+      "topic": "Bone Shaping Instruments",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 17,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which instrument is used to scrape away diseased bone, cartilage, or uterine endometrial lining during diagnostic and therapeutic procedures?",
+      "options": [
+        "Curette",
+        "Rasp",
+        "Elevator",
+        "Mallet"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A curette has a cup, ring, or oval scoop with sharp or blunt edges used to debride, scrape, and sample biological tissue from cavities or bone surfaces.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 18, pg 548",
+      "topic": "Curettes",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 18,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which instrument with a sharp, slightly curved flat edge is used by the CST to strip periosteum cleanly off bone shafts before plating?",
+      "options": [
+        "Periosteal elevator (e.g., Cobb, Key, or Freer)",
+        "Bone file",
+        "Kern clamp",
+        "Lowman clamp"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Periosteal elevators (such as the Key, Cobb, or Freer) feature flat, slightly curved blades designed to peel and elevate periosteal tissue off cortical bone surfaces.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 605",
+      "topic": "Elevators",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 19,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which flexible wire saw with detachable T-shaped handles is used for manual transection of bone, such as in amputations or cranial flap elevation?",
+      "options": [
+        "Gigli saw",
+        "Charriere saw",
+        "Satterlee saw",
+        "Liston saw"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Gigli saw is a flexible twisted wire with sharp teeth pulled back and forth across bone between two manual handles to perform controlled osteotomies.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 20, pg 609",
+      "topic": "Manual Bone Saws",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 20,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which forceps has long, thin ring-handled shanks terminating in smooth, ring-shaped fenestrations used to hold Ray-Tec sponges for prep sticks or deep cavity swabbing?",
+      "options": [
+        "Foerster sponge forceps",
+        "Kocher clamp",
+        "Allis clamp",
+        "Tenaculum"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Foerster sponge-holding forceps (ring forceps) has smooth or serrated circular loop jaws designed to hold folded gauze sponges for abdominal prepping or deep blotting.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 356",
+      "topic": "Sponge Forceps",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 21,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What is the primary function of a laparoscopic Veress needle?",
+      "options": [
+        "Blind percutaneous entry through the fascia into the peritoneal cavity to instill CO2 gas and establish initial pneumoperitoneum safely",
+        "Suturing the bladder neck",
+        "Aspirating pelvic abscesses",
+        "Harvesting bone marrow"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Veress needle features a sharp outer cannula with an internal spring-loaded blunt stylet designed to safely puncture the abdominal wall for blind CO2 insufflation.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 13, pg 434",
+      "topic": "Laparoscopic Access",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 22,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which alternative laparoscopic entry technique uses a blunt-tipped cannula (Hasson trocar) placed under direct surgical cutdown visualization to eliminate blind trocar visceral injury?",
+      "options": [
+        "Open (Hasson) laparoscopy technique",
+        "Closed Veress technique",
+        "Pneumatic needle technique",
+        "Percutaneous trocar puncture"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Hasson open technique involves making a small periumbilical incision, incising fascia under direct vision, placing stay sutures, and inserting a blunt Hasson trocar.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 13, pg 436",
+      "topic": "Hasson Open Technique",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 23,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What is the recommended maximum intra-abdominal pressure (IAP) setting on the CO2 insufflator during adult laparoscopic surgery to prevent vena cava compression and respiratory compromise?",
+      "options": [
+        "5 to 8 mmHg",
+        "12 to 15 mmHg",
+        "25 to 30 mmHg",
+        "40 to 50 mmHg"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Standard adult laparoscopic pneumoperitoneum is maintained between 12 and 15 mmHg. Pressures above 15 mmHg impede venous return to the heart and reduce cardiac output.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 13, pg 438",
+      "topic": "Insufflation Pressures",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 24,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What solution should be kept on the sterile Mayo stand to clean tissue coagulum and blood from the tips of electrosurgical pencils and bipolar forceps?",
+      "options": [
+        "Sterile water and a scratch pad (ESU tip cleaner)",
+        "Sterile saline solution",
+        "Alcohol prep pads",
+        "Hydrogen peroxide"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Sterile water is preferred over saline for cleaning electrocautery tips and wiping instruments because saline contains sodium chloride, which corrodes and pits stainless steel.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 368",
+      "topic": "Instrument Care on Sterile Field",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 25,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "How should delicate microsurgical and eye instruments be cleaned and handled during surgery?",
+      "options": [
+        "Wiped gently with a lint-free non-fibrous microsponge (e.g., Weck-cel) and kept in a designated silicone protective rack",
+        "Scrubbed with coarse abrasive pads",
+        "Stacked beneath heavy retractor trays",
+        "Allowed to dry with blood on hinges"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Microsurgical instruments have fragile tips that bend easily. They must be cleaned with lint-free microsponges (Weck-Cel) and protected in tip-guards or silicone-cushioned trays.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 11, pg 372",
+      "topic": "Microsurgical Instruments",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 26,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which uterine dilator set consists of double-ended graduated cylindrical metal rods with slightly curved rounded tips, numbered in half-millimeter increments for cervical dilation?",
+      "options": [
+        "Hegar cervical dilators",
+        "Pratt dilators",
+        "Bakes bile duct dilators",
+        "Bougie esophageal dilators"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Hegar dilators are curved, double-ended, smooth cylindrical dilators used sequentially to dilate the cervical os prior to curettage or hysteroscopy.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 18, pg 549",
+      "topic": "Cervical Dilators",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 27,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which set of graduated malleable metal probes with oval olive-shaped tips is used by the surgeon to explore and calibrate the common bile duct during open CBD exploration?",
+      "options": [
+        "Bakes bile duct dilators",
+        "Hegar dilators",
+        "Van Buren sounds",
+        "Pratt dilators"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Bakes dilators have flexible shafts with graduated olive-shaped tips used to explore, dilate, and calibrate the common bile duct and sphincter of Oddi.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 506",
+      "topic": "Biliary Dilators",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 28,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which self-retaining retractor is specifically designed for mastoidectomy, laminectomy, and anterior cervical discectomy with interchangeable blunt and sharp blades on a pivoting frame?",
+      "options": [
+        "Beckman-Weitlaner retractor / Cloward retractor",
+        "Balfour retractor",
+        "Senn retractor",
+        "Deaver retractor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Beckman (or Cloward) retractor features hinged arms with interchangeable blades that articulate to conform to spinal or mastoid operative margins.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 23, pg 690",
+      "topic": "Spinal Retractors",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What mechanical counting device on the Mayo stand is essential for securely organizing and safely counting detached surgical needles during a procedure?",
+      "options": [
+        "Magnetic or foam needle counter box",
+        "Kick bucket",
+        "Towel roll",
+        "Basin of saline"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Used needles must be parked immediately into numbered foam or magnetic needle count boxes to keep sharps immobilized, visible, and safely countable.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 314",
+      "topic": "Sharps Count Equipment",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 30,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which vascular bulldog clamp is small, spring-loaded, cross-action, and used directly on smaller peripheral blood vessels to temporarily halt blood flow during microvascular repair?",
+      "options": [
+        "Dieffenbach / Glover bulldog clamp",
+        "Kocher clamp",
+        "Backhaus clamp",
+        "Rochester-Carmalt clamp"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Bulldog clamps are miniature, spring-loaded vascular clamps with atraumatic teeth that pinch small vessels temporarily without crushing the lumen.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 21, pg 627",
+      "topic": "Microvascular Clamps",
+      "difficulty": "medium"
+    }
+  ]
+}

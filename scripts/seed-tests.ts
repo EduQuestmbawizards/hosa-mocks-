@@ -188,29 +188,33 @@ async function runSeed() {
   await seedTestFromJson("data/st-mock-1-50q.json");
   console.log("✅ ST – Free Diagnostic Mock 1 seeded successfully with 50 questions.");
 
-  // 2. Seed "ST – Practice Set A" (FREE, 40 questions)
-  await seedTestFromJson("data/st-practice-set-a-40q.json");
-
-  // 3. Seed "ST – Mock 2" (LOCKED, 50 questions, exact split)
+  // 2. Seed "ST – Mock 2" (LOCKED, 50 questions, exact split)
+  console.log("Seeding ST – Mock 2 (st-mock-2)...");
   await seedTestFromJson("data/st-mock-2-50q.json");
 
-  // 3. Seed "ST – Mock 3" (Unpublished Draft)
-  console.log("Seeding ST – Mock 3 (Unpublished Draft)...");
-  await supabase.from("tests").upsert(
-    {
-      slug: "st-mock-3",
-      title: "ST - Mock 3",
-      event: "ST",
-      kind: "mock",
-      total_questions: 50,
-      duration_min: 60,
-      is_free: false,
-      is_published: false, // Unpublished draft
-      instructions: "Draft mock examination for future tournament import.",
-    },
-    { onConflict: "slug" }
-  );
-  console.log("✅ ST – Mock 3 seeded as unpublished draft.");
+  // 3. Seed "ST – Mock 3" (LOCKED, 50 questions, Tournament Simulation)
+  console.log("Seeding ST – Mock 3 (st-mock-3)...");
+  await seedTestFromJson("data/st-mock-3-50q.json");
+
+  // 4. Seed "ST – Mock 4" (LOCKED, 50 questions, Advanced Cases)
+  console.log("Seeding ST – Mock 4 (st-mock-4)...");
+  await seedTestFromJson("data/st-mock-4-50q.json");
+
+  // 5. Seed Practice Sets (FREE, Instant explanations)
+  console.log("Seeding ST – Practice Set A (40 questions)...");
+  await seedTestFromJson("data/st-practice-set-a-40q.json");
+
+  console.log("Seeding ST – Practice Set B: Instrumentation (30 questions)...");
+  await seedTestFromJson("data/st-practice-set-b-30q.json");
+
+  console.log("Seeding ST – Practice Set C: Hemostasis & Sutures (30 questions)...");
+  await seedTestFromJson("data/st-practice-set-c-30q.json");
+
+  console.log("Seeding ST – Practice Set D: Surgical Anatomy (30 questions)...");
+  await seedTestFromJson("data/st-practice-set-d-30q.json");
+
+  console.log("Seeding ST – Practice Set E: OR Safety & Ethics (30 questions)...");
+  await seedTestFromJson("data/st-practice-set-e-30q.json");
 
   console.log("=================================================");
   console.log("🎉 SUCCESS: All v3 seed datasets processed!");

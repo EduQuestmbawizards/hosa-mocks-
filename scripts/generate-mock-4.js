@@ -1,0 +1,741 @@
+const fs = require("fs");
+const path = require("path");
+
+const questions = [
+  // =========================================================================
+  // SECTION 1: Profession of CST (5 Questions)
+  // =========================================================================
+  {
+    sort_order: 1,
+    section: "Profession of CST",
+    type: "mcq_single",
+    stem: "Under HIPAA guidelines, which of the following is considered a direct violation of Protected Health Information (PHI) by a surgical team member?",
+    options: [
+      "Discussing a surgical case with the circulating nurse inside the operative suite during the procedure",
+      "Posting a photo on social media of an unusual surgical pathology specimen with the date and operating room number visible",
+      "Handing the pathology specimen log directly to the circulating nurse",
+      "Reporting instrument malfunctions to central sterile processing"
+    ],
+    correct: [1],
+    explanation: "HIPAA strictly prohibits sharing identifiable patient images, room numbers, or clinical details on social media or in public spaces without explicit written consent.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 2, pg 44",
+    topic: "HIPAA & Patient Privacy",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 2,
+    section: "Profession of CST",
+    type: "mcq_single",
+    stem: "What legal term defines an intentional deception or misrepresentation made by an individual resulting in unauthorized benefit or harm, such as altering a medical record after an incident?",
+    options: ["Fraud", "Battery", "Defamation", "Libel"],
+    correct: [0],
+    explanation: "Fraud is an intentional act of deception, misrepresentation, or concealment calculated to secure an unlawful gain or deprive another of a legal right, such as falsifying count sheets.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 2, pg 34",
+    topic: "Legal Terminology",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 3,
+    section: "Profession of CST",
+    type: "mcq_single",
+    stem: "Which of the following professional behaviors by the surgical technologist best exemplifies non-maleficence ('do no harm')?",
+    options: [
+      "Refusing to participate in patient transfers to avoid muscle fatigue",
+      "Testing the temperature of hot irrigation solutions before handing the bulb syringe to the surgeon",
+      "Leaving the room before the dressing is secured",
+      "Skipping counts to accelerate emergency closing"
+    ],
+    correct: [1],
+    explanation: "Non-maleficence obligates healthcare providers to prevent harm. Testing irrigation fluid prevents thermal burns to delicate bowel and visceral tissues.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 2, pg 30",
+    topic: "Medical Ethics",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 4,
+    section: "Profession of CST",
+    type: "mcq_single",
+    stem: "What is the recommended career pathway mechanism established by AST that recognizes surgical technologists advancing through three clinical practice tiers?",
+    options: ["Clinical Ladder Program", "Peer Review Council", "Magnet Status", "CAAHEP Fellowship"],
+    correct: [0],
+    explanation: "AST's Clinical Ladder program (Tiers I, II, and III) recognizes and rewards surgical technologists for clinical expertise, preceptor roles, and ongoing professional development.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 1, pg 20",
+    topic: "Career Ladder",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 5,
+    section: "Profession of CST",
+    type: "mcq_single",
+    stem: "During a procedure, the surgeon asks the surgical technologist to inject local anesthetic into the patient's wound while the surgeon steps out of the room. How should the CST respond?",
+    options: [
+      "Administer the medication as directed since the surgeon ordered it",
+      "Politely decline, as injecting medications exceeds the professional and legal scope of practice for an uncredentialed CST",
+      "Ask the student scrub to administer the injection",
+      "Inject half the ordered dose"
+    ],
+    correct: [1],
+    explanation: "A CST can accept, verify, and pass medications on the sterile field, but injecting medications into patient tissue is an invasive prescriptive act exceeding the CST scope of practice.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 2, pg 46",
+    topic: "Scope of Practice",
+    difficulty: "medium"
+  },
+
+  // =========================================================================
+  // SECTION 2: Physical Environment and Safety Standards (5 Questions)
+  // =========================================================================
+  {
+    sort_order: 6,
+    section: "Physical Environment and Safety Standards",
+    type: "mcq_single",
+    stem: "What are the three components of the 'Fire Triangle' required for an operating room surgical fire to ignite?",
+    options: [
+      "Ignition source (heat), Fuel, and Oxygen (oxidizer)",
+      "Electricity, Water, and Carbon dioxide",
+      "Radiation, Chemical, and Biologic",
+      "Pressure, Humidity, and Nitrogen"
+    ],
+    correct: [0],
+    explanation: "The fire triangle requires an ignition source (ESU, laser, fiberoptic cable), fuel (drapes, prep solutions, hair), and oxidizer (oxygen, nitrous oxide).",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 4, pg 110",
+    topic: "Surgical Fire Triangle",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 7,
+    section: "Physical Environment and Safety Standards",
+    type: "mcq_single",
+    stem: "Why must alcohol-based skin antiseptic prep solutions (such as ChloraPrep) be allowed to dry completely for a minimum of 3 minutes before surgical draping?",
+    options: [
+      "To allow the antiseptic dye to darken for incision visualization",
+      "To allow volatile flammable alcohol vapors to evaporate and dissipate, preventing catastrophic drape fires upon ESU activation",
+      "To prevent hypothermia from wet drapes",
+      "To increase adhesive properties of plastic incise drapes"
+    ],
+    correct: [1],
+    explanation: "Alcohol-based solutions are highly flammable. Trapped vapors under drapes ignite instantly when exposed to the electrical arc of an ESU pencil.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 4, pg 111",
+    topic: "Antiseptic Skin Prep Fire Risks",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 8,
+    section: "Physical Environment and Safety Standards",
+    type: "mcq_single",
+    stem: "Which standard precaution measure is specifically mandated by OSHA under the Bloodborne Pathogens Standard to protect OR personnel from contaminated sharps injuries?",
+    options: [
+      "Recapping needles using both hands",
+      "Establishing a neutral zone (hands-free technique) for passing sharps on the sterile field",
+      "Bending used needles prior to disposal",
+      "Storing contaminated scalpel blades in cloth towels"
+    ],
+    correct: [1],
+    explanation: "The hands-free neutral zone prevents sharps injuries by ensuring scalpel blades and needles are placed into a designated magnetic mat or basin rather than passed hand-to-hand.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 4, pg 98",
+    topic: "Sharps Safety & Neutral Zone",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 9,
+    section: "Physical Environment and Safety Standards",
+    type: "mcq_single",
+    stem: "What is the primary danger to the patient when using pneumatic tourniquets on extremities for prolonged periods exceeding recommended inflation time limits (e.g., > 1.5 to 2 hours)?",
+    options: [
+      "Irreversible ischemic neuromuscular injury, compartment syndrome, and nerve palsy",
+      "Excessive localized hyperthermia",
+      "Sudden hypoglycemia",
+      "Cardiac arrhythmia from cold saline"
+    ],
+    correct: [0],
+    explanation: "Prolonged tourniquet inflation (>90-120 minutes) causes cellular anoxia, permanent peripheral nerve paralysis, tissue necrosis, and dangerous reperfusion acidosis upon release.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 10, pg 318",
+    topic: "Pneumatic Tourniquets",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 10,
+    section: "Physical Environment and Safety Standards",
+    type: "mcq_single",
+    stem: "Which gas pipeline color code in United States medical gas wall outlets correctly matches its gas type?",
+    options: [
+      "Oxygen: Green | Nitrous Oxide: Blue | Medical Air: Yellow | Carbon Dioxide: Gray",
+      "Oxygen: Blue | Nitrous Oxide: Green | Medical Air: Gray | Carbon Dioxide: Yellow",
+      "Oxygen: Yellow | Nitrous Oxide: Black | Medical Air: Blue | Carbon Dioxide: Green",
+      "Oxygen: White | Nitrous Oxide: Orange | Medical Air: Red | Carbon Dioxide: Purple"
+    ],
+    correct: [0],
+    explanation: "In the United States: Green = Oxygen, Blue = Nitrous Oxide, Yellow = Medical Air, Gray = Carbon Dioxide, Black = Nitrogen.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 4, pg 94",
+    topic: "Medical Gas Color Codes",
+    difficulty: "medium"
+  },
+
+  // =========================================================================
+  // SECTION 3: Surgical Asepsis and Sterility (10 Questions)
+  // =========================================================================
+  {
+    sort_order: 11,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "During an abdominal procedure, a sterile light handle cover slips and contacts the unsterile light dome. What must the surgical technologist do?",
+    options: [
+      "Wipe the light handle with sterile alcohol and reposition it",
+      "Remove the contaminated light handle cover immediately and replace it with a new sterile cover",
+      "Leave the handle in place if surgery will conclude within 10 minutes",
+      "Ask the circulating nurse to spray disinfectant on it"
+    ],
+    correct: [1],
+    explanation: "Any sterile item that contacts an unsterile surface is immediately contaminated and must be replaced with fresh sterile equipment.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 187",
+    topic: "Aseptic Principles",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 12,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "What is the required minimum exposure time when sterilizing wrapped instruments in a gravity-displacement steam sterilizer at 250°F (121°C)?",
+    options: ["3 minutes", "10 minutes", "30 minutes", "60 minutes"],
+    correct: [2],
+    explanation: "Gravity displacement steam autoclaves at 250°F (121°C) at 15 psi require a minimum exposure time of 30 minutes for wrapped loads to ensure thorough thermal penetration.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 204",
+    topic: "Steam Sterilization Cycles",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 13,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "How should sterile drapes be positioned on the patient by the surgical team?",
+    options: [
+      "Placed from the unsterile periphery moving toward the incision site",
+      "Placed directly over the planned incision site first and unfolded outward toward the periphery, without reaching across the patient",
+      "Slid across the patient's skin to adjust positioning",
+      "Drapes may be shifted toward the incision after placement if misaligned"
+    ],
+    correct: [1],
+    explanation: "Sterile drapes are placed at the incision site and unfolded away toward the periphery. Drapes must never be shifted once placed; if misplaced, they are discarded.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 190",
+    topic: "Draping Technique",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 14,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "What is the high-level disinfectant chemical that requires a 14-to-28 day shelf life after activation with a buffer and requires 10 hours of soaking for complete sterilization of heat-sensitive items?",
+    options: ["Glutaraldehyde (Cidex)", "Isopropyl alcohol 70%", "Sodium hypochlorite (bleach)", "Quaternary ammonium compounds"],
+    correct: [0],
+    explanation: "Glutaraldehyde is a potent high-level disinfectant (20-45 minutes) that achieves complete sporicidal chemical sterilization only after 10 hours of total immersion.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 224",
+    topic: "Chemical Disinfection & Sterilization",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 15,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "When drying hands and arms with a sterile towel following the surgical hand scrub, how must the towel be used to avoid contamination?",
+    options: [
+      "Use one end of the towel for the first hand and arm up to the elbow, bend forward to prevent towel contact with scrubs, and use the opposite clean end for the other hand and arm",
+      "Rub back and forth vigorously from elbow to hand",
+      "Use the same section of the towel for both arms simultaneously",
+      "Wipe from elbows down to fingertips"
+    ],
+    correct: [0],
+    explanation: "Bend forward at the waist so the towel does not touch scrub attire. Dry fingers to elbow on one side, flip the towel, and dry the opposite arm with the unused clean end.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 181",
+    topic: "Towel Drying Technique",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 16,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "Which factor is the most common cause of steam sterilization cycle failure in central sterile processing?",
+    options: [
+      "Inadequate boiler water pressure",
+      "Entrapped air within the chamber due to improper loading or faulty drain lines",
+      "Excessive chamber temperature",
+      "Overuse of biological indicators"
+    ],
+    correct: [1],
+    explanation: "Air is cooler and heavier than steam. If air is entrapped due to pack over-packing or faulty vacuum removal, it creates cold insulation pockets preventing steam contact.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 208",
+    topic: "Sterilization Failure Causes",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 17,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "When wearing sterile surgical gloves, which hand surfaces are considered sterile?",
+    options: [
+      "The entire outer surface of the gloves",
+      "The palm surface only",
+      "The gloves up to the knuckles only",
+      "The gloves and the white knitted sleeve cuffs"
+    ],
+    correct: [0],
+    explanation: "The entire exterior surface of sterile surgical gloves is sterile. Knitted gown cuffs are non-sterile because perspiration wicks through them; gloves must completely cover cuffs.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 189",
+    topic: "Glove Sterility",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 18,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "Why are hinged surgical instruments placed in an open (unlatched) position inside sterilization baskets or trays?",
+    options: [
+      "To prevent box locks from becoming magnetically charged",
+      "To allow steam or sterilant gas full contact with the serrations, box locks, and jaw surfaces",
+      "To save tray basket space",
+      "To prevent spring mechanisms from losing tension"
+    ],
+    correct: [1],
+    explanation: "Steam cannot penetrate the metal-on-metal interface of a locked box lock. Hinged instruments must be left unlatched so all inner surfaces receive sterilant contact.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 200",
+    topic: "Instrument Preparation for Autoclaving",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 19,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "What is the recommended minimum distance an unscrubbed non-sterile individual (such as an observer or circulator) must maintain from any sterile field?",
+    options: ["6 inches", "12 inches (1 foot)", "3 feet", "6 feet"],
+    correct: [1],
+    explanation: "Non-sterile team members must maintain a minimum buffer distance of at least 12 inches (1 foot / 30 cm) from all sterile fields, back tables, and draped patients.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 7, pg 186",
+    topic: "OR Traffic & Safety Distances",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 20,
+    section: "Surgical Asepsis and Sterility",
+    type: "mcq_single",
+    stem: "Which pathogen is an anaerobic, spore-forming, Gram-positive bacillus capable of causing gas gangrene in dirty trauma wounds, requiring strict environmental terminal cleaning?",
+    options: [
+      "Clostridium perfringens",
+      "Staphylococcus epidermidis",
+      "Escherichia coli",
+      "Treponema pallidum"
+    ],
+    correct: [0],
+    explanation: "Clostridium perfringens produces potent alpha-toxins that cause gas gangrene (clostridial myonecrosis). Its bacterial spores survive standard boiling and require autoclaving.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 6, pg 154",
+    topic: "Surgical Microbiology",
+    difficulty: "medium"
+  },
+
+  // =========================================================================
+  // SECTION 4: Instrumentation, Equipment, and Supplies (15 Questions)
+  // =========================================================================
+  {
+    sort_order: 21,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which small curved scalpel blade is most commonly used for tonsillectomies, parotid gland incisions, and suture removal?",
+    options: ["#10 blade", "#11 blade", "#12 blade", "#20 blade"],
+    correct: [2],
+    explanation: "The #12 blade is small and crescent-hook shaped with a sharp cutting edge on the inner curve, making it ideal for tonsillectomies and curved mucosal incisions.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 345",
+    topic: "Scalpel Blades",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 22,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which heavy bone-holding clamp with inward-curved sharp pointed jaws is designed to hold fractured bone fragments in reduction during orthopedic plating?",
+    options: ["Lowman bone clamp", "Kern bone-holding clamp", "Allis clamp", "Babcock clamp"],
+    correct: [1],
+    explanation: "The Kern (and Lane) bone-holding clamp has heavy, powerful serrated jaws with sharp points and a ratchet to maintain rigid reduction of fractured long bones.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 20, pg 604",
+    topic: "Orthopedic Clamps",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 23,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which vascular clamp features fine atraumatic longitudinal serrations and is angled at 45 or 90 degrees to occlude peripheral blood vessels during anastomosis?",
+    options: ["Glover patent ductus clamp / Satinsky clamp", "Kocher clamp", "Backhaus clamp", "Tenaculum"],
+    correct: [0],
+    explanation: "The Satinsky (and Cooley/Glover) vascular clamp has atraumatic DeBakey-style serrations designed for partial or total side-biting occlusion of major vessels without intimal injury.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 21, pg 628",
+    topic: "Vascular Clamps",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 24,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which self-retaining retractor has two curved sharp or blunt outward-facing prongs operated by a ratcheted scissor handle, commonly used in orthopedic, spine, and vascular cutdowns?",
+    options: ["Gelpi retractor", "Weitlaner retractor", "Balfour retractor", "O'Connor-O'Sullivan retractor"],
+    correct: [0],
+    explanation: "The Gelpi retractor features two sharp, single-pointed outward curved tips that spread opposing wound margins apart in deep spinal or orthopedic exposures.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 363",
+    topic: "Self-Retaining Retractors",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 25,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which self-retaining retractor features multiple outward-curved prongs (3x4 teeth, either sharp or blunt) on a ratcheted hinge, commonly used for hernia and thyroid exposures?",
+    options: ["Weitlaner retractor", "Senn retractor", "Deaver retractor", "Army-Navy retractor"],
+    correct: [0],
+    explanation: "The Weitlaner retractor has downward-curved finger rings with a ratchet lock and 3x4 interlocking prongs (available as sharp or blunt), widely used in groin and spine surgeries.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 364",
+    topic: "Self-Retaining Retractors",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 26,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which uterine tenaculum has single sharp interlocking curved points used to securely grasp the anterior cervical lip during D&C or hysteroscopy?",
+    options: ["Schroeder tenaculum", "Heaney clamp", "Bozeman sponge forceps", "Sims uterine sound"],
+    correct: [0],
+    explanation: "The Schroeder single-tooth tenaculum has fine pointed grasping jaws that penetrate the fibrous cervix to provide traction on the uterus during pelvic procedures.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 18, pg 546",
+    topic: "Gynecologic Instruments",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 27,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which suction tip is angled, narrow-bore with a bulbous rounded tip, designed specifically for oral, pharyngeal, and abdominal surface liquid suction?",
+    options: ["Yankauer (tonsil) suction tip", "Poole suction tip", "Frazier suction tip", "Baron suction tip"],
+    correct: [0],
+    explanation: "The Yankauer suction tip (tonsil suction) has a hollow curved shaft with a bulbous head designed to aspirate fluid, mucus, and blood from the oropharynx and operative wounds.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 366",
+    topic: "Suction Tips",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 28,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which needle holder features gold-plated ring handles, designating that its jaw inserts are manufactured from ultra-hard tungsten carbide?",
+    options: ["Tungsten carbide needle holder", "Disposable plastic needle holder", "Chrome plated needle holder", "Titanium alloy needle holder"],
+    correct: [0],
+    explanation: "Gold-plated ring handles on surgical needle holders and scissors universally identify tungsten carbide inserts, which are exceptionally hard and prevent needle twisting or slipping.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 358",
+    topic: "Tungsten Carbide Instruments",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 29,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which synthetic absorbable monofilament suture provides the longest wound support (maintaining tensile strength up to 6 weeks) and is frequently used for abdominal fascial closure?",
+    options: ["Polydioxanone (PDS II)", "Plain surgical gut", "Polyglactin 910 (Vicryl)", "Chromic gut"],
+    correct: [0],
+    explanation: "Polydioxanone (PDS II) is a monofilament absorbable polymer that maintains tensile strength for 6 weeks, making it ideal for slow-healing tissues like the abdominal rectus sheath fascia.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 389",
+    topic: "PDS Suture Characteristics",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 30,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which surgical needle type has the suture pre-attached directly into the hollow drilled end of the needle by the manufacturer, eliminating eye threading and minimizing tissue trauma?",
+    options: ["Eyeless (swaged) needle", "French-eyed needle", "Closed-eyed needle", "Free needle"],
+    correct: [0],
+    explanation: "Swaged (eyeless) needles have the suture strand mechanically crimped into the hollow end, creating a continuous single strand that matches needle diameter and eliminates tissue drag.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 398",
+    topic: "Surgical Needle Types",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 31,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "During intraoperative fluoroscopy, where should the X-ray tube be positioned relative to the patient and operating table to minimize scatter radiation to the surgical team?",
+    options: [
+      "Underneath the operating table with the image intensifier placed over the patient",
+      "Directly above the surgeon's head pointing down",
+      "At eye level with the surgical technologist",
+      "Position does not affect scatter radiation"
+    ],
+    correct: [0],
+    explanation: "Positioning the X-ray tube beneath the patient table and the image intensifier above significantly reduces scatter radiation reflected upward toward the surgical team's upper body and eyes.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 4, pg 109",
+    topic: "Fluoroscopy C-Arm Safety",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 32,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which circular surgical stapler is inserted transanally to perform low anterior resections and colorectal end-to-end anastomoses?",
+    options: ["EEA (End-to-End Anastomosis) stapler", "TA stapler", "GIA stapler", "Skin stapler"],
+    correct: [0],
+    explanation: "The EEA circular stapler is designed for low anterior colon resections. It fires a circular double row of titanium staples while an internal circular blade resects excess bowel tissue.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 11, pg 376",
+    topic: "Circular Staplers",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 33,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "What type of surgical dressing consists of three distinct layers (contact non-adherent layer, absorbent intermediate layer, and securing binding outer layer)?",
+    options: ["Three-layer dressing", "One-layer transparent dressing", "Pressure stent dressing", "Collodion liquid dressing"],
+    correct: [0],
+    explanation: "A standard three-layer dressing comprises: primary non-adherent contact layer (e.g., Adaptic/Xeroform), secondary absorbent layer (e.g., 4x4 gauze or ABD pad), and tertiary binding layer (tape/Coban).",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 426",
+    topic: "Surgical Dressings",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 34,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which orthopedic saw blade moves back and forth in a straight in-and-out longitudinal motion, ideal for sternotomy or femoral resection?",
+    options: ["Reciprocating saw blade", "Oscillating saw blade", "Sagittal saw blade", "Rotary burr"],
+    correct: [0],
+    explanation: "Reciprocating blades travel in a straight back-and-forth linear stroke. Oscillating blades pivot side-to-side, while sagittal blades vibrate perpendicularly to the handpiece axis.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 20, pg 608",
+    topic: "Powered Surgical Instruments",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 35,
+    section: "Instrumentation, Equipment, and Supplies",
+    type: "mcq_single",
+    stem: "Which closed-suction active wound drainage system utilizes a spring-loaded round canister or silicone bulb (Grenade) to maintain continuous low negative pressure?",
+    options: ["Jackson-Pratt (JP) or Hemovac drain", "Penrose drain", "T-tube", "Cigarette drain"],
+    correct: [0],
+    explanation: "Jackson-Pratt and Hemovac drains are active closed-suction drains relying on a compressed bulb or internal spring canister to exert continuous gentle suction, removing serosanguinous fluid.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 10, pg 322",
+    topic: "Surgical Drains",
+    difficulty: "easy"
+  },
+
+  // =========================================================================
+  // SECTION 5: Hemostasis, Wound Healing, and Wound Closure (5 Questions)
+  // =========================================================================
+  {
+    sort_order: 36,
+    section: "Hemostasis, Wound Healing, and Wound Closure",
+    type: "mcq_single",
+    stem: "Which absorbable gelatin hemostatic sponge is derived from animal skin gelatin (trade name Gelfoam) and can be soaked in sterile saline or thrombin solution before placement?",
+    options: ["Gelfoam absorbable gelatin", "Avitene", "Surgicel", "Bone wax"],
+    correct: [0],
+    explanation: "Gelfoam is an absorbable gelatin sponge that absorbs up to 45 times its weight in blood. It is frequently moistened with bovine thrombin solution for rapid hemostasis.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 382",
+    topic: "Gelatin Hemostats",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 37,
+    section: "Hemostasis, Wound Healing, and Wound Closure",
+    type: "mcq_single",
+    stem: "What is the final stage of wound healing, extending from approximately day 21 through 1 year or more, where collagen fibers reorganize and wound tensile strength reaches 70-80% of uninjured tissue?",
+    options: ["Maturation (remodeling) phase", "Inflammatory phase", "Proliferative phase", "Granulation phase"],
+    correct: [0],
+    explanation: "During the remodeling/maturation phase, collagen type III is replaced by stronger collagen type I, and cross-linking increases tensile strength to a maximum of 80% of original tissue strength.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 415",
+    topic: "Wound Remodeling Phase",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 38,
+    section: "Hemostasis, Wound Healing, and Wound Closure",
+    type: "mcq_single",
+    stem: "What type of wound healing is also known as 'delayed primary closure', where a grossly contaminated wound is debrided, packed open for several days, and then sutured closed once free of infection?",
+    options: ["Third intention healing", "First intention healing", "Second intention healing", "Granulation healing"],
+    correct: [0],
+    explanation: "Third intention (delayed primary closure) involves leaving a contaminated or edematous wound open for 3 to 5 days with dressing changes, then surgically closing it once healthy granulation appears.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 418",
+    topic: "Third Intention Healing",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 39,
+    section: "Hemostasis, Wound Healing, and Wound Closure",
+    type: "mcq_single",
+    stem: "According to CDC guidelines, how is a clean surgical wound (Class I) defined?",
+    options: [
+      "An uninfected operative wound in which no inflammation is encountered and the respiratory, alimentary, genital, or uninfected urinary tracts are NOT entered",
+      "Any wound with purulent discharge",
+      "A wound following accidental bowel puncture",
+      "An emergency trauma stab wound"
+    ],
+    correct: [0],
+    explanation: "Class I (Clean) wounds are non-traumatic, elective incisions made under aseptic conditions with primary closure, wherein aerodigestive and genitourinary tracts are not breached (e.g., hernia repair, thyroidectomy).",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 420",
+    topic: "CDC Wound Classification Class I",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 40,
+    section: "Hemostasis, Wound Healing, and Wound Closure",
+    type: "mcq_single",
+    stem: "Which vitamin is essential for prothrombin synthesis by the liver and is critical for normal physiological blood coagulation?",
+    options: ["Vitamin K", "Vitamin C", "Vitamin D", "Vitamin B12"],
+    correct: [0],
+    explanation: "Vitamin K is a fat-soluble cofactor necessary for hepatic synthesis of clotting factors II (prothrombin), VII, IX, and X, as well as proteins C and S.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 12, pg 378",
+    topic: "Hemostasis Physiology",
+    difficulty: "easy"
+  },
+
+  // =========================================================================
+  // SECTION 6: Surgical Anatomy & Physiology (10 Questions)
+  // =========================================================================
+  {
+    sort_order: 41,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which major branch of the abdominal aorta arises just below the diaphragm and divides into the left gastric artery, splenic artery, and common hepatic artery?",
+    options: ["Celiac trunk (axis)", "Superior mesenteric artery", "Inferior mesenteric artery", "Renal artery"],
+    correct: [0],
+    explanation: "The celiac trunk is the first major visceral branch of the abdominal aorta, giving rise to three branches: the left gastric artery, common hepatic artery, and splenic artery.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 16, pg 476",
+    topic: "Abdominal Vascular Anatomy",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 42,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "In splenectomy for traumatic rupture, the surgical technologist must anticipate rapid severe hemorrhage because the spleen receives arterial blood directly from which branch of the celiac trunk?",
+    options: ["Splenic artery (a tortuous branch traversing the superior pancreatic border)", "Superior mesenteric artery", "Left renal artery", "Inferior phrenic artery"],
+    correct: [0],
+    explanation: "The splenic artery is the largest and most tortuous branch of the celiac trunk, running along the superior border of the pancreas to the splenic hilum, carrying enormous blood volume.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 16, pg 516",
+    topic: "Splenic Anatomy",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 43,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which valve guards the junction between the small intestine (terminal ileum) and the large intestine (cecum), preventing backward reflux of colonic contents?",
+    options: ["Ileocecal valve", "Pyloric valve", "Tricuspid valve", "Sphincter of Oddi"],
+    correct: [0],
+    explanation: "The ileocecal valve (Bauhin's valve) is a muscular sphincter situated at the transition between the terminal ileum and the cecum, preventing fecal regurgitation into the small bowel.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 16, pg 494",
+    topic: "Intestinal Valves",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 44,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "During a radical prostatectomy or pelvic lymph node dissection, which delicate paired structures exiting the renal pelvis must be identified and safeguarded as they cross the common iliac vessels?",
+    options: ["Ureters", "Internal pudendal veins", "Ductus deferens", "Inferior vena cava"],
+    correct: [0],
+    explanation: "The ureters cross anterior to the bifurcation of the common iliac arteries as they plunge into the pelvis, representing a major risk zone for accidental surgical transection.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 19, pg 582",
+    topic: "Ureteral Anatomy",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 45,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which anatomical zone of the stomach surrounds the gastroesophageal junction where the esophagus connects with the stomach lumen?",
+    options: ["Cardia", "Fundus", "Corpus (body)", "Antrum"],
+    correct: [0],
+    explanation: "The cardia is the anatomical entrance zone of the stomach immediately surrounding the gastroesophageal junction. The fundus is the superior dome, and the antrum leads to the pylorus.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 16, pg 486",
+    topic: "Gastric Anatomy",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 46,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which bone is the largest sesamoid bone in the human body, embedded within the tendon of the quadriceps femoris muscle?",
+    options: ["Patella", "Fabella", "Calcaneus", "Navicular"],
+    correct: [0],
+    explanation: "The patella (kneecap) is a triangular sesamoid bone embedded within the quadriceps and patellar tendon complex, increasing the mechanical leverage of the quadriceps muscle.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 20, pg 600",
+    topic: "Skeletal Anatomy",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 47,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "In thoracic surgery, what serous membrane lining directly adheres to the outer surface of each lung, dipping into the pulmonary fissures?",
+    options: ["Visceral pleura", "Parietal pleura", "Pericardium", "Mediastinal septum"],
+    correct: [0],
+    explanation: "The visceral pleura covers the surface of the lung and dips into its lobes. The parietal pleura lines the inner thoracic chest wall; between them lies the negative-pressure pleural space.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 22, pg 648",
+    topic: "Thoracic Pleural Anatomy",
+    difficulty: "easy"
+  },
+  {
+    sort_order: 48,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which portion of the female fallopian tube has finger-like projections (fimbriae) that drape over the ovary to capture the ovulated oocyte?",
+    options: ["Infundibulum", "Ampulla", "Isthmus", "Interstitial portion"],
+    correct: [0],
+    explanation: "The infundibulum is the funnel-shaped distal terminus of the fallopian tube surrounded by delicate fringe-like fimbriae that sweep the ovum into the lumen.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 18, pg 538",
+    topic: "Fallopian Tube Anatomy",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 49,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "Which major intracranial vascular circuit at the base of the brain provides collateral arterial blood flow via communicating arteries between the carotid and vertebrobasilar systems?",
+    options: ["Circle of Willis", "Vein of Galen", "Coronary sinus", "Dural venous plexus"],
+    correct: [0],
+    explanation: "The Circle of Willis is an arterial anastomosis at the skull base formed by the anterior and posterior communicating arteries, anterior and posterior cerebral arteries, and internal carotids.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 23, pg 684",
+    topic: "Neurovascular Anatomy",
+    difficulty: "medium"
+  },
+  {
+    sort_order: 50,
+    section: "Surgical Anatomy & Physiology",
+    type: "mcq_single",
+    stem: "What structure forms the tough, fibrous outer covering of bone through which nutrient blood vessels and nerves enter to nourish cortical bone tissue?",
+    options: ["Periosteum", "Endosteum", "Epiphyseal plate", "Cancellous trabeculae"],
+    correct: [0],
+    explanation: "The periosteum is a vascular, fibrous connective tissue sheath covering the external surfaces of bone (except at articular cartilage), serving as an attachment point for tendons and carrying osteoblasts.",
+    source_ref: "AST Core Curriculum 6th Ed., Ch. 20, pg 596",
+    topic: "Bone Physiology",
+    difficulty: "easy"
+  }
+];
+
+const mock4Data = {
+  test_slug: "st-mock-4",
+  test_meta: {
+    title: "ST – Mock 4 (Advanced Intraoperative Case Scenarios)",
+    event: "ST",
+    kind: "mock",
+    total_questions: 50,
+    duration_min: 60,
+    instant_feedback: false,
+    is_free: false,
+    shuffle_questions: false,
+    category_counts: {
+      "Profession of CST": 5,
+      "Physical Environment and Safety Standards": 5,
+      "Surgical Asepsis and Sterility": 10,
+      "Instrumentation, Equipment, and Supplies": 15,
+      "Hemostasis, Wound Healing, and Wound Closure": 5,
+      "Surgical Anatomy & Physiology": 10
+    }
+  },
+  questions: questions
+};
+
+const targetPath = path.resolve(process.cwd(), "data", "st-mock-4-50q.json");
+fs.writeFileSync(targetPath, JSON.stringify(mock4Data, null, 2), "utf-8");
+console.log(`Generated st-mock-4-50q.json with ${questions.length} questions.`);
+

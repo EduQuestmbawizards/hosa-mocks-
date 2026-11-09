@@ -1,0 +1,585 @@
+{
+  "test_slug": "st-practice-set-c",
+  "test_meta": {
+    "title": "ST – Practice Set C: Hemostasis, Sutures & Wound Closure",
+    "event": "ST",
+    "kind": "practice",
+    "total_questions": 30,
+    "duration_min": 45,
+    "instant_feedback": true,
+    "is_free": true,
+    "shuffle_questions": false
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which parameter indicates the smallest diameter suture strand according to the United States Pharmacopeia (USP) standard numbering system?",
+      "options": [
+        "#1 suture",
+        "#2-0 suture",
+        "#4-0 suture",
+        "#7-0 suture"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "In USP suture sizing, each zero added designates a thinner diameter. #7-0 is much smaller in diameter than 4-0, 2-0, or #1.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 386",
+      "topic": "Suture Sizing USP",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 2,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which suture size is standard for microvascular anastomosis of 1 to 2 mm digital or coronary vessels?",
+      "options": [
+        "#10-0 or #8-0 Prolene",
+        "#0 Vicryl",
+        "#2 Ethibond",
+        "#3-0 Silk"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Microvascular anastomosis of tiny vessels requires microscopic monofilament suture such as 8-0, 9-0, or 10-0 polypropylene.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 387",
+      "topic": "Microvascular Suture Sizes",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 3,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which natural absorbable suture is derived from the submucosal layer of sheep intestine or serosal layer of beef intestine, treated with chromium salt solution to slow enzymatic breakdown?",
+      "options": [
+        "Chromic surgical gut",
+        "Plain gut",
+        "Vicryl",
+        "PDS"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Chromic gut is collagen treated with chromium salts to resist rapid enzymatic digestion, extending absorption time to 10-21 days compared to plain gut (7-10 days).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 388",
+      "topic": "Surgical Gut Sutures",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 4,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Why are surgical gut sutures packaged in foil packets soaked in an alcohol-water conditioning fluid?",
+      "options": [
+        "To keep the natural collagen strands pliable and prevent them from drying, stiffening, and snapping",
+        "To sterilize the suture immediately before handoff",
+        "To dissolve the knots",
+        "To prevent allergic reactions"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Natural gut sutures dry out and become brittle if exposed to air. The packaging fluid maintains moisture and flexibility; gut should be used promptly after opening without excessive wiping.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 389",
+      "topic": "Gut Suture Handling",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 5,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which synthetic absorbable monofilament suture composed of poliglecaprone 25 is celebrated for smooth passage through skin during subcuticular closure, absorbing in 90 to 120 days?",
+      "options": [
+        "Monocryl (poliglecaprone 25)",
+        "PDS",
+        "Silk",
+        "Stainless steel"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Monocryl (poliglecaprone 25) is an absorbable monofilament suture with low tissue reactivity and excellent knotting, popular for cosmetically sensitive subcuticular skin closures.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 390",
+      "topic": "Monocryl Suture",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 6,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which non-absorbable suture has the highest tensile strength, is biologically inert, and is used for sternotomy bone closure and tendon repairs?",
+      "options": [
+        "Surgical stainless steel",
+        "Polypropylene",
+        "Nylon",
+        "Silk"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Stainless steel suture is completely inert, possesses the highest tensile strength of any suture material, and is standard for wiring median sternotomies and heavy orthopedic fixations.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 393",
+      "topic": "Steel Suture",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 7,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What type of needle has a round tapered body that narrows smoothly to a sharp point, used exclusively on soft tissues like bowel, peritoneum, and subcutaneous fat?",
+      "options": [
+        "Taper point needle",
+        "Cutting needle",
+        "Reverse cutting needle",
+        "Trocar point needle"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Taper point needles puncture and stretch tissue fibers without slicing, making them the standard choice for visceral gastrointestinal and vascular soft tissues.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 399",
+      "topic": "Taper Needles",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 8,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Why are cutting or reverse cutting needles used on skin instead of taper needles?",
+      "options": [
+        "Skin has a dense, tough keratinized epidermal and dermal collagen layer that requires sharp cutting edges to penetrate without tearing or bending the needle",
+        "Cutting needles create smaller puncture holes in skin",
+        "Taper needles dissolve in skin",
+        "Cutting needles prevent scarring"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Skin dermis is tough and fibrous. Taper needles cannot penetrate skin without excessive force and needle bending; cutting edges slice through the dense dermal collagen smoothly.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 401",
+      "topic": "Skin Needles",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 9,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What type of continuous suture technique runs around the lumen of a tubular organ (such as the base of the appendix or gall bladder stump) to invert the stump when cinched tight?",
+      "options": [
+        "Pursestring suture",
+        "Figure-of-eight suture",
+        "Horizontal mattress suture",
+        "Interrupted simple suture"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A pursestring suture is a continuous circular inverting stitch placed around the cecal base of the appendix; cinching it tight inverts the contaminated stump into the bowel lumen.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 406",
+      "topic": "Pursestring Suture Technique",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 10,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which interrupted suture technique forms a supportive cross-stitch that distributes wound tension across broad surfaces, frequently used for heavy fascial defect closures?",
+      "options": [
+        "Figure-of-eight suture",
+        "Continuous running locking stitch",
+        "Subcuticular running stitch",
+        "Lembert stitch"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Figure-of-eight sutures create a cross-brace pattern that holds tension securely over wide fascial tears or anchors heavy pedicles.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 408",
+      "topic": "Figure-of-Eight Suture",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 11,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What small plastic or rubber tubing sleeves are threaded over heavy retention sutures to prevent the suture from cutting into the patient's skin under tension?",
+      "options": [
+        "Bolsters / bumpers",
+        "T-tubes",
+        "Wick drains",
+        "Towel clips"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Retention bolsters (plastic or rubber bridges/bumpers) cushion retention sutures against the skin, distributing high closure tension and preventing necrosis.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 410",
+      "topic": "Retention Suture Bolsters",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 12,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is the primary cellular component that synthesizes the extracellular collagen matrix and ground substance during the proliferative phase of wound healing?",
+      "options": [
+        "Fibroblast",
+        "Neutrophil",
+        "Erythrocyte",
+        "Basophil"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Fibroblasts are specialized connective tissue cells that migrate into the wound bed to generate collagen fibrils, fibronectin, and glycosaminoglycans.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 413",
+      "topic": "Wound Cellular Physiology",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 13,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which phase of normal physiological blood clotting involves platelets adhering to exposed subendothelial collagen and aggregating to form a primary platelet plug?",
+      "options": [
+        "Primary hemostasis",
+        "Secondary hemostasis (coagulation cascade)",
+        "Fibrinolysis",
+        "Clot retraction"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Primary hemostasis encompasses vascular spasm, platelet adhesion via von Willebrand factor to exposed collagen, and aggregation to create the temporary platelet plug.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 376",
+      "topic": "Primary Hemostasis",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 14,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is the final enzyme in the coagulation cascade that catalyzes the conversion of soluble fibrinogen into insoluble, cross-linked fibrin strands?",
+      "options": [
+        "Thrombin",
+        "Prothrombinase",
+        "Plasmin",
+        "Factor VIII"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Thrombin (Factor IIa) cleaves fibrinogen peptides to yield fibrin monomers, which polymerize and cross-link to solidify the definitive blood clot.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 377",
+      "topic": "Coagulation Cascade",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 15,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What drug is administered intravenously by the anesthesia provider to provide systemic anticoagulation during vascular bypass clamping, and which drug acts as its specific reversal antidote?",
+      "options": [
+        "Heparin sodium; Protamine sulfate",
+        "Coumadin; Vitamin K",
+        "Aspirin; Platelet infusion",
+        "Lovenox; Calcium gluconate"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Heparin prevents clot formation during arterial cross-clamping. Protamine sulfate is a strongly basic protein that binds heparin to completely neutralize its anticoagulant effect.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 21, pg 629",
+      "topic": "Heparin & Protamine",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 16,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which passive gravity surgical drain consists of a flat, soft latex or silicone ribbon that allows wound exudate to drain by capillary action onto a dressing sponge?",
+      "options": [
+        "Penrose drain",
+        "Jackson-Pratt drain",
+        "Hemovac drain",
+        "Chest tube"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A Penrose drain is an open, passive drain that relies on capillary action and gravity to convey drainage into surrounding absorbent sterile gauze pads.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 10, pg 320",
+      "topic": "Passive Drains",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 17,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which specialized T-shaped latex drain is placed inside the common bile duct during choledochotomy to stent the duct and facilitate continuous external bile drainage?",
+      "options": [
+        "T-tube",
+        "Foley catheter",
+        "Malecot catheter",
+        "Penrose drain"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A T-tube is inserted into the common bile duct with its crossbars in the duct and long stem exiting the abdominal wall, maintaining duct patency and decompressing biliary pressure.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 16, pg 510",
+      "topic": "Biliary T-Tubes",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 18,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is an abnormal, hypertrophic scar formation extending far beyond the original surgical incision margins, characterized by excessive, disorganized collagen deposition?",
+      "options": [
+        "Keloid",
+        "Cicatrix",
+        "Granuloma",
+        "Dehiscence"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Keloids are benign, raised fibrous lesions caused by excessive collagen synthesis that invade normal surrounding skin beyond initial wound boundaries, common in darker skin types.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 424",
+      "topic": "Scar Abnormalities",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 19,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which patient factor significantly impairs normal surgical wound collagen synthesis, angiogenesis, and fibroblast proliferation?",
+      "options": [
+        "Uncontrolled diabetes mellitus and chronic corticosteroid therapy",
+        "Adequate nutritional protein intake",
+        "Normothermia in the postoperative recovery unit",
+        "Adequate tissue oxygenation"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Hyperglycemia impairs leukocyte phagocytosis, while corticosteroids inhibit the inflammatory response, capillary budding, and fibroblast collagen synthesis.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 423",
+      "topic": "Wound Healing Inhibitors",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 20,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What liquid skin adhesive composed of octylcyanoacrylate (Dermabond) is applied topically over approximated skin edges to seal small incisions without staples or suture removal?",
+      "options": [
+        "Skin adhesive glue (Dermabond)",
+        "Mastisol",
+        "Tincture of benzoin",
+        "Collodion"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Dermabond (2-octyl cyanoacrylate) is a sterile topical liquid adhesive that polymerizes into a flexible waterproof bridge over clean skin edges, sloughing off in 7-10 days.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 427",
+      "topic": "Skin Adhesives",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 21,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is the primary difference between monofilament and multifilament braided sutures regarding knot security?",
+      "options": [
+        "Multifilament braided sutures have higher friction between strands and hold knots more securely with fewer throws than slick monofilaments",
+        "Monofilament sutures hold knots with only 1 throw",
+        "Braided sutures always require 8 throws",
+        "There is no difference in knot holding"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Braided sutures generate high surface friction, producing secure knots that resist slippage. Slick monofilaments require 5-6 throws to prevent unraveling.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 387",
+      "topic": "Knot Security",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 22,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which small titanium or absorbable clips are applied across blood vessels using a pistol-grip applier to provide rapid permanent hemostasis?",
+      "options": [
+        "Hemostatic ligating clips (Hemoclips)",
+        "Skin staples",
+        "Towel clamps",
+        "Babcock clamps"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Ligating clips (titanium, tantalum, or polymer) are squeezed across vessel pedicles to occlude lumens quickly in laparoscopic and open vascular procedures.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 384",
+      "topic": "Ligating Clips",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 23,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What type of dressing uses sterile petrolatum-impregnated or silicone gauze (such as Xeroform) placed directly on the wound bed to allow exudate to pass through without adhering?",
+      "options": [
+        "Non-adherent contact layer",
+        "Pressure dressing",
+        "Rigid dressing",
+        "Occlusive colostomy wafer"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The primary non-adherent layer (Xeroform/Adaptic) prevents dressing gauze from sticking to delicate new epithelial cells during healing and bandage removal.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 426",
+      "topic": "Wound Dressings",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 24,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which CDC wound classification applies to a total hip arthroplasty performed in a laminar-flow operating room with primary wound closure?",
+      "options": [
+        "Class I: Clean",
+        "Class II: Clean-Contaminated",
+        "Class III: Contaminated",
+        "Class IV: Dirty"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Elective orthopedic joint replacements are Class I (Clean) because they are uninfected, elective, closed primarily, and do not enter respiratory, GI, or GU systems.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 420",
+      "topic": "CDC Wound Classification",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 25,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is the purpose of placing a wet-to-dry dressing on an infected, open surgical cavity?",
+      "options": [
+        "To mechanically debride necrotic debris and slough as the dried gauze is removed from the wound",
+        "To completely sterilize the wound overnight",
+        "To prevent granulation tissue from forming",
+        "To dissolve underlying bone"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "In wet-to-dry dressings, moist saline gauze embeds in necrotic slough as it dries; upon peel removal, it mechanically debrides the wound bed to encourage fresh granulation.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 428",
+      "topic": "Wound Debridement Dressings",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 26,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which factor provides the greatest barrier to microorganism proliferation in healing surgical wounds?",
+      "options": [
+        "Active phagocytosis by tissue macrophages and adequate microvascular perfusion",
+        "Heavy topical ointment application",
+        "Complete limb immobilization in a fiberglass cast",
+        "Daily ice pack application"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Macrophages phagocytose bacteria and cellular debris while releasing angiogenic growth factors; robust local blood perfusion supplies oxygen and antibiotics.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 413",
+      "topic": "Infection Defense Mechanisms",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 27,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is the typical time frame for skin suture or staple removal following an uncomplicated abdominal or orthopedic incision?",
+      "options": [
+        "7 to 10 days",
+        "24 hours",
+        "30 days",
+        "6 weeks"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Skin staples and non-absorbable sutures are typically removed at 7 to 10 days postoperatively once the epithelial seal has formed, preventing suture track scarring.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 425",
+      "topic": "Suture Removal Timing",
+      "difficulty": "easy"
+    },
+    {
+      "sort_order": 28,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which synthetic non-absorbable braided suture coated with silicone or PTFE (trade name Ethibond or Tevdek) is preferred for heart valve sewing rings and tendon repairs?",
+      "options": [
+        "Polyester suture (Ethibond)",
+        "Plain gut",
+        "Chromic gut",
+        "Vicryl"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Braided polyester sutures (Ethibond) provide permanent high tensile strength and smooth handling, ideal for attaching prosthetic heart valves and anchoring tendons.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 392",
+      "topic": "Polyester Sutures",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What is an abnormal epithelialized tract communicating between an internal hollow organ and the external skin surface called?",
+      "options": [
+        "Fistula",
+        "Sinus tract",
+        "Hematoma",
+        "Seroma"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A fistula is an abnormal conduit connecting two visceral epithelial cavities or an internal organ to the exterior skin (e.g., enterocutaneous fistula).",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 423",
+      "topic": "Wound Complications",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 30,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "What localized collection of extravasated blood within surgical tissue layers causes pressure, pain, and secondary infection if not evacuated?",
+      "options": [
+        "Hematoma",
+        "Seroma",
+        "Abscess",
+        "Cicatrix"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A hematoma is a localized pool of clotted blood outside blood vessels that increases wound tension, compromises microvascular perfusion, and serves as a bacterial culture medium.",
+      "source_ref": "AST Core Curriculum 6th Ed., Ch. 12, pg 422",
+      "topic": "Hematoma",
+      "difficulty": "easy"
+    }
+  ]
+}
