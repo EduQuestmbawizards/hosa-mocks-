@@ -123,8 +123,10 @@ export default function Navbar() {
               Overview
             </Link>
             <Link
-              href="/#tests"
-              className="transition hover:text-sky-600"
+              href="/mocks"
+              className={`transition hover:text-sky-600 ${
+                pathname.startsWith("/mocks") ? "text-sky-600 font-semibold" : ""
+              }`}
             >
               Mocks & Practice
             </Link>
@@ -283,11 +285,15 @@ export default function Navbar() {
               Overview
             </Link>
             <Link
-              href="/#tests"
+              href="/mocks"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-md"
+              className={`px-3 py-2 text-sm font-medium rounded-md ${
+                pathname.startsWith("/mocks")
+                  ? "bg-sky-50 text-sky-700 font-bold"
+                  : "text-slate-700 hover:bg-slate-50"
+              }`}
             >
-              Mock Tests Catalog
+              Mock Tests & Diagnostic
             </Link>
             <Link
               href="/#blueprint"

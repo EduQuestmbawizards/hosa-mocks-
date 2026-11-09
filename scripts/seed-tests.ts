@@ -166,10 +166,32 @@ async function runSeed() {
   console.log("  MBA Wizards HOSA v3 Database Seeder (ST & HCIE)");
   console.log("=================================================");
 
-  // 1. Seed "ST – Practice Set A" (FREE, 40 questions)
+  // 1. Seed "ST – Free Diagnostic Mock 1" (FREE, 50-MCQ Mock, Official Blueprint)
+  console.log("Seeding ST – Free Diagnostic Mock 1 (st-mock-1)...");
+  await supabase.from("tests").upsert(
+    {
+      slug: "st-mock-1",
+      title: "ST – Free Diagnostic Mock 1 (Official Blueprint)",
+      event: "ST",
+      kind: "mock",
+      total_questions: 50,
+      duration_min: 60,
+      is_free: true,
+      is_published: true,
+      instructions: "Official 60-minute diagnostic mock exam strictly following AST 5/5/10/15/5/10 category blueprint. 100% Free for all candidates to benchmark readiness.",
+      marking: { marks_correct: 1, marks_wrong: 0, marks_unanswered: 0, pass_percent: 70 },
+      mode_config: { instant_feedback: false, timer: "mandatory", suggested_minutes: 60, show_explanation: false, allow_retry: true },
+      sort_order: 1,
+    },
+    { onConflict: "slug" }
+  );
+  await seedTestFromJson("data/sample-questions.json");
+  console.log("✅ ST – Free Diagnostic Mock 1 seeded successfully.");
+
+  // 2. Seed "ST – Practice Set A" (FREE, 40 questions)
   await seedTestFromJson("data/st-practice-set-a-40q.json");
 
-  // 2. Seed "ST – Mock 2" (LOCKED, 50 questions, exact split)
+  // 3. Seed "ST – Mock 2" (LOCKED, 50 questions, exact split)
   await seedTestFromJson("data/st-mock-2-50q.json");
 
   // 3. Seed "ST – Mock 3" (Unpublished Draft)

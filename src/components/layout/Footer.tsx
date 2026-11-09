@@ -41,13 +41,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <Link href="/#tests" className="hover:text-white transition">
-                  Surgical Technologist (ST)
+                <Link href="/mocks" className="hover:text-white transition">
+                  Mock Tests & Diagnostic
                 </Link>
               </li>
               <li>
-                <Link href="/#tests" className="hover:text-white transition">
-                  Healthcare Issues Exam (HCIE)
+                <Link href="/mocks" className="hover:text-white transition">
+                  Practice Sets Arena
                 </Link>
               </li>
               <li>

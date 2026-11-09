@@ -256,13 +256,22 @@ export default async function StudentDashboard() {
           AVAILABLE TESTS & LAUNCHER
           ------------------------------------------------------------------------- */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-900 tracking-tight">
-            Assigned Mock Tests
-          </h2>
-          <span className="text-xs text-slate-500">
-            Standard 60-min countdown with plain clock
-          </span>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+              Assigned Mock Tests
+            </h2>
+            <p className="text-xs text-slate-500">
+              Standard 60-min countdown with plain clock &bull; 70% passing threshold
+            </p>
+          </div>
+          <Link
+            href="/mocks"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition"
+          >
+            <span>Open Mock & Practice Arena</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

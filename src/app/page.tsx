@@ -136,12 +136,12 @@ export default async function HomePage() {
                 Start Free ST Mock Test
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="#tests"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 transition text-sm"
+              <Link
+                href="/mocks"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 transition text-sm cursor-pointer"
               >
-                Browse Mock Tests
-              </a>
+                Browse Mock Tests Arena
+              </Link>
             </div>
 
             {/* Highlight Badges */}
@@ -260,7 +260,7 @@ export default async function HomePage() {
           TEST CARDS CATALOG GRID
           ------------------------------------------------------------------------- */}
       <section id="tests" className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
             <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
               Mock Tests & Practice Catalog
@@ -269,9 +269,13 @@ export default async function HomePage() {
               Exam-condition mocks (60 min / 50 MCQ) and targeted practice modules.
             </p>
           </div>
-          <div className="text-xs text-slate-500">
-            1 Free Mock unlocked for everyone &bull; Full access upon admin approval
-          </div>
+          <Link
+            href="/mocks"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-sky-50 text-sky-700 hover:bg-sky-100 border border-sky-200 transition self-start sm:self-auto"
+          >
+            <span>Open Dedicated Arena (3 Tabs)</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

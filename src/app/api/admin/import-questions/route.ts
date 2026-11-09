@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
+export const dynamic = "force-dynamic";
+
 const OFFICIAL_ST_MOCK_SPLIT: Record<string, number> = {
   "Profession of CST": 5,
   "Physical Environment and Safety Standards": 5,

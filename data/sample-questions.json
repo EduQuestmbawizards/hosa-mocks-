@@ -1,5 +1,14 @@
 {
   "test_slug": "st-mock-1",
+  "test_meta": {
+    "title": "ST – Free Diagnostic Mock 1 (Official Blueprint)",
+    "event": "ST",
+    "kind": "mock",
+    "total_questions": 50,
+    "duration_min": 60,
+    "instant_feedback": false,
+    "is_free": true
+  },
   "questions": [
     {
       "section": "Profession of CST",
