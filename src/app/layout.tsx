@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+export const metadata: Metadata = {
+  title: "EduQuest | HOSA 2026-27 Mock Test Portal (ST & HCIE)",
+  description:
+    "Official-fidelity mock tests for HOSA Surgical Technologist (ST) and Healthcare Issues Exam (HCIE). Real 60-minute countdown, 50-MCQ category weighting, and clinical skills practice.",
+  keywords: ["HOSA", "Surgical Technologist", "HCIE", "Healthcare Issues Exam", "Mock Test", "EduQuest"],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-sky-100 selection:text-sky-900">
+        <Navbar />
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
+

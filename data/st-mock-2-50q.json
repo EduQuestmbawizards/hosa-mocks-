@@ -1,0 +1,972 @@
+{
+  "test_slug": "st-mock-2",
+  "test_meta": {
+    "title": "ST - Mock 2",
+    "event": "ST",
+    "kind": "mock",
+    "total_questions": 50,
+    "duration_min": 60,
+    "is_free": false,
+    "shuffle_questions": false,
+    "category_counts": {
+      "Profession of CST": 5,
+      "Physical Environment and Safety Standards": 5,
+      "Surgical Asepsis and Sterility": 10,
+      "Instrumentation, Equipment, and Supplies": 15,
+      "Hemostasis, Wound Healing, and Wound Closure": 5,
+      "Surgical Anatomy & Physiology": 10
+    }
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which organization administers the Certified Surgical Technologist (CST) credentialing examination?",
+      "options": [
+        "AORN",
+        "NBSTSA",
+        "CAAHEP",
+        "The Joint Commission"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The National Board of Surgical Technology and Surgical Assisting (NBSTSA) administers the CST exam.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Certification",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 2,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "The legal doctrine 'res ipsa loquitur' means:",
+      "options": [
+        "Let the master answer",
+        "The reasonable person standard",
+        "Without the patient's consent",
+        "The thing speaks for itself"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Res ipsa loquitur means the negligence is obvious from the event itself (for example, a retained instrument), so proof of fault is inferred.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Legal doctrines",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 3,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Who is ultimately responsible for obtaining the patient's informed consent for a surgical procedure?",
+      "options": [
+        "The surgical technologist",
+        "The surgeon performing the procedure",
+        "The circulator",
+        "The anesthesia technician"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The surgeon explains risks, benefits and alternatives. Others may witness the signature but do not obtain the consent.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Informed consent",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 4,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Surgical conscience is best described as:",
+      "options": [
+        "A personal commitment to honesty and correct sterile technique, even when no one is watching",
+        "A legal requirement to report all sterile technique errors to the state",
+        "The surgeon's right to choose the surgical team",
+        "The policy for counting sponges and sharps"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Surgical conscience is the internal ethical awareness that drives a team member to admit and correct a break in sterile technique.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Professional ethics",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 5,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "A surgical technologist notices a neighbor's name on the operating room schedule and mentions it to a friend. This action violates:",
+      "options": [
+        "The Patient Self-Determination Act",
+        "OSHA bloodborne pathogen standard",
+        "HIPAA",
+        "The Good Samaritan law"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "HIPAA protects the privacy of patient health information. Even confirming that a person is a patient is a breach.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Confidentiality",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 6,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "The three basic principles of protection from ionizing radiation are:",
+      "options": [
+        "Time, speed, and humidity",
+        "Time, distance, and shielding",
+        "Distance, temperature, and filtering",
+        "Shielding, ventilation, and speed"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Limit exposure time, increase distance from the source, and use shielding such as lead aprons, thyroid shields and barriers.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Radiation safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 7,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "In the RACE fire response acronym, the letter 'A' stands for:",
+      "options": [
+        "Alarm",
+        "Assess",
+        "Aim",
+        "Administer"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "RACE = Rescue, Alarm, Contain, Extinguish/Evacuate.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Fire safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 8,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What is the FIRST step in using a fire extinguisher according to the PASS method?",
+      "options": [
+        "Aim at the base of the fire",
+        "Squeeze the handle",
+        "Pull the pin",
+        "Sweep side to side"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "PASS = Pull, Aim, Squeeze, Sweep.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Fire safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 9,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Standard precautions apply to:",
+      "options": [
+        "Only patients known to have bloodborne disease",
+        "Only patients undergoing invasive surgery",
+        "All patients, regardless of diagnosis or infection status",
+        "Only patients in isolation"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Standard precautions treat blood and body fluids of every patient as potentially infectious.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Infection prevention",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 10,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "During laser surgery, which personnel must wear wavelength-specific protective eyewear?",
+      "options": [
+        "Everyone in the room",
+        "Only the surgeon",
+        "Only the laser operator",
+        "Only the surgical technologist and surgeon"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "All personnel need eyewear matched to the laser wavelength; the patient's eyes are protected with moistened pads or appropriate shields.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Laser safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 11,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which of the following is the most reliable monitor to verify that sterilization conditions were achieved?",
+      "options": [
+        "External chemical indicator tape",
+        "A mechanical gauge reading alone",
+        "A visual check of the package",
+        "Biological indicator"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Biological indicators contain resistant bacterial spores and are the only monitor that confirms microorganisms were killed.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterilization monitoring",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 12,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which area of a sterile surgical gown is considered sterile once the gown is donned?",
+      "options": [
+        "The entire gown including the back and neckline",
+        "The front from the neckline to the hem",
+        "Only the front of the gown below the waist",
+        "The front from the chest to the level of the sterile field, and the sleeves from 2 inches above the elbow to the cuff"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "The back, neckline, shoulders, underarms and anything below the level of the sterile field are considered unsterile.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Gowning",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 13,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "A wrapped sterile package is found to have moisture on the outside after being removed from the sterilizer. The package should be:",
+      "options": [
+        "Used if the moisture dries within 5 minutes",
+        "Considered contaminated and reprocessed",
+        "Used because the inside is likely dry",
+        "Wiped with alcohol and used"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Moisture can wick microorganisms through the wrap; wet packages are treated as contaminated.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Package integrity",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 14,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Immediate-use (flash) steam sterilization is acceptable ONLY when:",
+      "options": [
+        "It will save time between cases",
+        "The facility wishes to avoid purchasing extra instrument sets",
+        "There is not enough time to process an item needed immediately by the preferred method",
+        "The item is an implant that is easy to reprocess"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "IUSS is for urgent, unplanned situations such as a dropped instrument, never for convenience or routine use.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Flash sterilization",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 15,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "During a surgical hand scrub, the hands should be held:",
+      "options": [
+        "At the same level as the elbows",
+        "Higher than the elbows",
+        "Below the waist",
+        "Behind the back"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Water must run from the cleanest area (fingertips) toward the elbows and drip off the elbows.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Surgical hand scrub",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 16,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "When donning a gown and gloves with the closed-glove technique, the hands must:",
+      "options": [
+        "Be extended out of the cuffs before touching the gloves",
+        "Be rinsed with alcohol before glove application",
+        "Stay inside the cuffs of the gown sleeves until the gloves are on",
+        "Remain at the level of the waist"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The closed technique keeps bare hands from ever touching the outside of the glove cuff or gown sleeve.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Closed gloving",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 17,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which level of disinfection destroys all microorganisms except large numbers of bacterial spores?",
+      "options": [
+        "High-level disinfection",
+        "Low-level disinfection",
+        "Intermediate-level disinfection",
+        "Sanitization"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "High-level disinfection is used for semi-critical items; sterilization is required for critical items.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Disinfection",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 18,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "A chemical indicator tape on the outside of a wrapped package shows that:",
+      "options": [
+        "The package contents are sterile",
+        "The sterilizer has no air entrapment",
+        "The package has been exposed to the sterilization process",
+        "All spores in the load were killed"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "External tape only differentiates processed from unprocessed packages; it does not prove sterility.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterilization monitoring",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 19,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Items sterilized with ethylene oxide must undergo:",
+      "options": [
+        "Immediate use without wrapping",
+        "Additional steam exposure",
+        "Dry-heat treatment",
+        "Aeration to remove toxic gas residue"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "EO is toxic and flammable; items require a mechanical aeration period before use.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Low-temperature sterilization",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 20,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "The sterility of a packaged item is best determined by:",
+      "options": [
+        "Event-related factors such as package integrity and handling",
+        "The number of days since sterilization alone",
+        "The color of the wrapper",
+        "The size of the package"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Event-related shelf life: an item stays sterile until an event (tear, moisture, compression) compromises the package.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Shelf life",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 21,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Metzenbaum scissors are used to:",
+      "options": [
+        "Cut and dissect delicate tissue",
+        "Cut heavy fascia and suture",
+        "Cut bone",
+        "Cut wire"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Metzenbaum scissors have long, thin blades for delicate tissue; Mayo scissors are used for heavier tissue and sutures.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Cutting instruments",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 22,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Babcock forceps are used to grasp:",
+      "options": [
+        "Delicate tubular structures such as bowel or fallopian tube",
+        "Dense fascia",
+        "Skin edges for closure",
+        "Bone fragments"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Babcock has fenestrated, atraumatic tips. Allis clamps grasp tougher tissue such as fascia.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Grasping instruments",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 23,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which instrument is used to hold and drive a curved suture needle?",
+      "options": [
+        "Kelly hemostat",
+        "Adson forceps",
+        "Mayo-Hegar needle holder",
+        "Metzenbaum scissors"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The needle holder grips the needle about two-thirds from the point (one-third from the swage).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Needle holders",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 24,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which of the following is a self-retaining retractor commonly used in abdominal surgery?",
+      "options": [
+        "Army-Navy retractor",
+        "Balfour retractor",
+        "Richardson retractor",
+        "Deaver retractor"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Self-retaining retractors hold the incision open without a team member; the others listed are handheld.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Retractors",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 25,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Kelly, Crile, and mosquito instruments are all examples of:",
+      "options": [
+        "Tissue forceps",
+        "Retractors",
+        "Hemostatic clamps",
+        "Dilators"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Hemostats clamp blood vessels; they differ by size and jaw serrations.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Clamps",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 26,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which of the following suture sizes has the smallest diameter?",
+      "options": [
+        "2-0",
+        "6-0",
+        "0",
+        "4-0"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The more zeros, the smaller the diameter. 6-0 is finer than 4-0 and 2-0.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Suture sizing",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 27,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which of the following suture materials is absorbable?",
+      "options": [
+        "Nylon",
+        "Polyglactin 910 (Vicryl)",
+        "Stainless steel wire",
+        "Polypropylene"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Polyglactin 910 is a synthetic absorbable suture. Nylon, steel and polypropylene are nonabsorbable.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Suture materials",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 28,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "A taper-point needle is typically used on:",
+      "options": [
+        "Skin",
+        "Tendon and fascia",
+        "Bone",
+        "Tissue that is easily penetrated such as intestine or peritoneum"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Taper needles pass through tissue without cutting it; cutting needles are used on tough tissue such as skin.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Surgical needles",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "The dispersive pad (return electrode) used with monopolar electrosurgery should be placed on:",
+      "options": [
+        "A bony prominence",
+        "Skin over a metal implant",
+        "An area with scar tissue",
+        "A large, well-vascularized muscular area close to the surgical site"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Good contact over a large, clean, dry muscle area prevents burns at the pad site.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Electrosurgery",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 30,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which suction tip has multiple holes and is commonly used in the abdominal cavity?",
+      "options": [
+        "Yankauer",
+        "Poole",
+        "Frazier",
+        "Ferguson"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The Poole suction tip has a sleeve with several openings to prevent tissue from clogging it; the Yankauer is used in open wounds and the oropharynx.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Suction",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 31,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which gas is most commonly used to insufflate the abdomen during laparoscopic surgery?",
+      "options": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrous oxide",
+        "Room air"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "CO2 is absorbed quickly and does not support combustion, making it the safest choice.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Laparoscopy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 32,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "A pneumatic tourniquet is used on an extremity to:",
+      "options": [
+        "Increase blood flow to the limb",
+        "Create a bloodless surgical field",
+        "Warm the extremity",
+        "Hold the extremity in position"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The cuff is inflated to temporarily stop arterial inflow; the time and pressure are documented.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Tourniquets",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 33,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which items are typically placed on the Mayo stand?",
+      "options": [
+        "All instruments and sutures for the case",
+        "The instruments the surgeon uses most frequently at that moment",
+        "Only the items that need to be counted",
+        "Only the drapes and towels"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The Mayo stand holds the immediately needed, frequently used instruments; the back table holds the rest.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterile setup",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 34,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Surgical sponges contain a radiopaque marker so that:",
+      "options": [
+        "They can be detected on X-ray if one is retained",
+        "They absorb more blood",
+        "They can be reused after washing",
+        "They resist tearing"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The marker allows a retained sponge to be located radiographically.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sponges and counts",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 35,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which drain is a closed-suction drain with a bulb reservoir?",
+      "options": [
+        "Penrose",
+        "Cigarette drain",
+        "Gauze wick",
+        "Jackson-Pratt"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "The Jackson-Pratt uses a compressed bulb to create gentle suction; the Penrose is a passive, open drain.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Drains",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 36,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which phase of wound healing involves granulation tissue and collagen formation?",
+      "options": [
+        "Proliferative phase",
+        "Inflammatory phase",
+        "Maturation phase",
+        "Hemostatic phase only"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "During the proliferative phase fibroblasts lay down collagen, new capillaries form and granulation tissue fills the wound.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Wound healing phases",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 37,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Healing by primary intention describes a wound that:",
+      "options": [
+        "Is left open and heals from the inside out",
+        "Is closed several days later after infection clears",
+        "Heals only by skin grafting",
+        "Has its edges approximated and heals with minimal scarring"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "A clean surgical incision closed with sutures, staples or adhesive heals by primary intention.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Wound healing types",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 38,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Bone wax is used to control bleeding from:",
+      "options": [
+        "Bone surfaces",
+        "Large arteries",
+        "Skin edges",
+        "Organ surfaces such as the liver"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Bone wax mechanically seals bleeding from cut bone (for example during sternotomy).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Hemostatic agents",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 39,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Evisceration is best defined as:",
+      "options": [
+        "Protrusion of abdominal organs through a wound opening",
+        "Partial separation of the skin edges only",
+        "Formation of a hematoma",
+        "Infection of the wound edges"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Dehiscence is separation of wound layers; evisceration is the protrusion of viscera and is a surgical emergency.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Wound complications",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 40,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "A ligature is:",
+      "options": [
+        "A tool used to cut tissue",
+        "A chemical hemostatic powder",
+        "A strand of suture material used to tie off a vessel",
+        "A type of retractor"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Ligatures (ties) occlude vessels to stop bleeding; free ties and suture ligatures are both used.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Hemostasis",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 41,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which is the innermost layer of the abdominal wall?",
+      "options": [
+        "Rectus abdominis muscle",
+        "Subcutaneous fat",
+        "External oblique aponeurosis",
+        "Parietal peritoneum"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "From outside in: skin, subcutaneous tissue, fascia and muscle, then parietal peritoneum.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Abdominal wall layers",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 42,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "An appendectomy incision is made at McBurney's point, located in the:",
+      "options": [
+        "Left lower quadrant",
+        "Right upper quadrant",
+        "Left upper quadrant",
+        "Right lower quadrant"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "McBurney's point lies about one-third of the way from the anterior superior iliac spine to the umbilicus on the right.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Surface anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 43,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "The gallbladder stores and concentrates:",
+      "options": [
+        "Insulin",
+        "Gastric acid",
+        "Bile",
+        "Pancreatic enzymes"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Bile is produced in the liver and stored in the gallbladder; the cystic duct joins the common hepatic duct to form the common bile duct.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Biliary system",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 44,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which heart valve lies between the left atrium and left ventricle?",
+      "options": [
+        "Tricuspid valve",
+        "Aortic valve",
+        "Mitral (bicuspid) valve",
+        "Pulmonic valve"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The mitral valve controls flow from the left atrium into the left ventricle.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Cardiac anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 45,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which lobe of the cerebrum is primarily responsible for vision?",
+      "options": [
+        "Frontal lobe",
+        "Temporal lobe",
+        "Occipital lobe",
+        "Parietal lobe"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The occipital lobe at the back of the brain processes visual information.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Neuroanatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 46,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What is the largest artery in the body?",
+      "options": [
+        "Femoral artery",
+        "Aorta",
+        "Carotid artery",
+        "Pulmonary artery"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The aorta carries oxygenated blood from the left ventricle to the systemic circulation.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Vascular anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 47,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "How many lobes does the right lung have?",
+      "options": [
+        "Two",
+        "Four",
+        "Five",
+        "Three"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "The right lung has three lobes (upper, middle, lower); the left has two because of the cardiac notch.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Respiratory anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 48,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which structure carries urine from the kidney to the bladder?",
+      "options": [
+        "Ureter",
+        "Urethra",
+        "Renal vein",
+        "Nephron"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The ureters transport urine from each kidney to the bladder; the urethra carries it out of the body.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Urinary system",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 49,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "The anterior cruciate ligament (ACL) is located in the:",
+      "options": [
+        "Knee",
+        "Shoulder",
+        "Hip",
+        "Ankle"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The ACL stabilizes the knee by preventing excessive forward movement of the tibia.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Musculoskeletal anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 50,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which gland, located on top of each kidney, secretes epinephrine?",
+      "options": [
+        "Pituitary gland",
+        "Thyroid gland",
+        "Parathyroid gland",
+        "Adrenal gland"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "The adrenal medulla releases epinephrine and norepinephrine in the fight-or-flight response.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Endocrine system",
+      "difficulty": "medium"
+    }
+  ]
+}

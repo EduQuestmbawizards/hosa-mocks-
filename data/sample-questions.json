@@ -1,0 +1,91 @@
+{
+  "test_slug": "st-mock-1",
+  "questions": [
+    {
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which agency is responsible for establishing nationwide educational standards for surgical technologists through the Core Curriculum?",
+      "options": [
+        "Association of Surgical Technologists (AST)",
+        "National Board of Surgical Technology and Surgical Assisting (NBSTSA)",
+        "American College of Surgeons (ACS)",
+        "Joint Commission (TJC)"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "AST develops and publishes the Core Curriculum for Surgical Technology setting the standard curriculum for programs.",
+      "source_ref": "AST, Ch. 1, pg 16",
+      "topic": "Curriculum Standards",
+      "difficulty": "medium"
+    },
+    {
+      "section": "Physical Environment and Safety Standards",
+      "stem": "When laser surgery is in progress in the operating room, what type of surgical mask must all personnel wear?",
+      "options": [
+        "Standard procedural paper mask",
+        "High-filtration laser plume mask with side shields",
+        "Double cloth mask",
+        "N95 particulate respirator only without eye protection"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Specialized high-filtration laser masks filter particulate matter down to 0.1 microns to guard against mutagenic laser plume.",
+      "source_ref": "AST, Ch. 4, pg 102",
+      "topic": "Laser Safety",
+      "difficulty": "easy"
+    },
+    {
+      "section": "Surgical Asepsis and Sterility",
+      "stem": "Which indicator is the only one that confirms sterilization was achieved?",
+      "options": [
+        "External tape",
+        "Internal chemical",
+        "Biological",
+        "Bowie-Dick"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Only biological indicators (spores) prove the process killed microorganisms.",
+      "source_ref": "AST, Ch. 7, pg 142",
+      "topic": "Sterilization monitoring",
+      "difficulty": "medium"
+    },
+    {
+      "section": "Instrumentation, Equipment, and Supplies",
+      "stem": "Which surgical instrument is a self-retaining retractor commonly used in thyroid and mastoid surgeries?",
+      "options": [
+        "Jansen retractor",
+        "Senn retractor",
+        "Army-Navy retractor",
+        "Green thyroid retractor"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Jansen retractor is a miniature self-retaining retractor with curved prongs ideal for delicate neck or mastoid exposure.",
+      "source_ref": "Nemitz, Ch. 5, pg 90",
+      "topic": "Specialized Retractors",
+      "difficulty": "hard"
+    },
+    {
+      "section": "Surgical Anatomy & Physiology",
+      "stem": "The cystic artery typically branches from which major vessel?",
+      "options": [
+        "Right hepatic artery",
+        "Left gastric artery",
+        "Splenic artery",
+        "Superior mesenteric artery"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "In normal anatomical distribution, the cystic artery originates from the right hepatic artery within Calot's triangle.",
+      "source_ref": "AST, Ch. 16, pg 413",
+      "topic": "Vascular Anatomy",
+      "difficulty": "medium"
+    }
+  ]
+}

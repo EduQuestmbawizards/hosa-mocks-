@@ -1,0 +1,105 @@
+import Link from "next/link";
+import { Activity, ShieldCheck, Mail, BookOpen, ExternalLink } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="site-footer bg-slate-900 text-slate-300 border-t border-slate-800 mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Info */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center gap-2 text-white font-bold text-lg mb-3">
+              <div className="w-7 h-7 rounded bg-sky-500 flex items-center justify-center text-white">
+                <Activity className="w-4 h-4" />
+              </div>
+              EduQuest HOSA Mock Portal
+            </div>
+            <p className="text-slate-400 text-sm max-w-sm mb-4 leading-relaxed">
+              High-fidelity exam preparation platform for HOSA 2026-27 competitive events.
+              Practise under strict real-test conditions with AST-referenced question sets and current health news recall.
+            </p>
+            <div className="text-xs text-slate-500">
+              Admin & Lead Instructor: <span className="text-slate-300">Rupali</span> (<a href="mailto:rupali.eduquest@gmail.com" className="hover:text-sky-400 underline">rupali.eduquest@gmail.com</a>)
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xs uppercase font-bold text-slate-200 tracking-wider mb-3">
+              HOSA Events
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li>
+                <Link href="/#tests" className="hover:text-white transition">
+                  Surgical Technologist (ST)
+                </Link>
+              </li>
+              <li>
+                <Link href="/#tests" className="hover:text-white transition">
+                  Healthcare Issues Exam (HCIE)
+                </Link>
+              </li>
+              <li>
+                <Link href="/#round-two" className="hover:text-white transition">
+                  ST Round Two Clinical Rubric
+                </Link>
+              </li>
+              <li>
+                <Link href="/#blueprint" className="hover:text-white transition">
+                  6-Category Blueprint (ST)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Official References */}
+          <div>
+            <h4 className="text-xs uppercase font-bold text-slate-200 tracking-wider mb-3">
+              HOSA 2026-27 Guidelines
+            </h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li>
+                <a
+                  href="https://hosa.org/wp-content/uploads/2026/08/ST-26-27-FINAL-1-1.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition inline-flex items-center gap-1.5"
+                >
+                  ST Guidelines PDF <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://hosa.org/wp-content/uploads/2026/08/HCIE-26-27.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition inline-flex items-center gap-1.5"
+                >
+                  HCIE Guidelines PDF <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <span className="text-xs text-slate-500">
+                  AST 5th Ed. & Nemitz references cited per question.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+          <div>
+            &copy; {new Date().getFullYear()} EduQuest. All rights reserved. Prepared for HOSA Future Health Professionals.
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-1 text-slate-400">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" /> RLS Database Secured
+            </span>
+            <span>Zero-cheating Answer Encryption</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+

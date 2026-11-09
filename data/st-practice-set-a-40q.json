@@ -1,0 +1,793 @@
+{
+  "test_slug": "st-practice-set-a",
+  "test_meta": {
+    "title": "ST - Practice Set A",
+    "event": "ST",
+    "kind": "practice",
+    "total_questions": 40,
+    "duration_min": 48,
+    "instant_feedback": true,
+    "is_free": true,
+    "category_counts": {
+      "Surgical Asepsis and Sterility": 8,
+      "Surgical Anatomy & Physiology": 8,
+      "Instrumentation, Equipment, and Supplies": 6,
+      "Profession of CST": 9,
+      "Physical Environment and Safety Standards": 7,
+      "Hemostasis, Wound Healing, and Wound Closure": 2
+    }
+  },
+  "questions": [
+    {
+      "sort_order": 1,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "According to the Association of Surgical Technologists, when should the process of cleaning instruments begin?",
+      "options": [
+        "Within 5 days of the surgical procedure",
+        "Within 24 hours of the surgical procedure",
+        "During the surgical procedure",
+        "Immediately following the surgical procedure"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Cleaning of contaminated instruments begins during the procedure. Instruments are wiped free of blood and tissue debris after use (moistened sponge kept away from the surgical site) so debris does not dry or crust on them.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Point-of-use instrument cleaning",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 2,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "According to the Federal Food, Drug, and Cosmetic Act, which of the following is the primary purpose and function of packaging material?",
+      "options": [
+        "To ensure proper transport of instruments to the operating room",
+        "To ensure all required instruments are packaged together",
+        "To allow easier handling of the instruments",
+        "To ensure sterility until the instrument is used"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Packaging material must enclose a device that requires sterilization and allow it to remain sterile until the moment it is used.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterile packaging",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 3,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to the small, bony projections between the transverse spinous processes and the vertebral bodies?",
+      "options": [
+        "Pedicles",
+        "Discs",
+        "Vertebrae",
+        "Carbuncles"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Pedicles are the short bony projections that help form the neural arch through which the spinal nerve roots pass. They are important positional markers for lumbar spine procedures.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Spine anatomy",
+      "difficulty": "medium",
+      "review_note": "Wording in the source question/explanation ('transverse spinous processes') is loose; pedicles join the vertebral body to the lamina/transverse process. Answer is correct."
+    },
+    {
+      "sort_order": 4,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What is the primary benefit of utilizing a harmonic scalpel in surgery?",
+      "options": [
+        "It can simultaneously cut and coagulate tissue.",
+        "It creates high temperatures that allow the surgeon to cut and cauterize at the same time.",
+        "The scalpel vibrates, allowing for a more precise incision.",
+        "It integrates laparoscopic video to visualize the incision more closely."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The harmonic scalpel is an ultrasonic instrument whose vibration cuts and coagulates tissue at the same time. It is used in open procedures such as thyroidectomy, hemorrhoidectomy and mastectomy. It does not rely on high heat and has no laparoscopic video element.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Ultrasonic energy devices",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 5,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which of the following is NOT a performance standard that must be met by packaging material?",
+      "options": [
+        "Packaging materials must keep the instrument sterile until time of use.",
+        "Packaging materials must be constructed so the instrument can be removed without risk of contamination.",
+        "Packaging materials must be water, steam, and heat resistant.",
+        "Packaging materials must allow the sterilizing agent to penetrate its fabric and reach all surface areas."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Packaging must keep the item sterile until used, allow aseptic removal, and allow the sterilizing agent to penetrate. It is not required to be water, steam and heat resistant.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterile packaging standards",
+      "difficulty": "medium",
+      "review_note": "Answer follows the source key. In practice wraps must tolerate the sterilization process, so this question is textbook-wording dependent - verify against AST text."
+    },
+    {
+      "sort_order": 6,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "How does an autoclave work to sterilize instruments?",
+      "options": [
+        "It exposes instruments to pressurized, high temperature steam.",
+        "It sterilizes the instruments using a high pressure bleach and water solution.",
+        "It uses ultrasound waves to clean debris and organisms from the instruments.",
+        "It contains multiple brushes that thoroughly scrub instruments."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "An autoclave uses saturated steam under high pressure (about 270 F). Pressurized steam reaches higher temperatures than hot water and destroys microbes and spores more effectively.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Steam sterilization",
+      "difficulty": "medium",
+      "review_note": "Exposure time varies by cycle type (gravity vs pre-vacuum) and load; the '20 minutes' in the original explanation is removed here."
+    },
+    {
+      "sort_order": 7,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which type of biopsy requires the entire lesion to be removed to test for clean tissue margins after removal?",
+      "options": [
+        "Fine needle aspiration",
+        "Incision biopsy",
+        "Excision biopsy",
+        "Sentinel node biopsy"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "An excision biopsy removes the entire lesion so the margins can be tested. An incision biopsy removes only a portion of the lesion or tissue for evaluation.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Biopsy types",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 8,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which abdominal muscle is cut with a vertical surgical incision?",
+      "options": [
+        "Abdominis rectus",
+        "Pectoralis",
+        "Obliques",
+        "Usually, no abdominal muscles are cut with a vertical surgical incision."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "A vertical (midline) incision usually does not sever abdominal muscle; muscle fibers are separated rather than cut, which helps healing. There is an increased risk of ventral incisional hernia afterward.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Abdominal incisions",
+      "difficulty": "medium",
+      "review_note": "Strictly, a midline incision passes through the linea alba between the rectus muscles. Answer is accepted."
+    },
+    {
+      "sort_order": 9,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which of the following two individuals are responsible for the surgical count?",
+      "options": [
+        "Surgical technologist and circulator",
+        "Surgical technologist and surgeon",
+        "Circulator and surgeon",
+        "Surgical technologist and anesthesiologist"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The surgical technologist and the circulator perform the count together and verbally. The technologist tells the circulator what is to be counted and verifies the circulator can see the items.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Surgical counts",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 10,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which of the following is accepted as the standard mode of sterilization for items that are not heat, moisture, or temperature sensitive?",
+      "options": [
+        "Steam sterilization",
+        "Ethylene oxide sterilization",
+        "Alcohol sterilization",
+        "Ultraviolet sterilization"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Steam under pressure is the standard, most dependable method for destroying all microbes and their spores when the item can tolerate heat and moisture.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterilization methods",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 11,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which of the following specimen types is sent without any preservatives?",
+      "options": [
+        "Biopsy specimen",
+        "Natural sample",
+        "Lumpectomy specimen",
+        "Fresh sample"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "A fresh specimen is sent to pathology without preservative (sometimes in saline at the surgeon's/pathologist's discretion), in a basin, sterile towel or container depending on the specimen.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Specimen handling",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 12,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "In which of the following anatomical locations would a dilator be LEAST likely to be used?",
+      "options": [
+        "Esophagus",
+        "Sinus cavity",
+        "Bile ducts",
+        "Cervix"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Dilators enlarge tubular structures such as vessels, the cervix, esophagus and bile ducts. The sinus cavity is surrounded by bone and does not respond to dilating instruments.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Dilators",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 13,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "What is the purpose of a vascular implant?",
+      "options": [
+        "To cauterize the diseased or obstructed portion of a blood vessel for it to then be removed",
+        "To apply direct thrombolytic therapy in order to break down a blood vessel obstruction",
+        "To reroute blood flow around a diseased or obstructed blood vessel",
+        "To temporarily block blood flow to a distal location during surgery in order to minimize bleeding"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Vascular implants (grafts, stents) reroute blood flow around a diseased or obstructed vessel. Many are pretreated with an antithrombotic agent to prevent clots.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Implants",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 14,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which of the following is the MOST critical responsibility of a surgical technologist?",
+      "options": [
+        "To ensure the proper procedure is performed",
+        "To ensure the surgical count is accurate and reconciled",
+        "To ensure the proper anesthetic is used",
+        "To ensure sterile technique in the operating room"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Upholding sterile technique protects the patient from unnecessary infection and is the surgical technologist's most important responsibility.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Surgical conscience",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 15,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "With an isolated system in the OR to prevent electrical shock, what are the AC power wires at the power outlets connected to?",
+      "options": [
+        "The ground",
+        "They are floating and not touching anything",
+        "The main circuit breaker",
+        "The electrical devices within the OR"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "In an isolated power system the AC wires at the outlets are floating (ungrounded). A line isolation monitor (LIM) reports how much connection exists between the power wires and earth ground, protecting people even on wet floors.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Electrical safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 16,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "A 64-year-old female has been told that her husband has terminal, metastatic cancer and his life expectancy is most likely less than 6 months. She is feeling very anxious, depressed, and moody since he received this diagnosis. These emotions are part of:",
+      "options": [
+        "Major depression",
+        "Bipolar II disorder",
+        "Anticipatory grief",
+        "Suicidal ideation"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Anticipatory grief is the period when a loved one's death is expected. Anxiety and sadness are common and can help the person adjust to coming changes.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Psychosocial care",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 17,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "During a mass casualty drill, the coordination of different resources and personnel comes from:",
+      "options": [
+        "The paramedic staff",
+        "The firefighters",
+        "The temporary morgue",
+        "The command center"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "A command center is established to coordinate personnel, identify unmet needs and prevent duplication of resources.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Disaster management",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 18,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "The anesthesiologist would use a thermoregulatory device on a patient when:",
+      "options": [
+        "They want to check the patient's temperature.",
+        "The preoperative assessment is being performed.",
+        "They develop an infection.",
+        "They show signs of hypothermia from the anesthesia."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Mild hypothermia is common under anesthesia and can affect drug metabolism, clotting and recovery. Warming devices (warm water blankets, forced-air warmers such as Bair Hugger) bring the patient to normal core temperature.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Patient warming",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 19,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to the procedure designed to check for air entrapment within the chamber of a sterilizer?",
+      "options": [
+        "Bowie-Dick test",
+        "Air puff test",
+        "Sterility validation test",
+        "Air pressure test"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The Bowie-Dick test is used with pre-vacuum sterilizers, typically daily before the first run, to check air removal and the integrity of the vacuum system. It does not validate sterility.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterilizer testing",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 20,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "The document used to record individual autoclave cycles is called a(n):",
+      "options": [
+        "Sterilizer log",
+        "OSHA safety sheet",
+        "Joint Commission sterilization documentation",
+        "Biological indicator"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A sterilizer log records the date, time, cycle length, temperature and pressure readings, indicator results and comments for each cycle.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Sterilization documentation",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 21,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What are the four tendons that make up the rotator cuff?",
+      "options": [
+        "Deltoid, bicep, trapezius, and oblique",
+        "Pectoral, quadriceps, hamstrings, and gluteus maximus",
+        "Supraspinatus, infraspinatus, teres minor, and subscapularis",
+        "Gluteus minimus, sartorius, teres major, and levator scapulae"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The rotator cuff tendons are supraspinatus, infraspinatus, teres minor and subscapularis (mnemonic S.I.T.S.). Tears are a common orthopedic injury.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Shoulder anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 22,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which of the following symptoms could be an early warning sign for the development of malignant hyperthermia?",
+      "options": [
+        "High fever",
+        "Decreased heart rate",
+        "Failure to remain sedated while under general anesthesia",
+        "Muscle rigidity"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Early signs include muscle rigidity and tachycardia; a high fever usually follows. Triggers include succinylcholine and volatile agents. Treatment: stop the trigger, halt surgery, give dantrolene (Dantrium) and cool the patient.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Malignant hyperthermia",
+      "difficulty": "medium",
+      "review_note": "Clinically, rising end-tidal CO2 and tachycardia are often the earliest signs. Answer follows source; keep as is for textbook consistency."
+    },
+    {
+      "sort_order": 23,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "While preparing the necessary equipment and supplies for a particular case, the surgeon tells the surgical technologist that he would like to have different sutures than the ones listed on his preference card available for this particular procedure. The most appropriate action to take is to:",
+      "options": [
+        "Open the sutures that are already available along with the additional ones to be ready for whichever ones the surgeon decides to use.",
+        "Return the sutures already available and replace them with the ones the surgeon has requested.",
+        "Clarify with the surgeon if he would like to have the preference card for this procedure updated to reflect these sutures instead of the ones listed.",
+        "Go ahead and update the preference card so only these new sutures are available each time."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Clarify whether the change is permanent or specific to this case. Opening extra supplies increases waste and cost.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Preference cards",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 24,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "All of the following would be considered a biologic hazard in the operating room EXCEPT:",
+      "options": [
+        "Hepatitis B",
+        "West Nile virus",
+        "HIV",
+        "Hepatitis C"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "HIV, hepatitis B and hepatitis C are bloodborne pathogens passed from person to person. West Nile virus is spread by mosquito bite, not person to person.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Bloodborne pathogens",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 25,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to the 1998 legislation that outlines the eight major aspects of healthcare to which all consumers are entitled?",
+      "options": [
+        "Patient Entitlement Act of 1998",
+        "Health Insurance Portability and Accountability Act",
+        "Patient Bill of Rights",
+        "Affordable Care Act"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The Patient Bill of Rights (1998) lists eight areas of healthcare consumers can expect. HIPAA was passed in 1996 and the Affordable Care Act in 2010. There is no 'Patient Entitlement Act of 1998'.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Patient rights",
+      "difficulty": "medium",
+      "review_note": "The 1998 document was a recommendation of the President's Advisory Commission, not a statute ('enacted' in the source explanation is loose). Answer is correct."
+    },
+    {
+      "sort_order": 26,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What can be done to help prevent the patient from slipping between the stretcher and the operating table during transfer?",
+      "options": [
+        "Place a slider board halfway under the patient over the gap between the two surfaces.",
+        "Recruit extra staff to help with lifting the patient from one surface to the other.",
+        "Have the patient assist in the transfer to prevent a fall.",
+        "Use a Hoyer lift to transfer the patient from one surface to the other."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A slider board (covered with a sheet to prevent friction injury) bridges the gap between the stretcher and the table, increasing patient safety.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Patient transfer",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 27,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to the flow of air from inside the operating room outward?",
+      "options": [
+        "Negative pressure",
+        "Direct pressure",
+        "Laminar air flow",
+        "Reverse air flow"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Laminar air flow is unidirectional, positive-pressure air flow that moves air from inside the OR outward and filters out microbes. It works best when OR doors stay closed.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "OR air handling",
+      "difficulty": "medium",
+      "review_note": "Technically the OR is kept at positive pressure; laminar flow is unidirectional filtered flow. 'Positive pressure' is not an option, so the keyed answer stands - consider rewording or adding 'Positive pressure' later."
+    },
+    {
+      "sort_order": 28,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which of the following is a tool to assess the level of oxygen saturation of the hemoglobin in the blood and arterial system?",
+      "options": [
+        "Sphygmomanometer",
+        "Pulse oximeter",
+        "Arterial blood gas",
+        "Electrocardiogram"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "A pulse oximeter is a noninvasive device that measures light absorbed by hemoglobin to estimate oxygen saturation. Common sites: fingertip, earlobe, bridge of the nose.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Monitoring equipment",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 29,
+      "section": "Instrumentation, Equipment, and Supplies",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to an intensely hot, precisely focused beam of light designed to alter or destroy target tissue?",
+      "options": [
+        "Laser",
+        "Thermal ablation",
+        "Cryosurgery",
+        "Phacoemulsification"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "LASER = light amplification by stimulated emission of radiation. Common surgical lasers: carbon dioxide, argon and neodymium (Nd:YAG).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Lasers",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 30,
+      "section": "Surgical Asepsis and Sterility",
+      "type": "mcq_single",
+      "stem": "When using an alcohol-based hand rub to perform a waterless surgical scrub, the first step after dispensing the solution into the hand is:",
+      "options": [
+        "Nothing because using an alcohol-based hand rub is not approved for use as a surgical scrub",
+        "To vigorously rub both hands together until the solution is absorbed and the hands are dry",
+        "To dip the fingertips of the opposite hand in the solution for 5 seconds to clean under the nails",
+        "To vigorously rub the solution over all surfaces of the forearms until it is absorbed"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "After dispensing into the palm, dip the fingertips of the opposite hand for 5 seconds to clean under the nails, then rub the forearm wrist to elbow until evaporated. Repeat on the other side, then rub both hands until dry.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Waterless surgical scrub",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 31,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "Which type of tonsils are removed in a tonsillectomy?",
+      "options": [
+        "Palatine",
+        "Tubal",
+        "Lingual",
+        "Pharyngeal"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The four tonsil types are palatine, pharyngeal (adenoids), tubal and lingual. The palatine tonsils in the oropharynx are the ones removed in a tonsillectomy.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "ENT anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 32,
+      "section": "Physical Environment and Safety Standards",
+      "type": "mcq_single",
+      "stem": "What are the 3 elements that must be present for a fire to occur in the operating room?",
+      "options": [
+        "Gasoline, spark, and oxygen",
+        "Iodine, alcohol, and nitrogen",
+        "Metal instruments, lasers, and carbon dioxide",
+        "Ignition source, fuel source, and oxidizer"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "The fire triangle: ignition source (laser, fiberoptic light source, electrosurgery), fuel (drapes, alcohol prep, patient) and oxidizer (oxygen, nitrous oxide, room air).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Fire safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 33,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "What structure should be avoided during a thyroidectomy to prevent damage to the vocal cords?",
+      "options": [
+        "The recurrent laryngeal nerve",
+        "The phrenic nerve",
+        "The superior tracheal artery",
+        "The inferior tracheal artery"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The recurrent laryngeal nerve innervates the vocal cords. Injury can cause vocal cord paralysis and loss of voice.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Thyroid surgery",
+      "difficulty": "medium",
+      "review_note": "Original explanation quoted a '14%' complication rate; that figure is unreliable (permanent injury is usually reported at ~1-2%) so it is removed. Answer is correct."
+    },
+    {
+      "sort_order": 34,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "Which of the following refers to the commission or omission of an act that results in a negative outcome?",
+      "options": [
+        "Negligence",
+        "Libel",
+        "Battery",
+        "Malpractice"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Negligence is the commission or omission of an act upon the patient that results in a negative outcome (e.g., wrong-site surgery, retained instruments).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Legal terms",
+      "difficulty": "medium",
+      "review_note": "Malpractice (professional negligence) is a close distractor; keyed answer is negligence per the source."
+    },
+    {
+      "sort_order": 35,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "The labrum is a type of:",
+      "options": [
+        "Bone",
+        "Cartilage",
+        "Blood cell",
+        "Organ in the gastrointestinal system"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The labrum is a cartilaginous rim around the glenoid that deepens the shoulder joint and adds stability. Labral tears are a common orthopedic repair.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Shoulder anatomy",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 36,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "When estimating blood loss based on a visual assessment of saturated gauze, how much blood is estimated to be lost with each saturated piece of 4x4 gauze?",
+      "options": [
+        "12 mL",
+        "20 mL",
+        "25 mL",
+        "32 mL"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A completely saturated 4x4 gauze is estimated to hold 12 mL of blood (50% saturated = 6 mL, 25% = 3 mL).",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Estimated blood loss",
+      "difficulty": "medium",
+      "review_note": "Other references use 10 mL for a saturated 4x4. Use the value from the AST text; answer keyed 12 mL."
+    },
+    {
+      "sort_order": 37,
+      "section": "Hemostasis, Wound Healing, and Wound Closure",
+      "type": "mcq_single",
+      "stem": "Which of the following surgical wounds carries a 10-15% infection rate?",
+      "options": [
+        "Class I surgical wound",
+        "Class II surgical wound",
+        "Class III surgical wound",
+        "Class IV surgical wound"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "A Class III (contaminated) wound carries roughly a 10-15% infection risk and is associated with a major break in sterile technique or acute inflammation.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Wound classification",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 38,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "What is the surgical technologist's role in preventing sentinel events?",
+      "options": [
+        "Remind the circulating nurse to keep track of the number of sponges used during surgery.",
+        "Initiate a time-out before surgery begins to confirm this is the right patient, right procedure, and right site.",
+        "Expect the surgeon to make sure no instruments or needles remain in the operative site.",
+        "Ask the anesthesiologist how much local anesthetic was used for a particular surgery."
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "A sentinel event causes death or serious patient injury (wrong procedure, wrong site, retained foreign object). The technologist helps prevent these by initiating the time-out and performing diligent counts.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Patient safety",
+      "difficulty": "medium"
+    },
+    {
+      "sort_order": 39,
+      "section": "Surgical Anatomy & Physiology",
+      "type": "mcq_single",
+      "stem": "The purpose of the patient using a post-op back brace following a lumbar laminectomy is to:",
+      "options": [
+        "Decrease muscle pain and spasm.",
+        "Support the back when they are doing heavy lifting exercises.",
+        "Immobilize the spine and maintain proper alignment.",
+        "Post-op back braces are not routinely used following a lumbar laminectomy."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "A post-op brace maintains alignment while immobilizing the surgical area. Pain relief is not its primary purpose and heavy lifting is not allowed after spine surgery.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Post-op spine care",
+      "difficulty": "medium",
+      "review_note": "Many surgeons do NOT routinely brace after a simple laminectomy; the keyed answer matches the source text only. Medium-risk item - verify against AST text or replace."
+    },
+    {
+      "sort_order": 40,
+      "section": "Profession of CST",
+      "type": "mcq_single",
+      "stem": "The surgical technologist can use computer technology for all of the following EXCEPT:",
+      "options": [
+        "Communicating with the patient following surgery to evaluate how they are recovering",
+        "Setting up a database of preference cards for different surgeons",
+        "Communicating updates and memos to coworkers in the surgery department",
+        "Completed continuing education activities"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Post-surgical follow-up with the patient is normally done by nursing or the surgeon's office. Preference-card databases, memos and online continuing education are all computer-based tasks.",
+      "source_ref": "AST textbook (verify chapter/page before launch)",
+      "topic": "Computer technology",
+      "difficulty": "medium"
+    }
+  ]
+}
