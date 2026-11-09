@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import {
   Activity,
   AlertCircle,
@@ -18,6 +19,8 @@ import {
 } from "lucide-react";
 import StartExamButton from "@/components/exam/StartExamButton";
 
+export const dynamic = "force-dynamic";
+
 export default async function TestInstructionsPage({
   params,
 }: {
@@ -34,12 +37,23 @@ export default async function TestInstructionsPage({
     redirect(`/login?redirect=/tests/${id}`);
   }
 
-  // Fetch test by slug or id
-  const { data: test } = await supabase
-    .from("tests")
-    .select("*, sections(*)")
-    .or(`slug.eq.${id},id.eq.${id}`)
-    .maybeSingle();
+  // Fetch test by slug or id safely without Postgres UUID syntax error
+  const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
+  const testQuery = supabase.from("tests").select("*, sections(*)");
+  let { data: test } = isUuid
+    ? await testQuery.eq("id", id).maybeSingle()
+    : await testQuery.eq("slug", id).maybeSingle();
+
+  // If user client returned null (e.g. test locked under RLS or pending approval),
+  // fetch published test metadata using admin client so candidate can view syllabus and instructions
+  if (!test) {
+    const admin = createAdminClient();
+    const adminQuery = admin.from("tests").select("*, sections(*)");
+    const { data: fallbackTest } = isUuid
+      ? await adminQuery.eq("id", id).maybeSingle()
+      : await adminQuery.eq("slug", id).maybeSingle();
+    test = fallbackTest;
+  }
 
   if (!test) {
     notFound();
