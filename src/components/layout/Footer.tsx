@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <div>
+          <div suppressHydrationWarning>
             &copy; {new Date().getFullYear()} MBA Wizards. All rights reserved. Aspire. Advance. Achieve.
           </div>
           <div className="flex items-center gap-4">

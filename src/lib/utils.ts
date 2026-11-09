@@ -19,12 +19,17 @@ export function formatTimeLeft(seconds: number): string {
 
 export function formatDate(isoString: string): string {
   if (!isoString) return "-";
-  return new Date(isoString).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  try {
+    const d = new Date(isoString);
+    if (isNaN(d.getTime())) return "-";
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+  } catch {
+    return "-";
+  }
 }
 
