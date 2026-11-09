@@ -61,9 +61,8 @@ export default function AdminDashboardClient({
   initialEmailLogs,
   currentAdminId,
 }: AdminDashboardClientProps) {
-  const [activeTab, setActiveTab] = useState<
-    "overview" | "requests" | "users" | "matrix" | "reports" | "tests" | "emails" | "skills"
-  >("overview");
+  // Only 2 Tabs: "access" (Access Grant & Approvals) and "reports" (Student Reports)
+  const [activeTab, setActiveTab] = useState<"access" | "reports">("access");
 
   // State data
   const [users, setUsers] = useState(initialUsers);
@@ -71,13 +70,16 @@ export default function AdminDashboardClient({
   const [tests, setTests] = useState(initialTests);
   const [accessRows, setAccessRows] = useState(initialAccessRows);
   const [attempts, setAttempts] = useState(initialAttempts);
-  const [emailLogs, setEmailLogs] = useState(initialEmailLogs);
 
-  // Filters & Search
+  // Filters & Search for Access Tab
   const [userSearch, setUserSearch] = useState("");
   const [userStatusFilter, setUserStatusFilter] = useState("all");
   const [processingId, setProcessingId] = useState<string | null>(null);
   const [actionMessage, setActionMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  // Filters & Search for Reports Tab
+  const [reportSearch, setReportSearch] = useState("");
+  const [reportEventFilter, setReportEventFilter] = useState("all");
 
   // JSON Question Import Modal
   const [importModalOpen, setImportModalOpen] = useState(false);
@@ -86,24 +88,54 @@ export default function AdminDashboardClient({
   const [importLoading, setImportLoading] = useState(false);
   const [dryRunResult, setDryRunResult] = useState<any>(null);
 
-  // ST Round Two Clinical Skills Evaluator State
-  const [selectedStudentForSkill, setSelectedStudentForSkill] = useState<string>(
-    users[0]?.id || ""
-  );
-  const [skillScores, setSkillScores] = useState<Record<string, number>>({
-    skill_2: 46, // Scrub (46 pts, 70% = 32.2)
-    skill_3: 27, // Open Gloving (27 pts, 70% = 18.9)
-    skill_4: 36, // Gowning & Gloving (36 pts, 70% = 25.2)
-    skill_5: 26, // Passing Instruments (26 pts, 70% = 18.2)
-    skill_6: 14, // Loading & Passing Sutures (14 pts, 70% = 9.8)
+  // Filtered Students (exclude admin from list)
+  const studentsList = users.filter((u) => u.role !== "admin");
+  const filteredStudents = studentsList.filter((u) => {
+    const term = userSearch.toLowerCase();
+    const matchesSearch =
+      (u.full_name || "").toLowerCase().includes(term) ||
+      (u.email || "").toLowerCase().includes(term) ||
+      (u.phone || "").toLowerCase().includes(term) ||
+      (u.city || "").toLowerCase().includes(term);
+
+    const matchesStatus =
+      userStatusFilter === "all" ? true : u.status === userStatusFilter;
+
+    return matchesSearch && matchesStatus;
   });
 
-  // Calculate high-level metrics
-  const pendingRequests = requests.filter((r) => r.status === "pending");
-  const approvedStudents = users.filter((u) => u.status === "approved");
-  const totalAttemptsCount = attempts.length;
+  const totalStudents = studentsList.length;
+  const approvedCount = studentsList.filter((u) => u.status === "approved").length;
+  const pendingCount = studentsList.filter((u) => u.status === "pending").length;
+  const revokedCount = studentsList.filter((u) => u.status === "rejected").length;
 
-  // 1. Handle Accept / Reject Access Request
+  // Filtered Reports
+  const filteredAttempts = attempts.filter((a) => {
+    const term = reportSearch.toLowerCase();
+    const studentName = a.profile?.full_name || "";
+    const studentEmail = a.profile?.email || "";
+    const testTitle = a.test?.title || "";
+
+    const matchesSearch =
+      studentName.toLowerCase().includes(term) ||
+      studentEmail.toLowerCase().includes(term) ||
+      testTitle.toLowerCase().includes(term);
+
+    const matchesEvent =
+      reportEventFilter === "all" ? true : a.test?.event === reportEventFilter;
+
+    return matchesSearch && matchesEvent;
+  });
+
+  const passedAttemptsCount = attempts.filter((a) => Number(a.percent || 0) >= 70).length;
+  const avgScorePercent =
+    attempts.length > 0
+      ? Math.round(
+          attempts.reduce((acc, curr) => acc + Number(curr.percent || 0), 0) / attempts.length
+        )
+      : 0;
+
+  // 1. Handle Approve / Revoke Student Access
   const handleDecideRequest = async (userId: string, decision: "approved" | "rejected", note?: string) => {
     setProcessingId(userId);
     setActionMessage(null);
@@ -132,7 +164,7 @@ export default function AdminDashboardClient({
 
       setActionMessage({
         type: "success",
-        text: `Student ${decision === "approved" ? "accepted" : "rejected"}. Notification email dispatched!`,
+        text: `Student access ${decision === "approved" ? "APPROVED" : "REVOKED"} successfully! Notification email dispatched.`,
       });
     } catch (e: any) {
       setActionMessage({ type: "error", text: "Network error processing decision." });
@@ -141,27 +173,29 @@ export default function AdminDashboardClient({
     }
   };
 
-  // 2. Handle Per-Test Access Override Toggle
-  const handleToggleTestAccess = async (userId: string, testId: string, currentGranted: boolean) => {
-    try {
-      const res = await fetch("/api/admin/toggle-test-access", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, testId, granted: !currentGranted }),
-      });
+  // 2. Export Users to CSV
+  const exportUsersCSV = () => {
+    const headers = ["ID", "Full Name", "Email", "Phone", "City", "Events", "Role", "Status", "Joined"];
+    const rows = studentsList.map((u) => [
+      u.id,
+      `"${u.full_name || ""}"`,
+      `"${u.email || ""}"`,
+      `"${u.phone || ""}"`,
+      `"${u.city || ""}"`,
+      `"${(u.events || []).join(";")}"`,
+      u.role,
+      u.status,
+      u.created_at,
+    ]);
 
-      if (res.ok) {
-        if (!currentGranted) {
-          setAccessRows((prev) => [...prev, { user_id: userId, test_id: testId }]);
-        } else {
-          setAccessRows((prev) =>
-            prev.filter((r) => !(r.user_id === userId && r.test_id === testId))
-          );
-        }
-      }
-    } catch (e) {
-      console.error("Failed to toggle access:", e);
-    }
+    const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `mbawizards_students_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   // 3. Handle JSON Questions Import (with Dry-Run Support)
@@ -211,53 +245,6 @@ export default function AdminDashboardClient({
     }
   };
 
-  // 4. Export Users to CSV
-  const exportUsersCSV = () => {
-    const headers = ["ID", "Full Name", "Email", "Phone", "City", "Events", "Role", "Status", "Joined"];
-    const rows = users.map((u) => [
-      u.id,
-      `"${u.full_name || ""}"`,
-      `"${u.email || ""}"`,
-      `"${u.phone || ""}"`,
-      `"${u.city || ""}"`,
-      `"${(u.events || []).join(";")}"`,
-      u.role,
-      u.status,
-      u.created_at,
-    ]);
-
-    const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `mbawizards_users_${new Date().toISOString().slice(0, 10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  // Filtered Users
-  const filteredUsers = users.filter((u) => {
-    const matchesSearch =
-      (u.full_name || "").toLowerCase().includes(userSearch.toLowerCase()) ||
-      (u.email || "").toLowerCase().includes(userSearch.toLowerCase()) ||
-      (u.city || "").toLowerCase().includes(userSearch.toLowerCase());
-
-    const matchesStatus =
-      userStatusFilter === "all" ? true : u.status === userStatusFilter;
-
-    return matchesSearch && matchesStatus;
-  });
-
-  // Calculate ST Round Two Mastery on Skills II-VI (combined 149 pts, 70% = 104.3)
-  const totalSkills2To6 =
-    (skillScores.skill_2 || 0) +
-    (skillScores.skill_3 || 0) +
-    (skillScores.skill_4 || 0) +
-    (skillScores.skill_5 || 0) +
-    (skillScores.skill_6 || 0);
-  const masteryAchieved = totalSkills2To6 >= 104.3;
-
   return (
     <div className="space-y-6 pb-16">
       {/* -------------------------------------------------------------------------
@@ -292,7 +279,7 @@ export default function AdminDashboardClient({
           </Link>
           <button
             onClick={() => setImportModalOpen(true)}
-            className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition flex items-center gap-1.5"
+            className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm transition flex items-center gap-1.5 cursor-pointer"
           >
             <Upload className="w-3.5 h-3.5" />
             <span>Import Questions JSON</span>
@@ -316,825 +303,383 @@ export default function AdminDashboardClient({
             )}
             <span>{actionMessage.text}</span>
           </div>
-          <button onClick={() => setActionMessage(null)} className="text-slate-400 hover:text-slate-600">
+          <button onClick={() => setActionMessage(null)} className="text-slate-400 hover:text-slate-600 cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
       )}
 
       {/* -------------------------------------------------------------------------
-          NAVIGATION TABS
+          NAVIGATION TABS (EXACTLY 2 TABS: ACCESS GRANT & REPORTS)
           ------------------------------------------------------------------------- */}
-      <div className="flex overflow-x-auto gap-1 border-b border-slate-200 pb-px text-xs font-bold scrollbar-none">
+      <div className="flex border-b border-slate-200 gap-2 pb-px text-xs font-bold">
+        {/* TAB 1: ACCESS GRANT */}
         <button
-          onClick={() => setActiveTab("overview")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "overview"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
+          onClick={() => setActiveTab("access")}
+          className={`px-5 py-3 rounded-t-xl transition whitespace-nowrap flex items-center gap-2 text-sm cursor-pointer ${
+            activeTab === "access"
+              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs font-bold"
               : "text-slate-500 hover:text-slate-800"
           }`}
         >
-          <Activity className="w-3.5 h-3.5" /> Overview
-        </button>
-
-        <button
-          onClick={() => setActiveTab("requests")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 relative ${
-            activeTab === "requests"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <UserCheck className="w-3.5 h-3.5" /> Access Requests
-          {pendingRequests.length > 0 && (
-            <span className="ml-1 px-1.5 py-0.2 rounded-full bg-amber-500 text-white text-[10px]">
-              {pendingRequests.length}
+          <UserCheck className="w-4 h-4" />
+          <span>Access Grant & Approvals</span>
+          {pendingCount > 0 && (
+            <span className="px-2 py-0.5 rounded-full bg-amber-500 text-white text-[10px] font-black animate-pulse">
+              {pendingCount} Pending
             </span>
           )}
         </button>
 
-        <button
-          onClick={() => setActiveTab("users")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "users"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <Users className="w-3.5 h-3.5" /> Users ({users.length})
-        </button>
-
-        <button
-          onClick={() => setActiveTab("matrix")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "matrix"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <ToggleRight className="w-3.5 h-3.5" /> Test Access Matrix
-        </button>
-
+        {/* TAB 2: REPORTS */}
         <button
           onClick={() => setActiveTab("reports")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
+          className={`px-5 py-3 rounded-t-xl transition whitespace-nowrap flex items-center gap-2 text-sm cursor-pointer ${
             activeTab === "reports"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
+              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs font-bold"
               : "text-slate-500 hover:text-slate-800"
           }`}
         >
-          <FileText className="w-3.5 h-3.5" /> Student Reports ({attempts.length})
-        </button>
-
-        <button
-          onClick={() => setActiveTab("tests")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "tests"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <BookOpen className="w-3.5 h-3.5" /> Tests & Questions
-        </button>
-
-        <button
-          onClick={() => setActiveTab("skills")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "skills"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <Award className="w-3.5 h-3.5" /> ST Round Two Grader
-        </button>
-
-        <button
-          onClick={() => setActiveTab("emails")}
-          className={`px-4 py-2.5 rounded-t-lg transition whitespace-nowrap flex items-center gap-1.5 ${
-            activeTab === "emails"
-              ? "bg-white text-indigo-700 border-t-2 border-indigo-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-800"
-          }`}
-        >
-          <Mail className="w-3.5 h-3.5" /> Email Log
+          <FileText className="w-4 h-4" />
+          <span>Student Reports</span>
+          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold">
+            {attempts.length}
+          </span>
         </button>
       </div>
 
-      {/* -------------------------------------------------------------------------
-          TAB 1: OVERVIEW METRICS
-          ------------------------------------------------------------------------- */}
-      {activeTab === "overview" && (
+      {/* =========================================================================
+          TAB 1: ACCESS GRANT & APPROVALS (APPROVE & REVOKE ACTIONS)
+          ========================================================================= */}
+      {activeTab === "access" && (
         <div className="space-y-6">
+          {/* Summary Metric Cards */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-              <span className="text-[11px] font-bold uppercase text-slate-400">Total Registered Users</span>
-              <div className="text-3xl font-black text-slate-900">{users.length}</div>
-              <div className="text-[11px] text-slate-500">Students & Instructors</div>
+              <span className="text-[11px] font-bold uppercase text-slate-400">Total Students</span>
+              <div className="text-3xl font-black text-slate-900">{totalStudents}</div>
+              <div className="text-[11px] text-slate-500">Registered candidates</div>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-              <span className="text-[11px] font-bold uppercase text-amber-600">Pending Review</span>
-              <div className="text-3xl font-black text-amber-600">{pendingRequests.length}</div>
-              <div className="text-[11px] text-amber-700 font-semibold">
-                {pendingRequests.length > 0 ? "Awaiting your decision" : "Inbox cleared"}
-              </div>
-            </div>
-
-            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-              <span className="text-[11px] font-bold uppercase text-emerald-600">Approved Students</span>
-              <div className="text-3xl font-black text-emerald-700">{approvedStudents.length}</div>
+              <span className="text-[11px] font-bold uppercase text-emerald-600">Approved Access</span>
+              <div className="text-3xl font-black text-emerald-700">{approvedCount}</div>
               <div className="text-[11px] text-emerald-600 font-medium">All mocks unlocked</div>
             </div>
 
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
-              <span className="text-[11px] font-bold uppercase text-slate-400">Attempts Completed</span>
-              <div className="text-3xl font-black text-indigo-600">{totalAttemptsCount}</div>
-              <div className="text-[11px] text-slate-500">Graded submissions</div>
+              <span className="text-[11px] font-bold uppercase text-amber-600">Pending Review</span>
+              <div className="text-3xl font-black text-amber-600">{pendingCount}</div>
+              <div className="text-[11px] text-amber-700 font-semibold">
+                {pendingCount > 0 ? "Awaiting your decision" : "No pending queue"}
+              </div>
+            </div>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
+              <span className="text-[11px] font-bold uppercase text-rose-600">Revoked / Declined</span>
+              <div className="text-3xl font-black text-rose-600">{revokedCount}</div>
+              <div className="text-[11px] text-rose-700">Access revoked</div>
             </div>
           </div>
 
-          {/* Pending Requests Alert Box */}
-          {pendingRequests.length > 0 && (
-            <div className="bg-amber-50 rounded-xl border border-amber-200 p-5 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm font-bold text-amber-950">
-                  <Clock className="w-4 h-4 text-amber-600 animate-spin" />
-                  <span>Action Needed: {pendingRequests.length} Pending Access Requests</span>
-                </div>
-                <button
-                  onClick={() => setActiveTab("requests")}
-                  className="text-xs font-bold text-amber-800 hover:text-amber-950 underline"
-                >
-                  Review All Requests &rarr;
-                </button>
+          {/* Student Access Management Card */}
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <div>
+                <h2 className="text-base font-bold text-slate-900">Candidate Access Grant & Control</h2>
+                <p className="text-xs text-slate-500">
+                  Approve or revoke candidate permissions to access full 50-MCQ mocks and practice tests.
+                </p>
               </div>
-              <p className="text-xs text-amber-800">
-                New students have registered and are currently taking the Free Mock while awaiting full unlock.
-              </p>
-            </div>
-          )}
-
-          {/* Recent Mock Submissions Table */}
-          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-3 p-5">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold text-slate-900">Recent Student Submissions</h3>
               <button
-                onClick={() => setActiveTab("reports")}
-                className="text-xs font-semibold text-indigo-600 hover:underline"
+                onClick={exportUsersCSV}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-xs font-semibold text-slate-700 transition cursor-pointer"
               >
-                View all reports
+                <Download className="w-3.5 h-3.5" />
+                <span>Export Students CSV</span>
               </button>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr className="bg-slate-50 text-slate-500 font-bold uppercase border-b border-slate-100">
-                    <th className="py-2.5 px-3">Student</th>
-                    <th className="py-2.5 px-3">Test</th>
-                    <th className="py-2.5 px-3">Score</th>
-                    <th className="py-2.5 px-3">Percentage</th>
-                    <th className="py-2.5 px-3">Date</th>
-                    <th className="py-2.5 px-3 text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-slate-700">
-                  {attempts.slice(0, 5).map((a: any) => (
-                    <tr key={a.id} className="hover:bg-slate-50/50">
-                      <td className="py-2.5 px-3 font-semibold text-slate-900">
-                        {a.profile?.full_name || "Student"}
-                      </td>
-                      <td className="py-2.5 px-3">{a.test?.title || "Mock Exam"}</td>
-                      <td className="py-2.5 px-3 font-bold">{a.score} / {a.max_score}</td>
-                      <td className="py-2.5 px-3">
-                        <span
-                          className={`px-2 py-0.5 rounded font-black ${
-                            Number(a.percent || 0) >= 70
-                              ? "bg-emerald-100 text-emerald-800"
-                              : "bg-rose-100 text-rose-800"
-                          }`}
-                        >
-                          {a.percent}%
-                        </span>
-                      </td>
-                      <td className="py-2.5 px-3 text-slate-400">{formatDate(a.started_at)}</td>
-                      <td className="py-2.5 px-3 text-right">
-                        <Link
-                          href={`/reports/${a.id}`}
-                          className="font-bold text-indigo-600 hover:underline"
-                        >
-                          Inspect & Print
-                        </Link>
-                      </td>
+            {/* Search & Filter Bar */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs">
+              <div className="relative flex-1 w-full">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                <input
+                  type="text"
+                  placeholder="Search by candidate name, email, phone, or city..."
+                  value={userSearch}
+                  onChange={(e) => setUserSearch(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                />
+              </div>
+              <select
+                value={userStatusFilter}
+                onChange={(e) => setUserStatusFilter(e.target.value)}
+                className="w-full sm:w-44 py-2 px-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium cursor-pointer"
+              >
+                <option value="all">All Statuses ({totalStudents})</option>
+                <option value="approved">Approved Only ({approvedCount})</option>
+                <option value="pending">Pending Only ({pendingCount})</option>
+                <option value="rejected">Revoked Only ({revokedCount})</option>
+              </select>
+            </div>
+
+            {/* Students Table with Approve & Revoke Buttons */}
+            {filteredStudents.length === 0 ? (
+              <div className="py-12 text-center space-y-2">
+                <Users className="w-10 h-10 text-slate-300 mx-auto" />
+                <p className="text-sm font-semibold text-slate-600">No students found matching your search.</p>
+                <p className="text-xs text-slate-400">Try adjusting your filter or search query.</p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
+                      <th className="py-3 px-3">Student Name</th>
+                      <th className="py-3 px-3">Email Address</th>
+                      <th className="py-3 px-3">Phone</th>
+                      <th className="py-3 px-3">City</th>
+                      <th className="py-3 px-3">Events</th>
+                      <th className="py-3 px-3">Registered</th>
+                      <th className="py-3 px-3">Access Status</th>
+                      <th className="py-3 px-3 text-right">Approve / Revoke Actions</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      )}
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
+                    {filteredStudents.map((u) => {
+                      const isProcessing = processingId === u.id;
+                      const isApproved = u.status === "approved";
+                      const isRevoked = u.status === "rejected";
+                      const isPending = u.status === "pending";
 
-      {/* -------------------------------------------------------------------------
-          TAB 2: ACCESS REQUESTS (ACCEPT / REJECT WORKFLOW)
-          ------------------------------------------------------------------------- */}
-      {activeTab === "requests" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <h2 className="text-base font-bold text-slate-900">Pending Student Access Requests</h2>
-              <p className="text-xs text-slate-500">
-                Accepting unlocks all published tests and triggers an acceptance email from your address.
-              </p>
-            </div>
-            <span className="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded-full">
-              {pendingRequests.length} Pending
-            </span>
-          </div>
-
-          {pendingRequests.length === 0 ? (
-            <div className="p-8 text-center space-y-2">
-              <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto" />
-              <h3 className="text-sm font-bold text-slate-800">All caught up!</h3>
-              <p className="text-xs text-slate-500">No pending access requests require your decision.</p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
-                <thead>
-                  <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                    <th className="py-3 px-3">Student Name</th>
-                    <th className="py-3 px-3">Email Address</th>
-                    <th className="py-3 px-3">Phone</th>
-                    <th className="py-3 px-3">City</th>
-                    <th className="py-3 px-3">Enrolled Events</th>
-                    <th className="py-3 px-3">Registered At</th>
-                    <th className="py-3 px-3 text-right">Decision Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-slate-700">
-                  {pendingRequests.map((req) => {
-                    const prof = req.profile || {};
-                    const isProcessing = processingId === req.user_id;
-
-                    return (
-                      <tr key={req.id} className="hover:bg-slate-50/60 transition">
-                        <td className="py-3 px-3 font-bold text-slate-900">
-                          {prof.full_name || "Applicant"}
-                        </td>
-                        <td className="py-3 px-3">{prof.email}</td>
-                        <td className="py-3 px-3">{prof.phone || "Not given"}</td>
-                        <td className="py-3 px-3">{prof.city || "Not given"}</td>
-                        <td className="py-3 px-3">
-                          <span className="px-2 py-0.5 rounded font-bold bg-sky-100 text-sky-800 text-[10px]">
-                            {(prof.events || ["ST"]).join(", ")}
-                          </span>
-                        </td>
-                        <td className="py-3 px-3 text-slate-400">{formatDate(req.created_at)}</td>
-                        <td className="py-3 px-3 text-right space-x-2">
-                          <button
-                            onClick={() => handleDecideRequest(req.user_id, "approved")}
-                            disabled={isProcessing}
-                            className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-xs transition disabled:opacity-50"
-                          >
-                            Accept & Unlock
-                          </button>
-                          <button
-                            onClick={() => {
-                              const note = prompt("Optional reason for declining:");
-                              handleDecideRequest(req.user_id, "rejected", note || undefined);
-                            }}
-                            disabled={isProcessing}
-                            className="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-semibold text-xs border border-rose-200 transition disabled:opacity-50"
-                          >
-                            Reject
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* -------------------------------------------------------------------------
-          TAB 3: USERS LIST & CSV EXPORT
-          ------------------------------------------------------------------------- */}
-      {activeTab === "users" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
-            <div>
-              <h2 className="text-base font-bold text-slate-900">All Registered Students & Users</h2>
-              <p className="text-xs text-slate-500">Search and filter across candidates.</p>
-            </div>
-            <button
-              onClick={exportUsersCSV}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 text-xs font-semibold text-slate-700 transition"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Export CSV</span>
-            </button>
-          </div>
-
-          {/* Search & Filter Bar */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 text-xs">
-            <div className="relative flex-1 w-full">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
-              <input
-                type="text"
-                placeholder="Search by name, email, or city..."
-                value={userSearch}
-                onChange={(e) => setUserSearch(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-              />
-            </div>
-            <select
-              value={userStatusFilter}
-              onChange={(e) => setUserStatusFilter(e.target.value)}
-              className="w-full sm:w-44 py-2 px-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium"
-            >
-              <option value="all">All Statuses</option>
-              <option value="approved">Approved Only</option>
-              <option value="pending">Pending Only</option>
-              <option value="rejected">Rejected Only</option>
-            </select>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                  <th className="py-2.5 px-3">Name</th>
-                  <th className="py-2.5 px-3">Email</th>
-                  <th className="py-2.5 px-3">Phone</th>
-                  <th className="py-2.5 px-3">City</th>
-                  <th className="py-2.5 px-3">Events</th>
-                  <th className="py-2.5 px-3">Role</th>
-                  <th className="py-2.5 px-3">Status</th>
-                  <th className="py-2.5 px-3">Created</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {filteredUsers.map((u) => (
-                  <tr key={u.id} className="hover:bg-slate-50/50">
-                    <td className="py-2.5 px-3 font-bold text-slate-900">{u.full_name}</td>
-                    <td className="py-2.5 px-3">{u.email}</td>
-                    <td className="py-2.5 px-3">{u.phone || "-"}</td>
-                    <td className="py-2.5 px-3">{u.city || "-"}</td>
-                    <td className="py-2.5 px-3">
-                      <span className="font-semibold text-indigo-700">
-                        {(u.events || []).join(", ") || "ST"}
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-3">
-                      <span className="uppercase text-[10px] font-bold text-slate-500">{u.role}</span>
-                    </td>
-                    <td className="py-2.5 px-3">
-                      <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
-                          u.status === "approved"
-                            ? "bg-emerald-100 text-emerald-800"
-                            : u.status === "pending"
-                            ? "bg-amber-100 text-amber-800"
-                            : "bg-rose-100 text-rose-800"
-                        }`}
-                      >
-                        {u.status}
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-3 text-slate-400">{formatDate(u.created_at)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* -------------------------------------------------------------------------
-          TAB 4: TEST ACCESS MATRIX
-          ------------------------------------------------------------------------- */}
-      {activeTab === "matrix" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="border-b border-slate-100 pb-3">
-            <h2 className="text-base font-bold text-slate-900">Per-Test Access Override Matrix</h2>
-            <p className="text-xs text-slate-500">
-              Grant or revoke specific individual mock tests for individual students on top of their global status.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                  <th className="py-2.5 px-3 sticky left-0 bg-slate-50">Student</th>
-                  <th className="py-2.5 px-3">Status</th>
-                  {tests.map((t: any) => (
-                    <th key={t.id} className="py-2.5 px-3 text-center whitespace-nowrap">
-                      {t.title.slice(0, 18)}...
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {users.map((u) => {
-                  const isApprovedStudent = u.status === "approved";
-
-                  return (
-                    <tr key={u.id} className="hover:bg-slate-50/50">
-                      <td className="py-2.5 px-3 font-semibold text-slate-900 sticky left-0 bg-white">
-                        {u.full_name} ({u.email.slice(0, 15)}...)
-                      </td>
-                      <td className="py-2.5 px-3">
-                        <span className="text-[10px] font-bold uppercase text-slate-500">
-                          {u.status}
-                        </span>
-                      </td>
-                      {tests.map((t: any) => {
-                        const hasOverride = accessRows.some(
-                          (r: any) => r.user_id === u.id && r.test_id === t.id
-                        );
-                        const effectiveAccess = t.is_free || isApprovedStudent || hasOverride;
-
-                        return (
-                          <td key={t.id} className="py-2.5 px-3 text-center">
-                            {t.is_free ? (
-                              <span className="text-[10px] text-emerald-700 font-bold">Free</span>
-                            ) : (
-                              <button
-                                onClick={() => handleToggleTestAccess(u.id, t.id, hasOverride)}
-                                className={`px-2 py-1 rounded text-[10px] font-bold transition ${
-                                  hasOverride
-                                    ? "bg-indigo-600 text-white"
-                                    : effectiveAccess
-                                    ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
-                                    : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                                }`}
-                              >
-                                {hasOverride ? "Override (Granted)" : effectiveAccess ? "Approved" : "Locked"}
-                              </button>
+                      return (
+                        <tr key={u.id} className="hover:bg-slate-50/60 transition">
+                          <td className="py-3 px-3 font-bold text-slate-900">
+                            {u.full_name || "Student"}
+                          </td>
+                          <td className="py-3 px-3 text-slate-600">{u.email}</td>
+                          <td className="py-3 px-3 text-slate-500">{u.phone || "-"}</td>
+                          <td className="py-3 px-3 text-slate-500">{u.city || "-"}</td>
+                          <td className="py-3 px-3">
+                            <span className="px-2 py-0.5 rounded font-bold bg-sky-100 text-sky-800 text-[10px]">
+                              {(u.events || ["ST"]).join(", ")}
+                            </span>
+                          </td>
+                          <td className="py-3 px-3 text-slate-400">{formatDate(u.created_at)}</td>
+                          <td className="py-3 px-3">
+                            {isApproved && (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                                Approved
+                              </span>
+                            )}
+                            {isPending && (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">
+                                <Clock className="w-3.5 h-3.5 text-amber-600 animate-spin" />
+                                Pending Review
+                              </span>
+                            )}
+                            {isRevoked && (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-100 text-rose-800">
+                                <XCircle className="w-3.5 h-3.5 text-rose-600" />
+                                Revoked
+                              </span>
                             )}
                           </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                          <td className="py-3 px-3 text-right">
+                            <div className="flex items-center justify-end gap-2">
+                              {/* APPROVE BUTTON */}
+                              <button
+                                type="button"
+                                onClick={() => handleDecideRequest(u.id, "approved")}
+                                disabled={isProcessing || isApproved}
+                                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
+                                  isApproved
+                                    ? "bg-emerald-50 text-emerald-600 border border-emerald-200 cursor-default opacity-80"
+                                    : "bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs cursor-pointer active:scale-95"
+                                }`}
+                                title={isApproved ? "Candidate is already approved" : "Grant full mock access"}
+                              >
+                                {isProcessing ? (
+                                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                ) : (
+                                  <Check className="w-3.5 h-3.5" />
+                                )}
+                                <span>{isApproved ? "Approved ✓" : "Approve"}</span>
+                              </button>
+
+                              {/* REVOKE BUTTON */}
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  const note = prompt(`Reason for revoking access for ${u.full_name}:`);
+                                  if (note !== null) {
+                                    handleDecideRequest(u.id, "rejected", note || undefined);
+                                  }
+                                }}
+                                disabled={isProcessing || isRevoked}
+                                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
+                                  isRevoked
+                                    ? "bg-rose-50 text-rose-500 border border-rose-200 cursor-default opacity-80"
+                                    : "bg-rose-600 hover:bg-rose-700 text-white shadow-xs cursor-pointer active:scale-95"
+                                }`}
+                                title={isRevoked ? "Candidate access is already revoked" : "Revoke candidate access"}
+                              >
+                                <UserX className="w-3.5 h-3.5" />
+                                <span>{isRevoked ? "Revoked ✕" : "Revoke"}</span>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         </div>
       )}
 
-      {/* -------------------------------------------------------------------------
-          TAB 5: STUDENT REPORTS & PRINT
-          ------------------------------------------------------------------------- */}
+      {/* =========================================================================
+          TAB 2: STUDENT REPORTS (VIEW & PRINT PERFORMANCE REPORTS)
+          ========================================================================= */}
       {activeTab === "reports" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <h2 className="text-base font-bold text-slate-900">Completed Mock Test Reports</h2>
-              <p className="text-xs text-slate-500">
-                Preview full question-by-question analytics and print on behalf of any candidate.
-              </p>
+        <div className="space-y-6">
+          {/* Summary Metric Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
+              <span className="text-[11px] font-bold uppercase text-slate-400">Total Attempts Recorded</span>
+              <div className="text-3xl font-black text-slate-900">{attempts.length}</div>
+              <div className="text-[11px] text-slate-500">Across ST & HCIE mocks</div>
             </div>
-            <span className="text-xs font-bold text-slate-500">
-              {attempts.length} attempts recorded
-            </span>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1">
+              <span className="text-[11px] font-bold uppercase text-emerald-600">Passed (≥ 70%)</span>
+              <div className="text-3xl font-black text-emerald-700">{passedAttemptsCount}</div>
+              <div className="text-[11px] text-emerald-600 font-medium">Met tournament benchmark</div>
+            </div>
+
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-1 col-span-2 lg:col-span-1">
+              <span className="text-[11px] font-bold uppercase text-indigo-600">Average Candidate Score</span>
+              <div className="text-3xl font-black text-indigo-600">{avgScorePercent}%</div>
+              <div className="text-[11px] text-slate-500">Overall portal performance</div>
+            </div>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                  <th className="py-2.5 px-3">Student Name</th>
-                  <th className="py-2.5 px-3">Test Title</th>
-                  <th className="py-2.5 px-3">Event</th>
-                  <th className="py-2.5 px-3">Score</th>
-                  <th className="py-2.5 px-3">Percentage</th>
-                  <th className="py-2.5 px-3">Duration</th>
-                  <th className="py-2.5 px-3">Submitted At</th>
-                  <th className="py-2.5 px-3 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {attempts.map((a: any) => (
-                  <tr key={a.id} className="hover:bg-slate-50/50">
-                    <td className="py-2.5 px-3 font-bold text-slate-900">
-                      {a.profile?.full_name || "Student"}
-                    </td>
-                    <td className="py-2.5 px-3">{a.test?.title}</td>
-                    <td className="py-2.5 px-3 font-semibold text-indigo-700">{a.test?.event}</td>
-                    <td className="py-2.5 px-3 font-bold">{a.score} / {a.max_score}</td>
-                    <td className="py-2.5 px-3">
-                      <span
-                        className={`px-2 py-0.5 rounded font-black ${
-                          Number(a.percent || 0) >= 70
-                            ? "bg-emerald-100 text-emerald-800"
-                            : "bg-rose-100 text-rose-800"
-                        }`}
-                      >
-                        {a.percent}%
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-3 text-slate-400">{formatDuration(a.duration_sec || 0)}</td>
-                    <td className="py-2.5 px-3 text-slate-400">{formatDate(a.submitted_at || a.started_at)}</td>
-                    <td className="py-2.5 px-3 text-right space-x-2">
-                      <Link
-                        href={`/reports/${a.id}`}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
-                      >
-                        <Eye className="w-3 h-3" /> Preview & Print
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Reports Table Card */}
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <div>
+                <h2 className="text-base font-bold text-slate-900">Completed Mock Test Reports</h2>
+                <p className="text-xs text-slate-500">
+                  Inspect detailed question-by-question analytics, category breakdowns, and print A4 PDF reports.
+                </p>
+              </div>
+              <span className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                {filteredAttempts.length} of {attempts.length} attempts
+              </span>
+            </div>
+
+            {/* Filter & Search Bar */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs">
+              <div className="relative flex-1 w-full">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
+                <input
+                  type="text"
+                  placeholder="Search by candidate name, email, or test title..."
+                  value={reportSearch}
+                  onChange={(e) => setReportSearch(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                />
+              </div>
+              <select
+                value={reportEventFilter}
+                onChange={(e) => setReportEventFilter(e.target.value)}
+                className="w-full sm:w-44 py-2 px-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none font-medium cursor-pointer"
+              >
+                <option value="all">All Events</option>
+                <option value="ST">Surgical Tech (ST)</option>
+                <option value="HCIE">Healthcare Issues (HCIE)</option>
+              </select>
+            </div>
+
+            {filteredAttempts.length === 0 ? (
+              <div className="py-12 text-center space-y-2">
+                <FileText className="w-10 h-10 text-slate-300 mx-auto" />
+                <p className="text-sm font-semibold text-slate-600">No reports found.</p>
+                <p className="text-xs text-slate-400">Reports will appear here once candidates complete their exams.</p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
+                      <th className="py-3 px-3">Candidate</th>
+                      <th className="py-3 px-3">Test Title</th>
+                      <th className="py-3 px-3">Event</th>
+                      <th className="py-3 px-3">Score</th>
+                      <th className="py-3 px-3">Percentage</th>
+                      <th className="py-3 px-3">Duration</th>
+                      <th className="py-3 px-3">Submitted At</th>
+                      <th className="py-3 px-3 text-right">Official Report</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
+                    {filteredAttempts.map((a: any) => {
+                      const isPass = Number(a.percent || 0) >= 70;
+
+                      return (
+                        <tr key={a.id} className="hover:bg-slate-50/60 transition">
+                          <td className="py-3 px-3">
+                            <div className="font-bold text-slate-900">{a.profile?.full_name || "Student"}</div>
+                            <div className="text-[11px] text-slate-400">{a.profile?.email}</div>
+                          </td>
+                          <td className="py-3 px-3 font-semibold text-slate-800">{a.test?.title}</td>
+                          <td className="py-3 px-3">
+                            <span className="px-2 py-0.5 rounded font-bold text-[10px] bg-slate-100 text-slate-700">
+                              {a.test?.event || "ST"}
+                            </span>
+                          </td>
+                          <td className="py-3 px-3 font-bold text-slate-900">
+                            {a.score} / {a.max_score}
+                          </td>
+                          <td className="py-3 px-3">
+                            <span
+                              className={`px-2.5 py-0.5 rounded-full font-black text-[11px] ${
+                                isPass
+                                  ? "bg-emerald-100 text-emerald-800"
+                                  : "bg-rose-100 text-rose-800"
+                              }`}
+                            >
+                              {a.percent}% {isPass ? "✓" : ""}
+                            </span>
+                          </td>
+                          <td className="py-3 px-3 text-slate-500">{formatDuration(a.duration_sec || 0)}</td>
+                          <td className="py-3 px-3 text-slate-400">{formatDate(a.submitted_at || a.started_at)}</td>
+                          <td className="py-3 px-3 text-right">
+                            <Link
+                              href={`/reports/${a.id}`}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold hover:bg-slate-800 transition shadow-xs cursor-pointer"
+                            >
+                              <Printer className="w-3.5 h-3.5" />
+                              <span>View & Print</span>
+                            </Link>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
         </div>
       )}
 
       {/* -------------------------------------------------------------------------
-          TAB 6: TESTS & QUESTIONS MANAGEMENT
-          ------------------------------------------------------------------------- */}
-      {activeTab === "tests" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <h2 className="text-base font-bold text-slate-900">Tests & Mock Banks</h2>
-              <p className="text-xs text-slate-500">
-                Manage publishing status, duration, and Free Mock allocation.
-              </p>
-            </div>
-            <button
-              onClick={() => setImportModalOpen(true)}
-              className="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center gap-1.5"
-            >
-              <Plus className="w-3.5 h-3.5" /> Import Question Bank
-            </button>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                  <th className="py-2.5 px-3">Slug</th>
-                  <th className="py-2.5 px-3">Title</th>
-                  <th className="py-2.5 px-3">Event</th>
-                  <th className="py-2.5 px-3">Type</th>
-                  <th className="py-2.5 px-3">Duration</th>
-                  <th className="py-2.5 px-3">Free Mock</th>
-                  <th className="py-2.5 px-3">Published</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {tests.map((t: any) => (
-                  <tr key={t.id} className="hover:bg-slate-50/50">
-                    <td className="py-2.5 px-3 font-mono text-slate-500">{t.slug}</td>
-                    <td className="py-2.5 px-3 font-bold text-slate-900">{t.title}</td>
-                    <td className="py-2.5 px-3 font-semibold text-indigo-700">{t.event}</td>
-                    <td className="py-2.5 px-3 uppercase text-[10px]">{t.kind}</td>
-                    <td className="py-2.5 px-3">{t.duration_min} min</td>
-                    <td className="py-2.5 px-3">
-                      <span
-                        className={`px-2 py-0.5 rounded font-black text-[10px] uppercase ${
-                          t.is_free
-                            ? "bg-emerald-100 text-emerald-800"
-                            : "bg-slate-100 text-slate-500"
-                        }`}
-                      >
-                        {t.is_free ? "FREE" : "LOCKED"}
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-3">
-                      <span
-                        className={`px-2 py-0.5 rounded font-bold text-[10px] ${
-                          t.is_published
-                            ? "bg-sky-100 text-sky-800"
-                            : "bg-slate-100 text-slate-400"
-                        }`}
-                      >
-                        {t.is_published ? "PUBLISHED" : "DRAFT"}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* -------------------------------------------------------------------------
-          TAB 7: ST ROUND TWO CLINICAL SKILLS CHECKLIST EVALUATOR (§4C)
-          ------------------------------------------------------------------------- */}
-      {activeTab === "skills" && (
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-6 shadow-sm">
-          <div className="border-b border-slate-100 pb-4">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-xs font-bold mb-1">
-              ST Round Two Rubric
-            </div>
-            <h2 className="text-lg font-bold text-slate-900 tracking-tight">
-              Clinical Skills Checklist & 70% Mastery Calculator
-            </h2>
-            <p className="text-xs text-slate-500">
-              Grade student clinical performance on Skills II through VI. 70% combined mastery (104.3 / 149 pts) is required for an award.
-            </p>
-          </div>
-
-          {/* Student Selector */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <label className="text-xs font-bold text-slate-700 whitespace-nowrap">
-              Select Candidate:
-            </label>
-            <select
-              value={selectedStudentForSkill}
-              onChange={(e) => setSelectedStudentForSkill(e.target.value)}
-              className="p-2 border border-slate-300 rounded-lg text-xs font-semibold focus:ring-2 focus:ring-indigo-500"
-            >
-              {users.map((u) => (
-                <option key={u.id} value={u.id}>
-                  {u.full_name} ({u.email})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Skills Checklist Inputs */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            {/* Skill II */}
-            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-              <div className="flex items-center justify-between font-bold text-slate-800">
-                <span>Skill II: Surgical Scrub Methods</span>
-                <span className="text-slate-500">Max 46 pts (70% = 32.2)</span>
-              </div>
-              <input
-                type="number"
-                min={0}
-                max={46}
-                value={skillScores.skill_2}
-                onChange={(e) => setSkillScores({ ...skillScores, skill_2: Number(e.target.value) })}
-                className="w-full p-2 border border-slate-300 rounded-lg font-bold text-sm bg-white"
-              />
-            </div>
-
-            {/* Skill III */}
-            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-              <div className="flex items-center justify-between font-bold text-slate-800">
-                <span>Skill III: Open Gloving Technique</span>
-                <span className="text-slate-500">Max 27 pts (70% = 18.9)</span>
-              </div>
-              <input
-                type="number"
-                min={0}
-                max={27}
-                value={skillScores.skill_3}
-                onChange={(e) => setSkillScores({ ...skillScores, skill_3: Number(e.target.value) })}
-                className="w-full p-2 border border-slate-300 rounded-lg font-bold text-sm bg-white"
-              />
-            </div>
-
-            {/* Skill IV */}
-            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-              <div className="flex items-center justify-between font-bold text-slate-800">
-                <span>Skill IV: Gowning & Gloving (Self)</span>
-                <span className="text-slate-500">Max 36 pts (70% = 25.2)</span>
-              </div>
-              <input
-                type="number"
-                min={0}
-                max={36}
-                value={skillScores.skill_4}
-                onChange={(e) => setSkillScores({ ...skillScores, skill_4: Number(e.target.value) })}
-                className="w-full p-2 border border-slate-300 rounded-lg font-bold text-sm bg-white"
-              />
-            </div>
-
-            {/* Skill V */}
-            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-              <div className="flex items-center justify-between font-bold text-slate-800">
-                <span>Skill V: Passing Surgical Instruments</span>
-                <span className="text-slate-500">Max 26 pts (70% = 18.2)</span>
-              </div>
-              <input
-                type="number"
-                min={0}
-                max={26}
-                value={skillScores.skill_5}
-                onChange={(e) => setSkillScores({ ...skillScores, skill_5: Number(e.target.value) })}
-                className="w-full p-2 border border-slate-300 rounded-lg font-bold text-sm bg-white"
-              />
-            </div>
-
-            {/* Skill VI */}
-            <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-              <div className="flex items-center justify-between font-bold text-slate-800">
-                <span>Skill VI: Loading & Passing Sutures</span>
-                <span className="text-slate-500">Max 14 pts (70% = 9.8)</span>
-              </div>
-              <input
-                type="number"
-                min={0}
-                max={14}
-                value={skillScores.skill_6}
-                onChange={(e) => setSkillScores({ ...skillScores, skill_6: Number(e.target.value) })}
-                className="w-full p-2 border border-slate-300 rounded-lg font-bold text-sm bg-white"
-              />
-            </div>
-          </div>
-
-          {/* Mastery Threshold Result Card */}
-          <div
-            className={`p-5 rounded-xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
-              masteryAchieved
-                ? "bg-emerald-50 border-emerald-300 text-emerald-950"
-                : "bg-rose-50 border-rose-300 text-rose-950"
-            }`}
-          >
-            <div>
-              <div className="text-xs uppercase font-bold tracking-wider">
-                Combined Score (Skills II through VI)
-              </div>
-              <div className="text-2xl font-black">
-                {totalSkills2To6} / 149 Points{" "}
-                <span className="text-base font-normal">
-                  ({Math.round((totalSkills2To6 / 149) * 100)}%)
-                </span>
-              </div>
-              <p className="text-xs mt-1">
-                {masteryAchieved
-                  ? "✅ 70% Mastery threshold satisfied (min 104.3 required)."
-                  : "❌ Below 70% mastery threshold. Remediation recommended before tournament."}
-              </p>
-            </div>
-
-            <button
-              onClick={() => alert("Skill rubric evaluation saved to student profile!")}
-              className="px-5 py-2.5 rounded-lg bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition shadow-sm"
-            >
-              Save Evaluation to Student File
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* -------------------------------------------------------------------------
-          TAB 8: EMAIL LOG AUDIT
-          ------------------------------------------------------------------------- */}
-      {activeTab === "emails" && (
-        <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs space-y-4 p-5">
-          <div className="border-b border-slate-100 pb-3">
-            <h2 className="text-base font-bold text-slate-900">Email Dispatch Audit Log</h2>
-            <p className="text-xs text-slate-500">
-              Audit trail of SMTP transactional emails dispatched through the portal.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs border-collapse">
-              <thead>
-                <tr className="bg-slate-50 text-slate-600 font-bold uppercase tracking-wider border-b border-slate-200">
-                  <th className="py-2.5 px-3">Recipient</th>
-                  <th className="py-2.5 px-3">Template</th>
-                  <th className="py-2.5 px-3">Status</th>
-                  <th className="py-2.5 px-3">Dispatched At</th>
-                  <th className="py-2.5 px-3">Error Details</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                {emailLogs.map((log: any) => (
-                  <tr key={log.id} className="hover:bg-slate-50/50">
-                    <td className="py-2.5 px-3 font-semibold text-slate-900">{log.to_email}</td>
-                    <td className="py-2.5 px-3 font-mono">{log.template}</td>
-                    <td className="py-2.5 px-3">
-                      <span
-                        className={`px-2 py-0.5 rounded font-bold uppercase text-[10px] ${
-                          log.status === "sent"
-                            ? "bg-emerald-100 text-emerald-800"
-                            : "bg-rose-100 text-rose-800"
-                        }`}
-                      >
-                        {log.status}
-                      </span>
-                    </td>
-                    <td className="py-2.5 px-3 text-slate-400">{formatDate(log.created_at)}</td>
-                    <td className="py-2.5 px-3 text-rose-600 text-[11px] truncate max-w-xs">
-                      {log.error || "-"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* -------------------------------------------------------------------------
-          JSON QUESTION IMPORT MODAL
+          BULK QUESTION BANK IMPORTER MODAL (JSON)
           ------------------------------------------------------------------------- */}
       {importModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
@@ -1146,129 +691,117 @@ export default function AdminDashboardClient({
                   Bulk Question Bank Importer (JSON)
                 </h3>
               </div>
-              <button onClick={() => setImportModalOpen(false)} className="text-slate-400 hover:text-slate-600">
+              <button onClick={() => setImportModalOpen(false)} className="text-slate-400 hover:text-slate-600 cursor-pointer">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="space-y-3 text-xs">
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">Target Test Slug</label>
-                <input
-                  type="text"
-                  value={importSlug}
-                  onChange={(e) => setImportSlug(e.target.value)}
-                  placeholder="e.g. st-mock-1 or hcie-mock-1"
-                  className="w-full p-2 border border-slate-300 rounded-lg font-mono"
-                />
-              </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              Paste questions JSON format with <code>test_meta</code> and <code>questions</code> array. Review notes are automatically mapped to admin-only storage.
+            </p>
 
-              <div>
-                <label className="block font-bold text-slate-700 mb-1">JSON Payload</label>
-                <textarea
-                  rows={10}
-                  value={importJsonText}
-                  onChange={(e) => setImportJsonText(e.target.value)}
-                  placeholder='{"test_slug": "st-mock-1", "questions": [{"section": "Surgical Asepsis", "type": "mcq_single", "stem": "Which indicator...", "options": ["A", "B", "C", "D"], "correct": [2], "explanation": "..."}]}'
-                  className="w-full p-3 font-mono text-[11px] border border-slate-300 rounded-lg"
-                />
-              </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Select Destination Mock Test:
+              </label>
+              <select
+                value={importSlug}
+                onChange={(e) => setImportSlug(e.target.value)}
+                className="w-full p-2 border border-slate-300 rounded-lg text-xs font-semibold focus:ring-2 focus:ring-indigo-500"
+              >
+                {tests.map((t: any) => (
+                  <option key={t.id} value={t.slug}>
+                    {t.title} ({t.slug}) — {t.total_questions} questions
+                  </option>
+                ))}
+              </select>
             </div>
 
-            {/* Dry Run Report Box */}
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                Question Data JSON:
+              </label>
+              <textarea
+                rows={10}
+                value={importJsonText}
+                onChange={(e) => setImportJsonText(e.target.value)}
+                placeholder='{\n  "test_slug": "st-mock-2",\n  "test_meta": { "total_questions": 50 },\n  "questions": [\n    {\n      "stem": "Which disinfectant is sporicidal...",\n      "type": "mcq_single",\n      "section": "Surgical Asepsis & Sterility",\n      "options": ["Glutaraldehyde", "Alcohol", "Iodophor", "Phenol"],\n      "correct": 0,\n      "explanation": "Glutaraldehyde (Cidex) is a high-level sporicidal sterilant.",\n      "review_note": "Verified from AST 5th Ed. Ch. 7"\n    }\n  ]\n}'
+                className="w-full p-3 font-mono text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+              />
+            </div>
+
+            {/* Dry-Run Result Preview */}
             {dryRunResult && (
               <div
-                className={`p-3.5 rounded-xl border text-xs space-y-2 max-h-48 overflow-y-auto ${
+                className={`p-4 rounded-xl text-xs space-y-2 border ${
                   dryRunResult.success
-                    ? "bg-emerald-50 border-emerald-300 text-emerald-950"
-                    : "bg-rose-50 border-rose-300 text-rose-950"
+                    ? "bg-emerald-50 border-emerald-200 text-emerald-900"
+                    : "bg-rose-50 border-rose-200 text-rose-900"
                 }`}
               >
                 <div className="font-bold flex items-center gap-1.5">
                   {dryRunResult.success ? (
-                    <>
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Dry-Run Passed: {dryRunResult.totalQuestions} questions valid!</span>
-                    </>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   ) : (
-                    <>
-                      <AlertCircle className="w-4 h-4 text-rose-600" />
-                      <span>Dry-Run Failed: {dryRunResult.errors?.length} errors found</span>
-                    </>
+                    <AlertCircle className="w-4 h-4 text-rose-600" />
                   )}
+                  <span>
+                    Dry-Run Result:{" "}
+                    {dryRunResult.success ? "PASSED VALIDATION" : "VALIDATION ERRORS FOUND"}
+                  </span>
                 </div>
 
-                {dryRunResult.categoryCounts && (
-                  <div className="text-[11px] grid grid-cols-2 gap-1 pt-1 border-t border-emerald-200/60">
-                    {Object.entries(dryRunResult.categoryCounts).map(([cat, cnt]: any) => (
-                      <div key={cat}>
-                        {cat}: <strong>{cnt}</strong>
-                      </div>
+                {dryRunResult.stats && (
+                  <div className="text-[11px] font-mono grid grid-cols-2 gap-1 text-slate-700">
+                    <div>Total Valid Questions: {dryRunResult.stats.valid_questions}</div>
+                    <div>Category Counts: {JSON.stringify(dryRunResult.stats.category_counts)}</div>
+                  </div>
+                )}
+
+                {dryRunResult.errors?.length > 0 && (
+                  <div className="space-y-1 text-rose-700 font-mono text-[11px]">
+                    <div className="font-bold">Errors to fix:</div>
+                    {dryRunResult.errors.map((err: string, i: number) => (
+                      <div key={i}>&bull; {err}</div>
                     ))}
                   </div>
                 )}
 
                 {dryRunResult.warnings?.length > 0 && (
-                  <div className="pt-1 text-[11px] text-amber-800">
-                    <span className="font-bold">Warnings:</span>
-                    <ul className="list-disc pl-4 space-y-0.5 mt-0.5">
-                      {dryRunResult.warnings.map((w: string, i: number) => (
-                        <li key={i}>{w}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {dryRunResult.errors?.length > 0 && (
-                  <div className="pt-1 text-[11px] text-rose-800">
-                    <span className="font-bold">Row Errors:</span>
-                    <ul className="list-disc pl-4 space-y-0.5 mt-0.5">
-                      {dryRunResult.errors.map((err: any, i: number) => (
-                        <li key={i}>
-                          Row {err.row}: {err.error}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="space-y-1 text-amber-800 font-mono text-[11px]">
+                    <div className="font-bold">Warnings:</div>
+                    {dryRunResult.warnings.map((warn: string, i: number) => (
+                      <div key={i}>&bull; {warn}</div>
+                    ))}
                   </div>
                 )}
               </div>
             )}
 
-            <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-100">
+              <button
+                type="button"
+                onClick={() => setImportModalOpen(false)}
+                className="px-4 py-2 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer"
+              >
+                Cancel
+              </button>
               <button
                 type="button"
                 onClick={() => handleImportQuestions(true)}
                 disabled={importLoading || !importJsonText.trim()}
-                className="px-4 py-2 rounded-lg border border-indigo-300 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs transition disabled:opacity-50"
+                className="px-4 py-2 rounded-lg border border-indigo-300 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition disabled:opacity-50 cursor-pointer"
               >
-                Dry-Run Validate
+                {importLoading ? "Validating..." : "Run Dry-Run Check"}
               </button>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => {
-                    setImportModalOpen(false);
-                    setDryRunResult(null);
-                  }}
-                  className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={() => handleImportQuestions(false)}
-                  disabled={importLoading || !importJsonText.trim()}
-                  className="px-5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm transition disabled:opacity-50 flex items-center gap-1.5"
-                >
-                  {importLoading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Importing...
-                    </>
-                  ) : (
-                    "Commit Import"
-                  )}
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => handleImportQuestions(false)}
+                disabled={importLoading || !importJsonText.trim()}
+                className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md transition disabled:opacity-50 cursor-pointer"
+              >
+                {importLoading ? "Importing..." : "Commit Import"}
+              </button>
             </div>
           </div>
         </div>
@@ -1276,4 +809,3 @@ export default function AdminDashboardClient({
     </div>
   );
 }
-
