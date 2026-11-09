@@ -212,6 +212,13 @@ export default function Navbar() {
             ) : (
               <div className="flex items-center gap-2">
                 <Link
+                  href="/login?role=admin"
+                  className="text-xs font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-2.5 py-1.5 rounded-lg transition flex items-center gap-1.5"
+                >
+                  <Shield className="w-3.5 h-3.5" />
+                  Admin Login
+                </Link>
+                <Link
                   href="/login"
                   className="text-sm font-semibold text-slate-700 hover:text-sky-600 px-3 py-1.5 transition"
                 >
@@ -332,11 +339,19 @@ export default function Navbar() {
               ) : (
                 <>
                   <Link
+                    href="/login?role=admin"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full text-center py-2 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg flex items-center justify-center gap-1.5 transition"
+                  >
+                    <Shield className="w-4 h-4" />
+                    Admin Login
+                  </Link>
+                  <Link
                     href="/login"
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full text-center py-2.5 text-sm font-semibold text-slate-700 border border-slate-300 rounded-lg"
                   >
-                    Log In
+                    Student Log In
                   </Link>
                   <Link
                     href="/signup"

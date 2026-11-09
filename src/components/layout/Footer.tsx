@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Activity, ShieldCheck, Mail, BookOpen, ExternalLink } from "lucide-react";
+import { Activity, ShieldCheck, Shield, Mail, BookOpen, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -23,6 +23,14 @@ export default function Footer() {
             </p>
             <div className="text-xs text-slate-500">
               Admin & Lead Instructor: <span className="text-slate-300">Rupali</span> (<a href="mailto:rupali.eduquest@gmail.com" className="hover:text-sky-400 underline">rupali.eduquest@gmail.com</a>)
+            </div>
+            <div className="mt-2.5">
+              <Link
+                href="/login?role=admin"
+                className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition inline-flex items-center gap-1.5 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700 hover:border-indigo-500/50"
+              >
+                <Shield className="w-3.5 h-3.5 text-indigo-400" /> Admin Portal Login &rarr;
+              </Link>
             </div>
           </div>
 

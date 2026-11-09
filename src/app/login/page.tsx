@@ -4,20 +4,32 @@ import { Suspense, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { Activity, AlertCircle, Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
+import { Activity, AlertCircle, Eye, EyeOff, Loader2, Lock, Mail, Shield, User } from "lucide-react";
 
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectUrl = searchParams.get("redirect") || "/dashboard";
+  const initialRole = searchParams.get("role");
 
   const supabase = createClient();
 
-  const [email, setEmail] = useState("");
+  const [isAdminLogin, setIsAdminLogin] = useState(initialRole === "admin");
+  const [email, setEmail] = useState(initialRole === "admin" ? "rupali.eduquest@gmail.com" : "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const toggleLoginMode = (adminMode: boolean) => {
+    setIsAdminLogin(adminMode);
+    setError(null);
+    if (adminMode && !email) {
+      setEmail("rupali.eduquest@gmail.com");
+    } else if (!adminMode && email === "rupali.eduquest@gmail.com") {
+      setEmail("");
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,17 +70,52 @@ function LoginForm() {
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-      <div className="text-center space-y-3">
+      {/* Role Toggle Tabs */}
+      <div className="flex rounded-xl bg-slate-100 p-1 border border-slate-200 text-xs font-semibold">
+        <button
+          type="button"
+          onClick={() => toggleLoginMode(false)}
+          className={`flex-1 py-2 rounded-lg transition flex items-center justify-center gap-1.5 ${
+            !isAdminLogin
+              ? "bg-white text-slate-900 shadow-xs font-bold"
+              : "text-slate-500 hover:text-slate-800"
+          }`}
+        >
+          <User className="w-3.5 h-3.5" />
+          Student Login
+        </button>
+        <button
+          type="button"
+          onClick={() => toggleLoginMode(true)}
+          className={`flex-1 py-2 rounded-lg transition flex items-center justify-center gap-1.5 ${
+            isAdminLogin
+              ? "bg-indigo-600 text-white shadow-xs font-bold"
+              : "text-slate-500 hover:text-slate-800"
+          }`}
+        >
+          <Shield className="w-3.5 h-3.5" />
+          Admin Login
+        </button>
+      </div>
+
+      <div className="text-center space-y-2">
         <img
           src="/logo.png"
           alt="MBA Wizards"
-          className="h-12 w-auto object-contain mx-auto"
+          className="h-11 w-auto object-contain mx-auto"
         />
-        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-          Log In to MBA Wizards
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2">
+          {isAdminLogin ? "Admin Console Login" : "Student Login"}
+          {isAdminLogin && (
+            <span className="text-[10px] bg-indigo-100 text-indigo-800 font-bold px-2 py-0.5 rounded-full uppercase">
+              Admin
+            </span>
+          )}
         </h1>
         <p className="text-xs text-slate-500">
-          Aspire. Advance. Achieve. &bull; Access your mock attempts and diagnostic reports.
+          {isAdminLogin
+            ? "Administrative credentials required to manage tests and student access."
+            : "Aspire. Advance. Achieve. • Access your mock attempts and diagnostic reports."}
         </p>
       </div>
 
@@ -82,17 +129,21 @@ function LoginForm() {
       <form onSubmit={handleLogin} className="space-y-4 text-xs sm:text-sm">
         <div>
           <label className="block font-semibold text-slate-700 mb-1">
-            Email Address
+            {isAdminLogin ? "Admin Email Address" : "Email Address"}
           </label>
           <div className="relative">
             <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
             <input
               type="email"
               required
-              placeholder="name@example.com"
+              placeholder={isAdminLogin ? "admin@mbawizards.com" : "name@example.com"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+              className={`w-full pl-9 pr-3 py-2 text-sm border rounded-lg focus:ring-2 focus:outline-none ${
+                isAdminLogin
+                  ? "border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500"
+                  : "border-slate-300 focus:ring-sky-500"
+              }`}
             />
           </div>
         </div>
@@ -100,12 +151,14 @@ function LoginForm() {
         <div>
           <div className="flex items-center justify-between mb-1">
             <label className="font-semibold text-slate-700">Password</label>
-            <Link
-              href="/forgot-password"
-              className="text-[11px] text-sky-600 hover:text-sky-700 font-medium"
-            >
-              Forgot Password?
-            </Link>
+            {!isAdminLogin && (
+              <Link
+                href="/forgot-password"
+                className="text-[11px] text-sky-600 hover:text-sky-700 font-medium"
+              >
+                Forgot Password?
+              </Link>
+            )}
           </div>
           <div className="relative">
             <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
@@ -115,7 +168,11 @@ function LoginForm() {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-9 pr-10 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+              className={`w-full pl-9 pr-10 py-2 text-sm border rounded-lg focus:ring-2 focus:outline-none ${
+                isAdminLogin
+                  ? "border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500"
+                  : "border-slate-300 focus:ring-sky-500"
+              }`}
             />
             <button
               type="button"
@@ -135,12 +192,21 @@ function LoginForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-2.5 px-4 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-200 transition flex items-center justify-center gap-2 disabled:opacity-50 mt-2"
+          className={`w-full py-2.5 px-4 rounded-lg text-white font-bold text-sm shadow-md transition flex items-center justify-center gap-2 disabled:opacity-50 mt-2 ${
+            isAdminLogin
+              ? "bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200"
+              : "bg-sky-600 hover:bg-sky-700 shadow-sky-200"
+          }`}
         >
           {loading ? (
             <>
               <Loader2 className="w-4 h-4 animate-spin" />
               Signing in...
+            </>
+          ) : isAdminLogin ? (
+            <>
+              <Shield className="w-4 h-4" />
+              Sign In to Admin Console
             </>
           ) : (
             "Sign In"
@@ -148,11 +214,32 @@ function LoginForm() {
         </button>
       </form>
 
-      <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-        New to MBA Wizards?{" "}
-        <Link href="/signup" className="font-semibold text-sky-600 hover:text-sky-700">
-          Create an account & start free
-        </Link>
+      <div className="pt-4 border-t border-slate-100 flex flex-col gap-2 text-center text-xs text-slate-500">
+        {!isAdminLogin ? (
+          <>
+            <div>
+              New to MBA Wizards?{" "}
+              <Link href="/signup" className="font-semibold text-sky-600 hover:text-sky-700">
+                Create an account & start free
+              </Link>
+            </div>
+            <button
+              type="button"
+              onClick={() => toggleLoginMode(true)}
+              className="text-[11px] text-indigo-600 hover:text-indigo-800 font-semibold inline-flex items-center justify-center gap-1"
+            >
+              <Shield className="w-3 h-3" /> Are you an Administrator? Sign in here &rarr;
+            </button>
+          </>
+        ) : (
+          <button
+            type="button"
+            onClick={() => toggleLoginMode(false)}
+            className="text-xs text-sky-600 hover:text-sky-700 font-semibold"
+          >
+            ← Switch to Student Login
+          </button>
+        )}
       </div>
     </div>
   );
