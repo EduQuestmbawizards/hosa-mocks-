@@ -185,8 +185,8 @@ async function runSeed() {
     },
     { onConflict: "slug" }
   );
-  await seedTestFromJson("data/sample-questions.json");
-  console.log("✅ ST – Free Diagnostic Mock 1 seeded successfully.");
+  await seedTestFromJson("data/st-mock-1-50q.json");
+  console.log("✅ ST – Free Diagnostic Mock 1 seeded successfully with 50 questions.");
 
   // 2. Seed "ST – Practice Set A" (FREE, 40 questions)
   await seedTestFromJson("data/st-practice-set-a-40q.json");
