@@ -85,15 +85,17 @@ export default function SignupPage() {
     <div className="max-w-md mx-auto py-8 px-4 sm:px-0">
       <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
         {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center mx-auto shadow-md shadow-sky-200">
-            <Activity className="w-6 h-6" />
-          </div>
+        <div className="text-center space-y-3">
+          <img
+            src="/logo.png"
+            alt="MBA Wizards"
+            className="h-12 w-auto object-contain mx-auto"
+          />
           <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
             Create Student Account
           </h1>
           <p className="text-xs text-slate-500">
-            Register for the EduQuest HOSA 2026-27 Mock Test Portal. Free mock unlocked immediately!
+            Register for the MBA Wizards Mock Test Portal. Free mock unlocked immediately!
           </p>
         </div>
 

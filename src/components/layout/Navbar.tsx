@@ -100,19 +100,16 @@ export default function Navbar() {
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-bold text-slate-900 group"
+            className="flex items-center gap-2 group"
           >
-            <div className="w-9 h-9 rounded-lg bg-sky-600 flex items-center justify-center text-white shadow-sm shadow-sky-200 group-hover:bg-sky-700 transition">
-              <Activity className="w-5 h-5" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg leading-tight font-extrabold text-slate-900 tracking-tight">
-                EduQuest<span className="text-sky-600">.</span>
-              </span>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
-                HOSA 2026-27 Mock Portal
-              </span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="MBA Wizards - Aspire. Advance. Achieve."
+              className="h-10 sm:h-11 w-auto object-contain group-hover:opacity-95 transition"
+            />
+            <span className="hidden sm:inline-block text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-md ml-1">
+              Portal
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

@@ -57,15 +57,17 @@ function LoginForm() {
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-      <div className="text-center space-y-2">
-        <div className="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center mx-auto shadow-md shadow-sky-200">
-          <Activity className="w-6 h-6" />
-        </div>
+      <div className="text-center space-y-3">
+        <img
+          src="/logo.png"
+          alt="MBA Wizards"
+          className="h-12 w-auto object-contain mx-auto"
+        />
         <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-          Log In to EduQuest
+          Log In to MBA Wizards
         </h1>
         <p className="text-xs text-slate-500">
-          Access your mock test attempts, weak topic reports, and exams.
+          Aspire. Advance. Achieve. &bull; Access your mock attempts and diagnostic reports.
         </p>
       </div>
 
@@ -134,7 +136,7 @@ function LoginForm() {
       </form>
 
       <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-        New to EduQuest?{" "}
+        New to MBA Wizards?{" "}
         <Link href="/signup" className="font-semibold text-sky-600 hover:text-sky-700">
           Create an account & start free
         </Link>

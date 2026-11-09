@@ -87,16 +87,18 @@ export default function ExamReportView({
           ------------------------------------------------------------------------- */}
       <div className="hidden print:block border-b-2 border-slate-900 pb-4 mb-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded bg-slate-900 text-white flex items-center justify-center font-bold">
-              EQ
-            </div>
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="MBA Wizards"
+              className="h-10 w-auto object-contain"
+            />
             <div>
               <h1 className="text-xl font-black text-slate-900 uppercase tracking-tight">
-                EduQuest HOSA Test Performance Report
+                MBA Wizards Test Performance Report
               </h1>
               <p className="text-xs text-slate-600">
-                Official Mock Tournament Evaluation &bull; HOSA 2026-27 Guidelines
+                Aspire. Advance. Achieve. &bull; Mock Exam Evaluation
               </p>
             </div>
           </div>

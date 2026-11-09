@@ -230,7 +230,7 @@ export default function AdminDashboardClient({
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `eduquest_hosa_users_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute("download", `mbawizards_users_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -265,14 +265,16 @@ export default function AdminDashboardClient({
           ------------------------------------------------------------------------- */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-200">
-            <Shield className="w-5 h-5" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="MBA Wizards"
+            className="h-10 w-auto object-contain"
+          />
           <div>
             <h1 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-              EduQuest Administration Console
-              <span className="text-[10px] bg-indigo-100 text-indigo-800 font-bold px-2 py-0.5 rounded-full uppercase">
-                HOSA 2026-27
+              MBA Wizards Administration Console
+              <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full uppercase">
+                Admin
               </span>
             </h1>
             <p className="text-xs text-slate-500">

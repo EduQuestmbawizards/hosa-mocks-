@@ -8,15 +8,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 text-white font-bold text-lg mb-3">
-              <div className="w-7 h-7 rounded bg-sky-500 flex items-center justify-center text-white">
-                <Activity className="w-4 h-4" />
+            <div className="mb-4">
+              <div className="bg-white/95 inline-block px-3 py-1.5 rounded-lg shadow-sm">
+                <img
+                  src="/logo.png"
+                  alt="MBA Wizards - Aspire. Advance. Achieve."
+                  className="h-10 w-auto object-contain"
+                />
               </div>
-              EduQuest HOSA Mock Portal
             </div>
             <p className="text-slate-400 text-sm max-w-sm mb-4 leading-relaxed">
-              High-fidelity exam preparation platform for HOSA 2026-27 competitive events.
-              Practise under strict real-test conditions with AST-referenced question sets and current health news recall.
+              High-fidelity exam preparation platform for competitive events.
+              Practise under strict real-test conditions with referenced question sets, instant practice feedback, and clinical rubrics.
             </p>
             <div className="text-xs text-slate-500">
               Admin & Lead Instructor: <span className="text-slate-300">Rupali</span> (<a href="mailto:rupali.eduquest@gmail.com" className="hover:text-sky-400 underline">rupali.eduquest@gmail.com</a>)
@@ -89,7 +92,7 @@ export default function Footer() {
 
         <div className="pt-8 mt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>
-            &copy; {new Date().getFullYear()} EduQuest. All rights reserved. Prepared for HOSA Future Health Professionals.
+            &copy; {new Date().getFullYear()} MBA Wizards. All rights reserved. Aspire. Advance. Achieve.
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1 text-slate-400">

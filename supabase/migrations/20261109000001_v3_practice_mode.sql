@@ -67,3 +67,4 @@ begin
   return v_has_override;
 end;
 $$;
+

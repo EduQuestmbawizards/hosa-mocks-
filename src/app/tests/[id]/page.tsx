@@ -129,7 +129,7 @@ export default async function TestInstructionsPage({
                 This Mock Test is Currently Locked
               </h3>
               <p className="text-xs text-amber-800 leading-relaxed">
-                Your account is pending review by EduQuest administration. While you wait for approval, you can take the{" "}
+                Your account is pending review by MBA Wizards administration. While you wait for approval, you can take the{" "}
                 <strong>Free ST Mock Test</strong> which is completely unlocked for you!
               </p>
             </div>
@@ -170,7 +170,7 @@ export default async function TestInstructionsPage({
             <div className="flex items-start gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
               <span>
-                <strong>Autosave & Offline Protection:</strong> Every choice is saved locally instantly on your device and synced to the EduQuest server. If you accidentally reload the page or briefly lose connectivity, your selections are safe.
+                <strong>Autosave & Offline Protection:</strong> Every choice is saved locally instantly on your device and synced to the MBA Wizards server. If you accidentally reload the page or briefly lose connectivity, your selections are safe.
               </span>
             </div>
 

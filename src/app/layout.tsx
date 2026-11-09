@@ -4,10 +4,14 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "EduQuest | HOSA 2026-27 Mock Test Portal (ST & HCIE)",
+  title: "MBA Wizards | Mock Test & Exam Prep Portal",
   description:
-    "Official-fidelity mock tests for HOSA Surgical Technologist (ST) and Healthcare Issues Exam (HCIE). Real 60-minute countdown, 50-MCQ category weighting, and clinical skills practice.",
-  keywords: ["HOSA", "Surgical Technologist", "HCIE", "Healthcare Issues Exam", "Mock Test", "EduQuest"],
+    "Official-fidelity mock test & practice exam platform by MBA Wizards. Aspire. Advance. Achieve. Real 60-minute countdown, category weighting, and clinical skills practice.",
+  keywords: ["MBA Wizards", "HOSA", "Surgical Technologist", "HCIE", "Healthcare Issues Exam", "Mock Test", "Practice Exam"],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

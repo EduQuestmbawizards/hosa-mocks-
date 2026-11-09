@@ -1,5 +1,5 @@
 -- ==============================================================================
--- EduQuest HOSA Mock Test Portal (ST & HCIE 2026-27)
+-- MBA Wizards Mock Test Portal (ST & HCIE 2026-27)
 -- Complete Supabase PostgreSQL Schema with Row Level Security (RLS)
 -- Copy and paste this entire script into your Supabase Dashboard:
 -- Supabase -> SQL Editor -> New Query -> Paste -> Run

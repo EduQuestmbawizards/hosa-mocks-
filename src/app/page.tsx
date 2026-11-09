@@ -109,9 +109,9 @@ export default async function HomePage() {
           HERO SECTION
           ------------------------------------------------------------------------- */}
       <section className="relative pt-6 pb-12 sm:pt-12 sm:pb-16 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-sky-800 text-xs font-semibold mb-6">
-          <Sparkles className="w-4 h-4 text-sky-600" />
-          <span>HOSA 2026-27 Official Guidelines Aligned</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold mb-6">
+          <Sparkles className="w-4 h-4 text-amber-600" />
+          <span>MBA Wizards Mock Portal &bull; Aspire. Advance. Achieve.</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -545,7 +545,7 @@ export default async function HomePage() {
               News Fact-Recall + Official Tiebreaker Essay
             </h2>
             <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
-              HCIE questions test specific factual recall of designated health journalism stories. EduQuest questions strictly pull from verified stories within the official test window.
+              HCIE questions test specific factual recall of designated health journalism stories. MBA Wizards questions strictly pull from verified stories within the official test window.
             </p>
           </div>
           <Link

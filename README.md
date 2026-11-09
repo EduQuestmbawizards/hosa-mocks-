@@ -1,6 +1,6 @@
-# EduQuest HOSA Mock Test Portal (ST & HCIE 2026-27)
+# MBA Wizards Mock Test Portal (ST & HCIE 2026-27)
 
-A production-ready, fully responsive mock-test portal built for **EduQuest** to prepare students for the official HOSA competitive events:
+A production-ready, fully responsive mock-test portal built for **MBA Wizards** (Aspire. Advance. Achieve.) to prepare students for official competitive events:
 - **Surgical Technologist (ST)**
 - **Healthcare Issues Exam (HCIE)**
 
