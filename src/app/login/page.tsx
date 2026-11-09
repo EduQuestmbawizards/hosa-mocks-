@@ -225,7 +225,7 @@ function LoginForm() {
           <>
             <div>
               New to MBA Wizards?{" "}
-              <Link href="/signup" className="font-semibold text-sky-600 hover:text-sky-700">
+              <Link href={redirectUrl ? `/signup?redirect=${redirectUrl}` : "/signup"} className="font-semibold text-sky-600 hover:text-sky-700">
                 Create an account & start free
               </Link>
             </div>

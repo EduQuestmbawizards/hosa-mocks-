@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { formatDate, formatDuration } from "@/lib/utils";
 import {
   Activity,
@@ -57,8 +58,10 @@ export default async function StudentDashboard() {
 
   const testAccessList = (accessRows || []).map((r) => r.test_id);
 
-  // Fetch published tests
-  const { data: tests } = await supabase
+  // Fetch all published tests using adminClient so candidate sees complete mock roster
+  // with appropriate Locked / Unlocked indicators
+  const adminClient = createAdminClient();
+  const { data: tests } = await adminClient
     .from("tests")
     .select("*")
     .eq("is_published", true)

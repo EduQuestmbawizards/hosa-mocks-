@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import {
   Activity,
   AlertCircle,
@@ -47,8 +48,9 @@ export default async function HomePage() {
     testAccessList = (accessRows || []).map((r) => r.test_id);
   }
 
-  // Fetch published tests
-  const { data: testsData } = await supabase
+  // Fetch published tests using adminClient
+  const adminClient = createAdminClient();
+  const { data: testsData } = await adminClient
     .from("tests")
     .select("*")
     .eq("is_published", true)
@@ -130,7 +132,7 @@ export default async function HomePage() {
             {/* Quick CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
               <Link
-                href="/signup"
+                href={user ? "/tests/st-mock-1" : "/signup?redirect=/tests/st-mock-1"}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-sky-600 hover:bg-sky-700 shadow-md shadow-sky-200 transition text-sm"
               >
                 Start Free ST Mock Test
@@ -357,10 +359,10 @@ export default async function HomePage() {
 
                   {canAccess ? (
                     <Link
-                      href={`/tests/${test.slug || test.id}`}
+                      href={user ? `/tests/${test.slug || test.id}` : `/signup?redirect=/tests/${test.slug || test.id}`}
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold text-white bg-sky-600 hover:bg-sky-700 shadow-sm transition"
                     >
-                      Take Test
+                      {test.is_free ? "Start Free Mock" : "Take Test"}
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   ) : (

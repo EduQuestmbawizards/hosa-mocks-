@@ -1,13 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { Activity, AlertCircle, CheckCircle2, Eye, EyeOff, Loader2, Lock, Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
+import {
+  Activity,
+  AlertCircle,
+  CheckCircle2,
+  Eye,
+  EyeOff,
+  Loader2,
+  Lock,
+  Mail,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  User,
+} from "lucide-react";
 
-export default function SignupPage() {
+function SignupForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect") || "/dashboard";
+  const isFreeDiagnostic = redirectUrl.includes("st-mock-1");
+
   const supabase = createClient();
 
   const [formData, setFormData] = useState({
@@ -72,9 +90,9 @@ export default function SignupPage() {
 
       setSuccess(true);
       setTimeout(() => {
-        router.push("/dashboard");
+        router.push(redirectUrl);
         router.refresh();
-      }, 1500);
+      }, 1200);
     } catch (err: any) {
       setError(err?.message || "An unexpected network error occurred.");
     } finally {
@@ -83,233 +101,276 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto py-8 px-4 sm:px-0">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-3">
-          <img
-            src="/logo.png"
-            alt="MBA Wizards"
-            className="h-12 w-auto object-contain mx-auto"
-          />
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
-            Create Student Account
-          </h1>
-          <p className="text-xs text-slate-500">
-            Register for the MBA Wizards Mock Test Portal. Free mock unlocked immediately!
-          </p>
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <img
+          src="/logo.png"
+          alt="MBA Wizards"
+          className="h-12 w-auto object-contain mx-auto"
+        />
+        <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+          Create Student Account
+        </h1>
+        <p className="text-xs text-slate-500">
+          Register for the MBA Wizards Mock Test Portal. Free mock unlocked immediately!
+        </p>
+      </div>
+
+      {/* Free Diagnostic Notice if entering via Free Mock CTA */}
+      {isFreeDiagnostic && (
+        <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-xs flex items-start gap-2.5">
+          <Sparkles className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+          <div className="space-y-0.5">
+            <span className="font-bold block text-emerald-900">
+              1-Step Free Diagnostic Mock Registration
+            </span>
+            <p className="text-[11px] text-emerald-800 leading-relaxed">
+              Enter your details below to create your account and student dashboard. You will be launched directly into the <strong>ST – Free Diagnostic Mock 1</strong> immediately!
+            </p>
+          </div>
+        </div>
+      )}
+
+      {error && (
+        <div className="p-3.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2">
+          <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+          <div>{error}</div>
+        </div>
+      )}
+
+      {success && (
+        <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 font-medium">
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+          <div>
+            {isFreeDiagnostic
+              ? "Account created & logged in! Launching your Free Diagnostic Mock..."
+              : "Account created successfully! Admin notified. Redirecting to your dashboard..."}
+          </div>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
+        {/* Full Name */}
+        <div>
+          <label className="block font-semibold text-slate-700 mb-1">
+            Full Name <span className="text-rose-500">*</span>
+          </label>
+          <div className="relative">
+            <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+            <input
+              type="text"
+              required
+              placeholder="e.g. Priya Sharma"
+              value={formData.fullName}
+              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+            />
+          </div>
+          {fieldErrors.fullName && (
+            <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.fullName[0]}</p>
+          )}
         </div>
 
-        {error && (
-          <div className="p-3.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2">
-            <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-            <div>{error}</div>
+        {/* Email */}
+        <div>
+          <label className="block font-semibold text-slate-700 mb-1">
+            Email Address <span className="text-rose-500">*</span>
+          </label>
+          <div className="relative">
+            <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+            <input
+              type="email"
+              required
+              placeholder="name@example.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+            />
           </div>
-        )}
+          {fieldErrors.email && (
+            <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.email[0]}</p>
+          )}
+        </div>
 
-        {success && (
-          <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 font-medium">
-            <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-            <div>
-              Account created successfully! Admin notified. Redirecting to your dashboard...
-            </div>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
-          {/* Full Name */}
+        {/* Phone & City (2 columns on tablet/desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="block font-semibold text-slate-700 mb-1">
-              Full Name <span className="text-rose-500">*</span>
+              Phone Number <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
-              <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+              <input
+                type="tel"
+                required
+                placeholder="+91 9876543210"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+              />
+            </div>
+            {fieldErrors.phone && (
+              <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.phone[0]}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block font-semibold text-slate-700 mb-1">
+              City / Location <span className="text-rose-500">*</span>
+            </label>
+            <div className="relative">
+              <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
                 type="text"
                 required
-                placeholder="e.g. Priya Sharma"
-                value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                placeholder="e.g. Mumbai / Dallas"
+                value={formData.city}
+                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                 className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
               />
             </div>
-            {fieldErrors.fullName && (
-              <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.fullName[0]}</p>
+            {fieldErrors.city && (
+              <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.city[0]}</p>
             )}
           </div>
-
-          {/* Email */}
-          <div>
-            <label className="block font-semibold text-slate-700 mb-1">
-              Email Address <span className="text-rose-500">*</span>
-            </label>
-            <div className="relative">
-              <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-              <input
-                type="email"
-                required
-                placeholder="name@example.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
-              />
-            </div>
-            {fieldErrors.email && (
-              <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.email[0]}</p>
-            )}
-          </div>
-
-          {/* Phone & City (2 columns on tablet/desktop) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label className="block font-semibold text-slate-700 mb-1">
-                Phone Number <span className="text-rose-500">*</span>
-              </label>
-              <div className="relative">
-                <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="tel"
-                  required
-                  placeholder="+91 9876543210"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                />
-              </div>
-              {fieldErrors.phone && (
-                <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.phone[0]}</p>
-              )}
-            </div>
-
-            <div>
-              <label className="block font-semibold text-slate-700 mb-1">
-                City / Location <span className="text-rose-500">*</span>
-              </label>
-              <div className="relative">
-                <MapPin className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Mumbai / Dallas"
-                  value={formData.city}
-                  onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  className="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
-                />
-              </div>
-              {fieldErrors.city && (
-                <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.city[0]}</p>
-              )}
-            </div>
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block font-semibold text-slate-700 mb-1">
-              Password (min. 8 characters) <span className="text-rose-500">*</span>
-            </label>
-            <div className="relative flex items-center">
-              <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-              <input
-                type={showPassword ? "text" : "password"}
-                required
-                minLength={8}
-                placeholder="••••••••"
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                className="w-full pl-9 pr-11 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
-              />
-              <button
-                type="button"
-                tabIndex={-1}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setShowPassword((prev) => !prev);
-                }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md text-slate-400 hover:text-slate-700 transition z-20 cursor-pointer focus:outline-none flex items-center justify-center"
-                aria-label={showPassword ? "Hide password" : "Show password"}
-                title={showPassword ? "Hide password" : "Show password"}
-              >
-                {showPassword ? (
-                  <EyeOff className="w-4 h-4 text-sky-600" />
-                ) : (
-                  <Eye className="w-4 h-4 text-slate-400" />
-                )}
-              </button>
-            </div>
-            {fieldErrors.password && (
-              <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.password[0]}</p>
-            )}
-          </div>
-
-          {/* HOSA Events Selection */}
-          <div className="space-y-1.5 pt-1">
-            <label className="block font-semibold text-slate-700">
-              Which HOSA event(s) are you preparing for? <span className="text-rose-500">*</span>
-            </label>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => toggleEvent("ST")}
-                className={`p-3 rounded-lg border text-left transition flex items-center justify-between ${
-                  formData.events.includes("ST")
-                    ? "border-sky-500 bg-sky-50 text-sky-900 font-bold"
-                    : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                }`}
-              >
-                <div>
-                  <div className="text-xs">Surgical Tech (ST)</div>
-                  <div className="text-[10px] text-slate-500">6 Categories & AST</div>
-                </div>
-                {formData.events.includes("ST") && (
-                  <CheckCircle2 className="w-4 h-4 text-sky-600" />
-                )}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => toggleEvent("HCIE")}
-                className={`p-3 rounded-lg border text-left transition flex items-center justify-between ${
-                  formData.events.includes("HCIE")
-                    ? "border-indigo-500 bg-indigo-50 text-indigo-900 font-bold"
-                    : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
-                }`}
-              >
-                <div>
-                  <div className="text-xs">Healthcare Issues (HCIE)</div>
-                  <div className="text-[10px] text-slate-500">News Recall & Essay</div>
-                </div>
-                {formData.events.includes("HCIE") && (
-                  <CheckCircle2 className="w-4 h-4 text-indigo-600" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading || success}
-            className="w-full py-2.5 px-4 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm shadow-md shadow-sky-200 transition flex items-center justify-center gap-2 disabled:opacity-50 mt-2"
-          >
-            {loading ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" />
-                Submitting Registration...
-              </>
-            ) : (
-              "Complete Signup & Access Free Mock"
-            )}
-          </button>
-        </form>
-
-        <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-          Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-sky-600 hover:text-sky-700">
-            Log In here
-          </Link>
         </div>
+
+        {/* Password */}
+        <div>
+          <label className="block font-semibold text-slate-700 mb-1">
+            Password (min. 8 characters) <span className="text-rose-500">*</span>
+          </label>
+          <div className="relative flex items-center">
+            <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              type={showPassword ? "text" : "password"}
+              required
+              minLength={8}
+              placeholder="••••••••"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              className="w-full pl-9 pr-11 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+            />
+            <button
+              type="button"
+              tabIndex={-1}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowPassword((prev) => !prev);
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md text-slate-400 hover:text-slate-700 transition z-20 cursor-pointer focus:outline-none flex items-center justify-center"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              title={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? (
+                <EyeOff className="w-4 h-4 text-sky-600" />
+              ) : (
+                <Eye className="w-4 h-4 text-slate-400" />
+              )}
+            </button>
+          </div>
+          {fieldErrors.password && (
+            <p className="text-rose-600 text-[11px] mt-1">{fieldErrors.password[0]}</p>
+          )}
+        </div>
+
+        {/* HOSA Events Selection */}
+        <div className="space-y-1.5 pt-1">
+          <label className="block font-semibold text-slate-700">
+            Which HOSA event(s) are you preparing for? <span className="text-rose-500">*</span>
+          </label>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => toggleEvent("ST")}
+              className={`p-3 rounded-lg border text-left transition flex items-center justify-between ${
+                formData.events.includes("ST")
+                  ? "border-sky-500 bg-sky-50 text-sky-900 font-bold"
+                  : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              <div>
+                <div className="text-xs">Surgical Tech (ST)</div>
+                <div className="text-[10px] text-slate-500">6 Categories & AST</div>
+              </div>
+              {formData.events.includes("ST") && (
+                <CheckCircle2 className="w-4 h-4 text-sky-600" />
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => toggleEvent("HCIE")}
+              className={`p-3 rounded-lg border text-left transition flex items-center justify-between ${
+                formData.events.includes("HCIE")
+                  ? "border-indigo-500 bg-indigo-50 text-indigo-900 font-bold"
+                  : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              <div>
+                <div className="text-xs">Healthcare Issues (HCIE)</div>
+                <div className="text-[10px] text-slate-500">News Recall & Essay</div>
+              </div>
+              {formData.events.includes("HCIE") && (
+                <CheckCircle2 className="w-4 h-4 text-indigo-600" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          disabled={loading || success}
+          className={`w-full py-2.5 px-4 rounded-lg font-bold text-sm shadow-md transition flex items-center justify-center gap-2 disabled:opacity-50 mt-2 ${
+            isFreeDiagnostic
+              ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-200"
+              : "bg-sky-600 hover:bg-sky-700 text-white shadow-sky-200"
+          }`}
+        >
+          {loading ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Submitting Registration...
+            </>
+          ) : isFreeDiagnostic ? (
+            <>
+              <Sparkles className="w-4 h-4" />
+              Register & Launch Free Diagnostic Mock
+            </>
+          ) : (
+            "Complete Signup & Access Free Mock"
+          )}
+        </button>
+      </form>
+
+      <div className="pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
+        Already have an account?{" "}
+        <Link
+          href={isFreeDiagnostic ? `/login?redirect=${redirectUrl}` : "/login"}
+          className="font-semibold text-sky-600 hover:text-sky-700"
+        >
+          Log In here
+        </Link>
       </div>
     </div>
   );
 }
 
+export default function SignupPage() {
+  return (
+    <div className="max-w-md mx-auto py-8 px-4 sm:px-0">
+      <Suspense
+        fallback={
+          <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 text-center text-slate-400 text-xs flex items-center justify-center gap-2">
+            <Loader2 className="w-4 h-4 animate-spin text-sky-600" />
+            <span>Loading registration portal...</span>
+          </div>
+        }
+      >
+        <SignupForm />
+      </Suspense>
+    </div>
+  );
+}

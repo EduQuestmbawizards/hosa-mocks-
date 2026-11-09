@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import MocksPageClient from "@/components/mocks/MocksPageClient";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
     "Official 60-minute HOSA mock tests, free diagnostic evaluation, and practice sets with instant feedback for Surgical Technologist (ST) and Healthcare Issues Exam (HCIE).",
 };
 
-export const revalidate = 30; // Revalidate every 30 seconds
+export const dynamic = "force-dynamic";
 
 export default async function MocksPage() {
   const supabase = await createClient();
@@ -36,8 +37,10 @@ export default async function MocksPage() {
     testAccessList = (accessRows || []).map((r) => r.test_id);
   }
 
-  // Fetch all published tests
-  const { data: testsData } = await supabase
+  // Fetch all published tests using adminClient so that the complete test catalog
+  // is visible across all tabs (Diagnostic, Mocks, and Practice sets)
+  const adminClient = createAdminClient();
+  const { data: testsData } = await adminClient
     .from("tests")
     .select("*")
     .eq("is_published", true)

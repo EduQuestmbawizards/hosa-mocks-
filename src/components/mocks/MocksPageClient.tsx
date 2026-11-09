@@ -446,13 +446,21 @@ export default function MocksPageClient({
                         Take the Free Diagnostic Mock while awaiting approval.
                       </p>
                     </div>
+                  ) : isFreeMock ? (
+                    <Link
+                      href={`/signup?redirect=/tests/${test.slug || test.id}`}
+                      className="w-full py-2.5 px-4 rounded-xl font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>Quick Register & Start Free Mock</span>
+                    </Link>
                   ) : (
                     <Link
                       href={`/login?redirect=/tests/${test.slug || test.id}`}
                       className="w-full py-2.5 px-4 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white transition flex items-center justify-center gap-1.5 cursor-pointer"
                     >
                       <Lock className="w-3.5 h-3.5" />
-                      <span>Sign In to Attempt</span>
+                      <span>Sign In to Access (Requires Approval)</span>
                     </Link>
                   )}
                 </div>
