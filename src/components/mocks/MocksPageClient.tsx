@@ -40,8 +40,8 @@ export default function MocksPageClient({
   profile,
   testAccessList,
 }: MocksPageClientProps) {
-  // Tabs: 1. "mock" (All Mock Tests), 2. "diagnostic" (Free Diagnostic Mock), 3. "practice" (Practice Sets)
-  const [activeTab, setActiveTab] = useState<"mock" | "diagnostic" | "practice">("mock");
+  // Tabs: 1. "diagnostic" (Default, Free Diagnostic Mock), 2. "mock" (Tournament Mocks), 3. "practice" (Practice Sets)
+  const [activeTab, setActiveTab] = useState<"diagnostic" | "mock" | "practice">("diagnostic");
 
   // Filters
   const [selectedEvent, setSelectedEvent] = useState<"all" | "ST" | "HCIE">("all");
@@ -163,39 +163,22 @@ export default function MocksPageClient({
               </span>{" "}
               {isApproved
                 ? "All 50-MCQ tournament mocks and practice sets are unlocked for you."
-                : "The Free Diagnostic Mock and Practice Set A are unlocked right now. All remaining mocks unlock upon approval by Rupali."}
+                : "The Free Diagnostic Mock is unlocked for you right now. All remaining tournament mocks and practice sets will automatically unlock once approved by MBA Wizards administration."}
             </div>
           </div>
           {!isApproved && (
-            <span className="font-bold text-amber-800 bg-white/80 px-2.5 py-1 rounded-md border border-amber-200 whitespace-nowrap">
-              Free Mocks Unlocked
+            <span className="font-bold text-emerald-800 bg-white/90 px-2.5 py-1 rounded-md border border-emerald-300 whitespace-nowrap shadow-xs">
+              1 Free Diagnostic Mock Active
             </span>
           )}
         </div>
       )}
 
       {/* -------------------------------------------------------------------------
-          MAIN 3 TABS: MOCK TESTS | DIAGNOSTIC TEST | PRACTICE TESTS
+          MAIN 3 TABS: 1. DIAGNOSTIC TEST (DEFAULT) | 2. MOCK TESTS | 3. PRACTICE TESTS
           ------------------------------------------------------------------------- */}
       <div className="flex border-b border-slate-200 gap-1 sm:gap-2 pb-px overflow-x-auto scrollbar-none">
-        {/* TAB 1: MOCK TESTS */}
-        <button
-          type="button"
-          onClick={() => setActiveTab("mock")}
-          className={`px-4 sm:px-6 py-3 rounded-t-xl transition whitespace-nowrap flex items-center gap-2 text-xs sm:text-sm font-bold cursor-pointer ${
-            activeTab === "mock"
-              ? "bg-white text-sky-700 border-t-2 border-sky-600 border-x border-slate-200 shadow-xs"
-              : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
-          }`}
-        >
-          <FileText className="w-4 h-4" />
-          <span>Mock Tests</span>
-          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold">
-            {allMockTests.length}
-          </span>
-        </button>
-
-        {/* TAB 2: DIAGNOSTIC TEST (FREE MOCKS) */}
+        {/* TAB 1 (1ST POSITION & DEFAULT): DIAGNOSTIC TEST (FREE MOCK) */}
         <button
           type="button"
           onClick={() => setActiveTab("diagnostic")}
@@ -209,6 +192,23 @@ export default function MocksPageClient({
           <span>Diagnostic Test</span>
           <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase">
             Free
+          </span>
+        </button>
+
+        {/* TAB 2: MOCK TESTS */}
+        <button
+          type="button"
+          onClick={() => setActiveTab("mock")}
+          className={`px-4 sm:px-6 py-3 rounded-t-xl transition whitespace-nowrap flex items-center gap-2 text-xs sm:text-sm font-bold cursor-pointer ${
+            activeTab === "mock"
+              ? "bg-white text-sky-700 border-t-2 border-sky-600 border-x border-slate-200 shadow-xs"
+              : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+          }`}
+        >
+          <FileText className="w-4 h-4" />
+          <span>Mock Tests</span>
+          <span className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[10px] font-bold">
+            {allMockTests.length}
           </span>
         </button>
 

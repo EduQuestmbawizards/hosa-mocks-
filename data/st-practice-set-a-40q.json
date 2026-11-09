@@ -7,7 +7,7 @@
     "total_questions": 40,
     "duration_min": 48,
     "instant_feedback": true,
-    "is_free": true,
+    "is_free": false,
     "category_counts": {
       "Surgical Asepsis and Sterility": 8,
       "Surgical Anatomy & Physiology": 8,

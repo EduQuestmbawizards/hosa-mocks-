@@ -1641,8 +1641,8 @@ function writeJson(fileName, slug, title, isFree, questions) {
   console.log(`Generated ${fileName} with ${questions.length} questions.`);
 }
 
-writeJson("st-practice-set-b-30q.json", "st-practice-set-b", "ST – Practice Set B: Surgical Instrumentation & Mayo Stand Setup", true, practiceBQuestions);
-writeJson("st-practice-set-c-30q.json", "st-practice-set-c", "ST – Practice Set C: Hemostasis, Sutures & Wound Closure", true, practiceCQuestions);
-writeJson("st-practice-set-d-30q.json", "st-practice-set-d", "ST – Practice Set D: Surgical Anatomy & Procedural Steps", true, practiceDQuestions);
-writeJson("st-practice-set-e-30q.json", "st-practice-set-e", "ST – Practice Set E: OR Safety, Environmental Controls & Legal Ethics", true, practiceEQuestions);
+writeJson("st-practice-set-b-30q.json", "st-practice-set-b", "ST – Practice Set B: Surgical Instrumentation & Mayo Stand Setup", false, practiceBQuestions);
+writeJson("st-practice-set-c-30q.json", "st-practice-set-c", "ST – Practice Set C: Hemostasis, Sutures & Wound Closure", false, practiceCQuestions);
+writeJson("st-practice-set-d-30q.json", "st-practice-set-d", "ST – Practice Set D: Surgical Anatomy & Procedural Steps", false, practiceDQuestions);
+writeJson("st-practice-set-e-30q.json", "st-practice-set-e", "ST – Practice Set E: OR Safety, Environmental Controls & Legal Ethics", false, practiceEQuestions);
 

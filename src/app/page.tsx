@@ -242,7 +242,7 @@ export default async function HomePage() {
                 <p className="text-xs text-slate-500">
                   {isApproved
                     ? "Your account is approved! All mock tests and practice sets are unlocked."
-                    : "Status: Pending Admin Approval. The Free Mock is unlocked for you; additional tests unlock once approved by Rupali."}
+                    : "Status: Pending Admin Approval. The Free Diagnostic Mock is unlocked for you; all remaining mocks and practice sets unlock once approved by administration."}
                 </p>
               </div>
             </div>

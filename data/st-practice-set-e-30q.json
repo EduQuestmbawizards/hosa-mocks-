@@ -7,7 +7,7 @@
     "total_questions": 30,
     "duration_min": 45,
     "instant_feedback": true,
-    "is_free": true,
+    "is_free": false,
     "shuffle_questions": false
   },
   "questions": [
