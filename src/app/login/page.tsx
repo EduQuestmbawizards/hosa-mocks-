@@ -160,15 +160,15 @@ function LoginForm() {
               </Link>
             )}
           </div>
-          <div className="relative">
-            <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
+          <div className="relative flex items-center">
+            <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type={showPassword ? "text" : "password"}
               required
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full pl-9 pr-10 py-2 text-sm border rounded-lg focus:ring-2 focus:outline-none ${
+              className={`w-full pl-9 pr-11 py-2 text-sm border rounded-lg focus:ring-2 focus:outline-none ${
                 isAdminLogin
                   ? "border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500"
                   : "border-slate-300 focus:ring-sky-500"
@@ -176,14 +176,20 @@ function LoginForm() {
             />
             <button
               type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 transition p-0.5 rounded focus:outline-none"
+              tabIndex={-1}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowPassword((prev) => !prev);
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-md text-slate-400 hover:text-slate-700 transition z-20 cursor-pointer focus:outline-none flex items-center justify-center"
               aria-label={showPassword ? "Hide password" : "Show password"}
+              title={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? (
-                <EyeOff className="w-4 h-4" />
+                <EyeOff className="w-4 h-4 text-indigo-600" />
               ) : (
-                <Eye className="w-4 h-4" />
+                <Eye className="w-4 h-4 text-slate-400" />
               )}
             </button>
           </div>
